@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('logout', '/users/sign_out', :method => :delete) %>        
+  </li>
+<% else %>
+  <li>
+  <%= link_to('login', 'users/sign_in')  %>  
+  </li>
+<% end %>

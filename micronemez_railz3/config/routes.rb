@@ -1,4 +1,16 @@
 Micronemez::Application.routes.draw do
+  get "video/index"
+
+  get "video/show"
+
+  devise_for :users, :skip => :all
+	#root :to => "sessions#new"
+	get "/users/sign_in"			=> "sessions#new"
+	post "/users/sign_in"    	=> "sessions#create"
+	delete "/users/sign_out" 	=> "sessions#destroy"
+
+  get "home/index"
+
   resources :nodes
 
   # The priority is based upon order of creation:
@@ -50,7 +62,7 @@ Micronemez::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

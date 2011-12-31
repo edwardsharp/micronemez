@@ -7,7 +7,6 @@ gem 'rails', '3.1.1'
 
 gem 'sqlite3'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -22,8 +21,16 @@ gem 'jquery-rails'
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the web server
-# gem 'unicorn'
+gem 'unicorn'
 
+gem 'haml'
+
+# compass sass css framework
+gem 'compass', '>= 0.11.6'
+
+gem 'kaltura'
+
+gem 'whenever'
 # Deploy with Capistrano
 # gem 'capistrano'
 
@@ -34,3 +41,6 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
 end
+
+# devise auth
+gem 'devise', '~> 1.4.6'
