@@ -1,6 +1,27 @@
+<div id="makeMeScrollable">
+	<div class="scrollingHotSpotLeft"></div>
+	<div class="scrollingHotSpotRight"></div>
+	<div class="scrollWrapper">
+		<div class="scrollableArea">
+			<% @videos.each do |video| %>
+				<%= link_to image_tag("#{video.thumbnailUrl}/height/330", :height => '330'), "#{video.thumbnailUrl}" %>
+
+			<% end %>
+		</div>
+	</div>
+</div>
+	
+	
+<div class="scroll-pane">
+	<%= render "audio" %>
+</div>
+
 <h1>MICRONEMEZ</h1>
 <h4>THOSE INNER MENTAL CONTEXT CLUES THAT SHADE OUR MINDS' ACTIVITIES IN WAYS WE CAN RARELY EXPRESS</h4>
 <ul class="hmenu">
   <%#= render 'devise/menu/registration_items' %>
   <%= render 'sessions/login_items' %>
 </ul>
+
+
+<!-- #TODO: add some other bullshit about copyright, donationz, etc. -->

@@ -1,0 +1,248 @@
+/*
+    ColorBox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+/* line 5, ../../app/assets/stylesheets/colorbox.css.scss */
+#colorbox, #cboxOverlay, #cboxWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* line 6, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 7, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxMiddleLeft, #cboxBottomLeft {
+  clear: left;
+}
+
+/* line 8, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxContent {
+  position: relative;
+}
+
+/* line 9, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxLoadedContent {
+  overflow: auto;
+}
+
+/* line 10, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxTitle {
+  margin: 0;
+}
+
+/* line 11, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxLoadingOverlay, #cboxLoadingGraphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 12, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+  cursor: pointer;
+}
+
+/* line 13, ../../app/assets/stylesheets/colorbox.css.scss */
+.cboxPhoto {
+  float: left;
+  margin: auto;
+  border: 0;
+  display: block;
+}
+
+/* line 14, ../../app/assets/stylesheets/colorbox.css.scss */
+.cboxIframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of ColorBox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+/* line 21, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxOverlay {
+  background: #000;
+}
+
+/* line 23, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxTopLeft {
+  width: 14px;
+  height: 14px;
+  background: url(images/controls.png) no-repeat 0 0;
+}
+
+/* line 24, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxTopCenter {
+  height: 14px;
+  background: url(images/border.png) repeat-x top left;
+}
+
+/* line 25, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxTopRight {
+  width: 14px;
+  height: 14px;
+  background: url(images/controls.png) no-repeat -36px 0;
+}
+
+/* line 26, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxBottomLeft {
+  width: 14px;
+  height: 43px;
+  background: url(images/controls.png) no-repeat 0 -32px;
+}
+
+/* line 27, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxBottomCenter {
+  height: 43px;
+  background: url(images/border.png) repeat-x bottom left;
+}
+
+/* line 28, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxBottomRight {
+  width: 14px;
+  height: 43px;
+  background: url(images/controls.png) no-repeat -36px -32px;
+}
+
+/* line 29, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxMiddleLeft {
+  width: 14px;
+  background: url(images/controls.png) repeat-y -175px 0;
+}
+
+/* line 30, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxMiddleRight {
+  width: 14px;
+  background: url(images/controls.png) repeat-y -211px 0;
+}
+
+/* line 31, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxContent {
+  background: #fff;
+  overflow: visible;
+}
+
+/* line 32, ../../app/assets/stylesheets/colorbox.css.scss */
+.cboxIframe {
+  background: #fff;
+}
+
+/* line 33, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxError {
+  padding: 50px;
+  border: 1px solid #ccc;
+}
+
+/* line 34, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxLoadedContent {
+  margin-bottom: 5px;
+}
+
+/* line 35, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxLoadingOverlay {
+  background: url(images/loading_background.png) no-repeat center center;
+}
+
+/* line 36, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxLoadingGraphic {
+  background: url(images/loading.gif) no-repeat center center;
+}
+
+/* line 37, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxTitle {
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  color: #7C7C7C;
+}
+
+/* line 38, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxCurrent {
+  position: absolute;
+  bottom: -25px;
+  left: 58px;
+  font-weight: bold;
+  color: #7C7C7C;
+}
+
+/* line 40, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+  position: absolute;
+  bottom: -29px;
+  background: url(images/controls.png) no-repeat 0px 0px;
+  width: 23px;
+  height: 23px;
+  text-indent: -9999px;
+}
+
+/* line 41, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxPrevious {
+  left: 0px;
+  background-position: -51px -25px;
+}
+
+/* line 42, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxPrevious:hover {
+  background-position: -51px 0px;
+}
+
+/* line 43, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxNext {
+  left: 27px;
+  background-position: -75px -25px;
+}
+
+/* line 44, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxNext:hover {
+  background-position: -75px 0px;
+}
+
+/* line 45, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxClose {
+  right: 0;
+  background-position: -100px -25px;
+}
+
+/* line 46, ../../app/assets/stylesheets/colorbox.css.scss */
+#cboxClose:hover {
+  background-position: -100px 0px;
+}
+
+/* line 48, ../../app/assets/stylesheets/colorbox.css.scss */
+.cboxSlideshow_on #cboxSlideshow {
+  background-position: -125px 0px;
+  right: 27px;
+}
+
+/* line 49, ../../app/assets/stylesheets/colorbox.css.scss */
+.cboxSlideshow_on #cboxSlideshow:hover {
+  background-position: -150px 0px;
+}
+
+/* line 50, ../../app/assets/stylesheets/colorbox.css.scss */
+.cboxSlideshow_off #cboxSlideshow {
+  background-position: -150px -25px;
+  right: 27px;
+}
+
+/* line 51, ../../app/assets/stylesheets/colorbox.css.scss */
+.cboxSlideshow_off #cboxSlideshow:hover {
+  background-position: -125px 0px;
+}

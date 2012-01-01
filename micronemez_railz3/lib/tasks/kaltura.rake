@@ -1,7 +1,7 @@
 namespace :kaltura do
-
+	#load "#{Rails.root}/config/initializers/kaltura.rb"
 	desc "get list of entries from the Kaltura API and populate the KalturaVideo model object"
-	task :populate do
+	task :populate => :environment  do
 	
 	  entries = Kaltura::MediaEntry.list
 	  

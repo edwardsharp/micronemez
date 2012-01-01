@@ -1,6 +1,6 @@
 Micronemez::Application.routes.draw do
-  get "video/index"
-
+  
+  get "video"			=> "video#index"
   get "video/show"
 
   devise_for :users, :skip => :all
@@ -9,7 +9,7 @@ Micronemez::Application.routes.draw do
 	post "/users/sign_in"    	=> "sessions#create"
 	delete "/users/sign_out" 	=> "sessions#destroy"
 
-  get "home/index"
+
 
   resources :nodes
 

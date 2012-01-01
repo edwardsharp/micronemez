@@ -19,18 +19,15 @@ gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the web server
+gem 'devise', '~> 1.4.6'
 gem 'unicorn'
-
 gem 'haml'
-
 # compass sass css framework
 gem 'compass', '>= 0.11.6'
-
 gem 'kaltura'
-
 gem 'whenever'
+gem 'rake'
+gem 'minitest'
 # Deploy with Capistrano
 # gem 'capistrano'
 
@@ -43,4 +40,3 @@ group :test do
 end
 
 # devise auth
-gem 'devise', '~> 1.4.6'

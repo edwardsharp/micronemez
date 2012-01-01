@@ -1,3 +1,25 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#makeMeScrollable
+{
+	width:100%;
+	height: 330px;
+	position: relative;
+}
+
+#makeMeScrollable div.scrollableArea img
+{
+	position: relative;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+.scroll-pane
+{
+	width: 100%;
+	height: 200px;
+	overflow: auto;
+}
+
