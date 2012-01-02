@@ -55,13 +55,13 @@
 
 .jspTrack
 {
-	background: #dde;
+	background: #ff6600;
 	position: relative;
 }
 
 .jspDrag
 {
-	background: #bbd;
+	background: #FFE600;
 	position: relative;
 	top: 0;
 	left: 0;

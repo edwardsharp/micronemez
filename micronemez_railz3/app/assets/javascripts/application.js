@@ -8,7 +8,8 @@
 //= require mwheelIntent
 //= require jquery.jscrollpane.min
 //= require jquery.ui.widget
-//= require jquery.smoothDivScroll-1.1-min.js
+//= require jquery.smoothDivScroll-1.1-min
 //= require soundmanager2
 //= require page-player
-//= require scrollr.js
+//= require scrollr
+//= require homejs

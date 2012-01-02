@@ -1,9 +1,6 @@
 $(document).ready(function() {
 	// VIDEOZ
-	$("div#makeMeScrollable").smoothDivScroll({ 
-				
-				
-				
+	$("div#makeMeScrollable").smoothDivScroll({ 	
 				
 			autoScroll: "onstart" , 
 			autoScrollDirection: "backandforth", 
@@ -11,9 +8,6 @@ $(document).ready(function() {
 			autoScrollInterval: 15,	
 			startAtElementId: "startAtMe", 
 			visibleHotSpots: "always"	
-			
-
-
 
 	});
 				
@@ -34,9 +28,11 @@ $(document).ready(function() {
 	
 	
 	// AUDIOZ 
-	
+
 	$('.scroll-pane').jScrollPane({
-		autoReinitialise: true
+		autoReinitialise: true,
+		scrollbarWidth:15, 
+		scrollbarMargin:15
 	});
 	
 	soundManager.url = '';

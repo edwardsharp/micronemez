@@ -1,7 +1,9 @@
 <% if user_signed_in? %>
-  <li>
-  <%= link_to('logout', '/users/sign_out', :method => :delete) %>        
-  </li>
+	<ul class="hmenu">
+	  <li>
+	  <%= link_to('logout', '/users/sign_out', :method => :delete) %>        
+	  </li>
+	</ul>
 <% else %>
 
 <% end %>

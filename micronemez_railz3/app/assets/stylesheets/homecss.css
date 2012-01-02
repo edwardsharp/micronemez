@@ -1,6 +1,11 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+min-height: 555px;
+
+}
+
 #makeMeScrollable
 {
 	width:100%;
@@ -16,10 +21,34 @@
 	padding: 0;
 }
 
-.scroll-pane
-{
+.scroll-pane {
 	width: 100%;
-	height: 200px;
+	height: auto;
 	overflow: auto;
 }
 
+#scrollz {
+	height: 330px;
+} 
+#middle-scrollr {
+	height: 200px;
+	min-height: 200px;
+}
+#bottom {
+	bottom:0;
+	background-color:#ff6600;
+}
+
+#bottomline {
+	height: 25px;
+}
+
+#paypal_donate {
+	float:right;
+	bottom:3px;
+	right:10px;
+}
+#home_index {
+	min-height: 530px;
+	background-color:#ff6600;
+}
