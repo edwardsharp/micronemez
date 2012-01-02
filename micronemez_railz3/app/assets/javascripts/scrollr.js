@@ -12,11 +12,16 @@ $(document).ready(function() {
 	});
 				
 								
-	$("div#makeMeScrollable a").colorbox({speed:"500"});
+	$("div#makeMeScrollable a").colorbox({
+		speed:"500",
+		iframe: false,
+		href:"/video/show"
+	});
 
 	// Pause autoscrolling if the user clicks one of the images
 	$("div#makeMeScrollable").bind("click", function() {
 		$(this).smoothDivScroll("stopAutoScroll");
+		$.pop();
 	});
 	
 	// Start autoscrolling again when the user closes

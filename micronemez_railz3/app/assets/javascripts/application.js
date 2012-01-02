@@ -7,6 +7,7 @@
 //= require jquery.mousewheel
 //= require mwheelIntent
 //= require jquery.jscrollpane.min
+//= require jquery.pop
 //= require jquery.ui.widget
 //= require jquery.smoothDivScroll-1.1-min
 //= require soundmanager2

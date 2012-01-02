@@ -36,19 +36,70 @@ min-height: 555px;
 }
 #bottom {
 	bottom:0;
+	height: 0;
 	background-color:#ff6600;
 }
 
 #bottomline {
-	height: 25px;
+
 }
 
 #paypal_donate {
-	float:right;
+	float:left;
 	bottom:3px;
-	right:10px;
 }
+#cc {
+	float:left;
+	margin-left: 10px;
+	padding-top: 4px;
+	bottom:3px;
+}
+#livestream {
+	float:right;
+	margin-left: 10px;
+	bottom:0;
+}
+
 #home_index {
 	min-height: 530px;
 	background-color:#ff6600;
 }
+
+
+/* jquery pop */
+.pop {
+  position: fixed	;
+  display: inline; }
+  .pop .pop_menu {
+    display: none;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px; }
+  .pop .pop_toggle {
+    background-image: url(/images/arrow-down.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    cursor: pointer; }
+
+.active .pop_menu {
+  display: block;
+  background-color: #ff6600;
+  color: #fff;
+  position: absolute;
+  margin-top: 5px;
+  margin-left: 10px;
+  padding: .6em;
+  width: 100px; }
+  .active .pop_menu a {
+    color: #fff; }
+.active .pop_toggle {
+  z-index: 2000;
+  position: absolute;
+  margin-top: 0;
+  margin-left: 0;
+  top: 0;
+  left: 0;
+  background-image: url(/images/arrow-up.gif); }
+/* end jquery pop */

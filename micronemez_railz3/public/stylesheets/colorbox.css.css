@@ -82,52 +82,52 @@
 #cboxTopLeft {
   width: 14px;
   height: 14px;
-  background: url(images/controls.png) no-repeat 0 0;
+  background: url(/images//controls.png) no-repeat 0 0;
 }
 
 /* line 24, ../../app/assets/stylesheets/colorbox.css.scss */
 #cboxTopCenter {
   height: 14px;
-  background: url(images/border.png) repeat-x top left;
+  background: url(/images//border.png) repeat-x top left;
 }
 
 /* line 25, ../../app/assets/stylesheets/colorbox.css.scss */
 #cboxTopRight {
   width: 14px;
   height: 14px;
-  background: url(images/controls.png) no-repeat -36px 0;
+  background: url(/images//controls.png) no-repeat -36px 0;
 }
 
 /* line 26, ../../app/assets/stylesheets/colorbox.css.scss */
 #cboxBottomLeft {
   width: 14px;
   height: 43px;
-  background: url(images/controls.png) no-repeat 0 -32px;
+  background: url(/images//controls.png) no-repeat 0 -32px;
 }
 
 /* line 27, ../../app/assets/stylesheets/colorbox.css.scss */
 #cboxBottomCenter {
   height: 43px;
-  background: url(images/border.png) repeat-x bottom left;
+  background: url(/images//border.png) repeat-x bottom left;
 }
 
 /* line 28, ../../app/assets/stylesheets/colorbox.css.scss */
 #cboxBottomRight {
   width: 14px;
   height: 43px;
-  background: url(images/controls.png) no-repeat -36px -32px;
+  background: url(/images//controls.png) no-repeat -36px -32px;
 }
 
 /* line 29, ../../app/assets/stylesheets/colorbox.css.scss */
 #cboxMiddleLeft {
   width: 14px;
-  background: url(images/controls.png) repeat-y -175px 0;
+  background: url(/images//controls.png) repeat-y -175px 0;
 }
 
 /* line 30, ../../app/assets/stylesheets/colorbox.css.scss */
 #cboxMiddleRight {
   width: 14px;
-  background: url(images/controls.png) repeat-y -211px 0;
+  background: url(/images//controls.png) repeat-y -211px 0;
 }
 
 /* line 31, ../../app/assets/stylesheets/colorbox.css.scss */
@@ -154,12 +154,12 @@
 
 /* line 35, ../../app/assets/stylesheets/colorbox.css.scss */
 #cboxLoadingOverlay {
-  background: url(images/loading_background.png) no-repeat center center;
+  background: url(/images//loading_background.png) no-repeat center center;
 }
 
 /* line 36, ../../app/assets/stylesheets/colorbox.css.scss */
 #cboxLoadingGraphic {
-  background: url(images/loading.gif) no-repeat center center;
+  background: url(/images//loader.gif) no-repeat center center;
 }
 
 /* line 37, ../../app/assets/stylesheets/colorbox.css.scss */
@@ -186,7 +186,7 @@
 #cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
   position: absolute;
   bottom: -29px;
-  background: url(images/controls.png) no-repeat 0px 0px;
+  background: url(/images//controls.png) no-repeat 0px 0px;
   width: 23px;
   height: 23px;
   text-indent: -9999px;

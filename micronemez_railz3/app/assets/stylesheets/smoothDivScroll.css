@@ -18,7 +18,7 @@ div.scrollingHotSpotLeft
 	z-index: 200;
 	left: 0;
 	/*  The first url is for Firefox and other browsers, the second is for Internet Explorer */
-	cursor: url(/assets/scroll/cursors/cursor_arrow_left.cur), url(/assets/scroll/cursors/cursor_arrow_left.cur),w-resize;
+	cursor: url(/assets/scroll/cursors/cursor_arrow_left_blaze.png), url(/assets/scroll/cursors/cursor_arrow_left_blaze.png),w-resize;
 }
 
 /* Visible left hotspot */
@@ -33,18 +33,19 @@ div.scrollingHotSpotLeftVisible
 }
 
 /* Invisible right hotspot */
+/* init stylez then FADEZ !! */
 div.scrollingHotSpotRight
 {
 	min-width: 75px;
 	width: 10%;
 	height: 330px;
-	background-image: url(/assets/scroll/big_transparent.gif);
+	background-color: #ff6600;
 	background-repeat: repeat;
 	background-position: center center;
 	position: absolute;
 	z-index: 200;
 	right: 0;
-	cursor: url(/assets/scroll/cursors/cursor_arrow_right.cur), url(/assets/scroll/cursors/cursor_arrow_right.cur),e-resize;
+	cursor: url(/assets/scroll/cursors/cursor_arrow_right_blaze.png), url(/assets/scroll/cursors/cursor_arrow_right_blaze.png),e-resize;
 }
 
 /* Visible right hotspot */
@@ -52,7 +53,8 @@ div.scrollingHotSpotRightVisible
 {
 	background-image: url(/assets/scroll/arrow_right.gif);
 	background-color: #fff;
-	background-repeat: no-repeat;
+	background-repeat: repeat;
+	
 	opacity: 0.35;
 	filter: alpha(opacity = 35);
 	zoom: 1;
