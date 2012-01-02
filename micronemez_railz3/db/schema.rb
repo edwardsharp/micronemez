@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111231134645) do
+ActiveRecord::Schema.define(:version => 20120102050252) do
 
   create_table "kaltura_videos", :force => true do |t|
     t.string   "accessControlId"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(:version => 20111231134645) do
     t.string   "height"
     t.string   "licenseType"
     t.string   "mediaDate"
-    t.string   "mediaType"
     t.string   "moderationCount"
     t.string   "moderationStatus"
     t.string   "msDuration"
@@ -61,6 +60,9 @@ ActiveRecord::Schema.define(:version => 20111231134645) do
     t.string   "width"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "media_id"
+    t.string   "mediaId"
+    t.string   "mediaType"
   end
 
   create_table "nodes", :force => true do |t|

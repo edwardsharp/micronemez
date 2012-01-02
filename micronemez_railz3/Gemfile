@@ -24,6 +24,7 @@ gem 'unicorn'
 gem 'haml'
 # compass sass css framework
 gem 'compass', '>= 0.11.6'
+#gem 'kaltura-ruby'
 gem 'kaltura'
 gem 'whenever'
 gem 'rake'
