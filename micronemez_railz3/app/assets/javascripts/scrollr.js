@@ -35,9 +35,7 @@ $(document).ready(function() {
 	// AUDIOZ 
 
 	$('.scroll-pane').jScrollPane({
-		autoReinitialise: true,
-		scrollbarWidth:15, 
-		scrollbarMargin:15
+		autoReinitialise: true
 	});
 	
 	soundManager.url = '';
