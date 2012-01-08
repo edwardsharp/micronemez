@@ -1,36 +1,5 @@
 $(document).ready(function() {
-	// VIDEOZ
-	$("div#makeMeScrollable").smoothDivScroll({ 	
-				
-			autoScroll: "onstart" , 
-			autoScrollDirection: "backandforth", 
-			autoScrollStep: 1, 
-			autoScrollInterval: 15,	
-			startAtElementId: "startAtMe", 
-			visibleHotSpots: "always"	
-
-	});
-				
-								
-	$("div#makeMeScrollable a").colorbox({
-		speed:"500",
-		iframe: false,
-		href:"/video/show"
-	});
-
-	// Pause autoscrolling if the user clicks one of the images
-	$("div#makeMeScrollable").bind("click", function() {
-		$(this).smoothDivScroll("stopAutoScroll");
-		$.pop();
-	});
-	
-	// Start autoscrolling again when the user closes
-	// the colorbox overlay
-	$(document).bind('cbox_closed', function(){
-		$("div#makeMeScrollable").smoothDivScroll("startAutoScroll");
-	});
-	
-	
+		
 	
 	// AUDIOZ 
 
@@ -46,4 +15,33 @@ $(document).ready(function() {
 	  return false;
 	}
 	
+});
+
+$(document).load(function() {
+	// VIDEOZ
+	
+	// gotta wait for all the IMGs to load...
+	// recalc width of video objectz
+	//calculate total width of images in set and set width of .scrollableArea 
+	width=0;
+	
+	$(".video_thumb").each(function(index) {
+    width = width + $(this).width();
+	});
+	
+	$(".scrollableArea").css({ 'width': width  + 'px' });
+	
+	$("div.scrollWrapper").jScrollPane({
+		autoReinitialise: true
+		
+	});
+			
+								
+	$("div#makeMeScrollable a").colorbox({
+		speed:"500",
+		iframe: false,
+		href:"/video/show"
+	});
+
+
 });

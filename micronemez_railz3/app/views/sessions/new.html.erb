@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  you are signed in as <%= current_user.email %>. <%= link_to "sign out", users_sign_out_path, :method => :delete %>.
+  you are signed in as <%= current_user.email %>. <%= link_to "sign out", users_sign_out_path, :method => :delete %>?
 <% else %>
   <%= form_for @user, :url => users_sign_in_path do |f| %>
   <div><%= f.label :email %><br />

@@ -1,15 +1,8 @@
-<div class="scrollingHotSpotWrapper"> 
-	<div class="scrollingHotSpotLeft">
-	</div> 
-</div>
-<div class="scrollingHotSpotWrapper"> 
-	<div class="scrollingHotSpotRight">
-	</div>
-</div>
-<div class="scrollWrapper">
+
+<div class="scrollWrapper scroll-pane horizontal-only">
 	<div class="scrollableArea">
 		<% @videos.each do |video| %>
-			<%= link_to image_tag("#{video.thumbnailUrl}", :height => '330'), "#{video.thumbnailUrl}" %>
+			<%= link_to image_tag("#{video.thumbnailUrl}", :class=> 'video_thumb', :height => '330'), "#{video.thumbnailUrl}" %>
 
 		<% end %>
 	</div>

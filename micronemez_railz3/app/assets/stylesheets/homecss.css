@@ -1,16 +1,24 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 body {
 min-height: 555px;
 
 }
+a {
+	color: #ff6600;
+}
+
 
 #makeMeScrollable
 {
-	width:100%;
+
 	height: 330px;
 	position: relative;
+	overflow: auto;
+	width: 100%;
+	 	
 }
 
 #makeMeScrollable div.scrollableArea img
@@ -19,17 +27,24 @@ min-height: 555px;
 	float: left;
 	margin: 0;
 	padding: 0;
-}
-
-.scroll-pane {
-	width: 100%;
-	height: auto;
 	overflow: auto;
 }
+
+
 
 #scrollz {
 	height: 330px;
 } 
+
+.horizontal-only
+{
+	height: auto;
+	max-height: 330px;
+}
+.scrollableArea {
+	/* default width (gets overridden by js) TODO: bigger value?*/
+	width: 4666px;
+}
 #middle-scrollr {
 	height: 200px;
 	min-height: 200px;
@@ -65,41 +80,13 @@ min-height: 555px;
 	background-color:#ff6600;
 }
 
+.cc_license_txt {
+	color: #172322 !important
+}
 
-/* jquery pop */
-.pop {
-  position: fixed	;
-  display: inline; }
-  .pop .pop_menu {
-    display: none;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px; }
-  .pop .pop_toggle {
-    background-image: url(/images/arrow-down.gif);
-    background-repeat: no-repeat;
-    background-position: center center;
-    width: 20px;
-    height: 20px;
-    overflow: hidden;
-    cursor: pointer; }
 
-.active .pop_menu {
-  display: block;
-  background-color: #ff6600;
-  color: #fff;
-  position: absolute;
-  margin-top: 5px;
-  margin-left: 10px;
-  padding: .6em;
-  width: 100px; }
-  .active .pop_menu a {
-    color: #fff; }
-.active .pop_toggle {
-  z-index: 2000;
-  position: absolute;
-  margin-top: 0;
-  margin-left: 0;
-  top: 0;
-  left: 0;
-  background-image: url(/images/arrow-up.gif); }
-/* end jquery pop */
+/* bottom hide */
+#big {
+	display: hidden;
+}
+
