@@ -29,9 +29,9 @@ $(document).ready(function() {
 		var api = pane.data('jsp');
 		
 		//everyTime: function(interval, label, fn, times, belay)
-		$('.video-scroll-pane').everyTime(10, function() {
-			api.scrollBy(1, 0);	
-		});
+		//$('.video-scroll-pane').everyTime(10, function() {
+		//	api.scrollBy(1, 0);	
+		//});
 
 		
 });
