@@ -3,7 +3,7 @@ $(document).ready(function() {
 	
 	// AUDIOZ 
 
-	$('.scroll-pane').jScrollPane({
+	$('.audio-scroll-pane').jScrollPane({
 		autoReinitialise: true
 	});
 	
@@ -15,33 +15,58 @@ $(document).ready(function() {
 	  return false;
 	}
 	
-});
-
-$(document).load(function() {
 	// VIDEOZ
+	//jScrollPane
 	
-	// gotta wait for all the IMGs to load...
-	// recalc width of video objectz
-	//calculate total width of images in set and set width of .scrollableArea 
-	width=0;
-	
-	$(".video_thumb").each(function(index) {
-    width = width + $(this).width();
-	});
-	
-	$(".scrollableArea").css({ 'width': width  + 'px' });
-	
-	$("div.scrollWrapper").jScrollPane({
-		autoReinitialise: true
+	$(function()
+	{
+		var pane = $('.video-scroll-pane');
+		pane.jScrollPane(
+			{
+				autoReinitialise: true
+			}
+		);
+		var api = pane.data('jsp');
 		
-	});
-			
-								
-	$("div#makeMeScrollable a").colorbox({
-		speed:"500",
-		iframe: false,
-		href:"/video/show"
-	});
+		//everyTime: function(interval, label, fn, times, belay)
+		$('.video-scroll-pane').everyTime(10, function() {
+			api.scrollBy(1, 0);	
+		});
 
-
+		
 });
+
+
+
+	$('div.video-scroll-pane').waitForImages(function() {
+		// gotta wait for all the IMGs to load...
+		// recalc width of video objectz
+		//calculate total width of images in set and set width of .scrollableArea 
+	  //console.log('All images have loaded.');
+	  width=0;
+		
+		$(".video_thumb").each(function(index) {
+	    width = width + $(this).width();
+		});
+		
+		$(".scrollableArea").css({ 'width': width  + 'px' });
+		
+		
+		$("div#makeMeScrollable a").colorbox({
+			speed:"500",
+			iframe: false
+		});
+
+
+		
+	
+	}, function(loaded, count, success) {
+	
+	   //console.log(loaded + ' of ' + count + ' images has ' + (success ? 'loaded' : 'failed to load') +  '.');
+	   $(this).addClass('loaded');
+	
+	});
+
+	
+});
+

@@ -1,4 +1,4 @@
-//= require jquery.timer
+// MICRONEMEZ HOME
 
 $(function(){
 		//resizeable 
@@ -77,15 +77,15 @@ $(function(){
 
 $(document).ready(function() {
 	// kaltura html5 player
-	mw.setConfig( 'Kaltura.ServiceUrl' , 'http://video.micronemez.com' );
-  mw.setConfig( 'Kaltura.CdnUrl' , 'http://video.micronemez.com' );
-  mw.setConfig('Kaltura.ServiceBase', '/api_v3/index.php?service=');
-  mw.setConfig('EmbedPlayer.EnableIframeApi', false );
+	//mw.setConfig( 'Kaltura.ServiceUrl' , 'http://video.micronemez.com' );
+  //mw.setConfig( 'Kaltura.CdnUrl' , 'http://video.micronemez.com' );
+  //mw.setConfig('Kaltura.ServiceBase', '/api_v3/index.php?service=');
+  //mw.setConfig('EmbedPlayer.EnableIframeApi', false );
   //todo: set to true?
-  mw.setConfig('EmbedPlayer.UseFlashOnAndroid', false );
-  mw.setConfig('Kaltura.LoadScriptForVideoTags', true );
-  mw.setConfig('Kaltura.AllowRemoteService', false );
-  mw.setConfig('Kaltura.UseAppleAdaptive', false );
+  //mw.setConfig('EmbedPlayer.UseFlashOnAndroid', false );
+  //mw.setConfig('Kaltura.LoadScriptForVideoTags', true );
+  //mw.setConfig('Kaltura.AllowRemoteService', false );
+  //mw.setConfig('Kaltura.UseAppleAdaptive', false );
   
   //TODO: mcrnmz hover/click pop cc and donate 
   //$.pop();

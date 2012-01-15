@@ -5,8 +5,9 @@
 //= require jquery.colorbox-min
 //= require jquery.mousewheel
 //= require mwheelIntent
-//= require jquery.jscrollpane.min
-
+//= require jquery.jscrollpane
+//= require jquery.timer
+//= require jquery.waitforimages
 
 //= require soundmanager2
 //= require page-player
