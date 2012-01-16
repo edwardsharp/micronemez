@@ -71,7 +71,7 @@ $(document).ready(function() {
 			//inline:true, 
 			
 			href: function(){
-    		var n = $(this).attr('name');
+    		var n = $(this).attr('id');
     		console.log(n);
     		return '/video/show/' + n;
 			}
