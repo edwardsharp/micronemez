@@ -52,11 +52,15 @@ $(document).ready(function() {
 		$(".scrollableArea").css({ 'width': width  + 'px' });
 		
 		
-		$("div#makeMeScrollable a").colorbox({
-			speed:"500",
-			iframe: false
-		});
 
+		$("div#makeMeScrollable a").colorbox({
+			rel: 'gal', 
+			title: function(){
+    		var url = $(this).attr('href');
+    		//return '<a href="' + url + '" target="_blank">_perma</a>';
+			},
+			arrowKey: true
+		});
 
 		
 	
