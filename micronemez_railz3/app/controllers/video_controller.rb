@@ -3,6 +3,7 @@ class VideoController < ApplicationController
   end
 
   def show
+  	
   end
 
 end

@@ -2,7 +2,9 @@ Micronemez::Application.routes.draw do
   
   get "video"			=> "video#index"
   get "video/show"
-
+	
+	match 'video/show/:entry_id' => 'video#show'
+	
   devise_for :users, :skip => :all
 	#root :to => "sessions#new"
 	get "/users/sign_in"			=> "sessions#new"

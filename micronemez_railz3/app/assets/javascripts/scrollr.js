@@ -17,7 +17,6 @@ $(document).ready(function() {
 	
 	// VIDEOZ
 	//jScrollPane
-	
 	$(function()
 	{
 		var pane = $('.video-scroll-pane');
@@ -34,8 +33,7 @@ $(document).ready(function() {
 		//});
 
 		
-});
-
+	});
 
 
 	$('div.video-scroll-pane').waitForImages(function() {
@@ -43,23 +41,42 @@ $(document).ready(function() {
 		// recalc width of video objectz
 		//calculate total width of images in set and set width of .scrollableArea 
 	  //console.log('All images have loaded.');
+	  
 	  width=0;
-		
+	  
 		$(".video_thumb").each(function(index) {
 	    width = width + $(this).width();
 		});
 		
 		$(".scrollableArea").css({ 'width': width  + 'px' });
 		
-		
+		// Using a selector:
+		//$("#inline").colorbox({inline:true, href:"#myForm"});
+		 
+		// Using a jQuery object:
+		//var $form = $("#myForm");
+		//$("#inline").colorbox({inline:true, href:$form});
+
+		//var $mcrnmz_clrbx;
 
 		$("div#makeMeScrollable a").colorbox({
+			scrolling: false,
 			rel: 'gal', 
 			title: function(){
-    		var url = $(this).attr('href');
-    		//return '<a href="' + url + '" target="_blank">_perma</a>';
+    		var t = $(this).attr('title');
+    		console.log(t);
+    		return t
 			},
-			arrowKey: true
+			arrowKey: true,
+			//inline:true, 
+			
+			href: function(){
+    		var n = $(this).attr('name');
+    		console.log(n);
+    		return '/video/show/' + n;
+			}
+			
+			//href:$mcrnmz_clrbx
 		});
 
 		
