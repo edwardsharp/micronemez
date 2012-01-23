@@ -4,7 +4,9 @@ $(document).ready(function() {
 	// AUDIOZ 
 
 	$('.audio-scroll-pane').jScrollPane({
-		autoReinitialise: true
+		autoReinitialise: true,
+		verticalGutter: 0,
+		horizontalGutter: 0
 	});
 	
 	soundManager.url = '';
@@ -22,7 +24,13 @@ $(document).ready(function() {
 		var pane = $('.video-scroll-pane');
 		pane.jScrollPane(
 			{
-				autoReinitialise: true
+				autoReinitialise: true,
+				verticalGutter: 0,
+				horizontalGutter: 0,
+				showArrows: true,
+				arrowScrollOnHover: true,
+				horizontalArrowPositions: 'after',
+				speed: 4
 			}
 		);
 		var api = pane.data('jsp');
