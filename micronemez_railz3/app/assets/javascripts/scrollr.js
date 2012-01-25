@@ -29,8 +29,7 @@ $(document).ready(function() {
 				horizontalGutter: 0,
 				showArrows: true,
 				arrowScrollOnHover: true,
-				horizontalArrowPositions: 'after',
-				speed: 4
+				horizontalArrowPositions: 'after'
 			}
 		);
 		var api = pane.data('jsp');
