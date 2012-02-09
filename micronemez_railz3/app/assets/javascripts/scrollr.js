@@ -29,7 +29,9 @@ $(document).ready(function() {
 				horizontalGutter: 0,
 				showArrows: true,
 				arrowScrollOnHover: true,
-				horizontalArrowPositions: 'after'
+				horizontalArrowPositions: 'after',
+				speed: 100,
+				scrollPagePercent: .6
 			}
 		);
 		var api = pane.data('jsp');

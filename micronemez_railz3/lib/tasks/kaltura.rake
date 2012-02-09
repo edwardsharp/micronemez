@@ -1,5 +1,6 @@
-namespace :kaltura do
+namespace :kaltura do    
 	newHost = ENV["HOST"] || "http://micronemez.com"
+	kalturaHost = "http://video.micronemez.com" 
 	height = ENV["HEIGHT"] || "330"
 	justOne = ENV["JUSTONE"] || false
 	
@@ -36,7 +37,7 @@ namespace :kaltura do
 						else
 							#a friendly reminder.
 							#TODO: dirty record checking?
-							p "#{a.name} video exists!"
+							p "video #{a.name} exists!"
 						end
 					
 		    	elsif a.categories =~ /audio/
@@ -51,7 +52,7 @@ namespace :kaltura do
 						else
 							#a friendly reminder.
 							#TODO: dirty record checking?
-							p "#{a.name} audio exists!"
+							p "audio #{a.name} exists!"
 						end 
 		    	end #video/audio
 	    	end #mcrnmz
@@ -61,7 +62,7 @@ namespace :kaltura do
 	    
 		    entries.each do |a| 
 		    	#note the remapping of id, type = mediaId, mediaType
-		    	if a.categories =~ /mcrnmz/
+		    	#if a.categories =~ /mcrnmz/
 			    	if a.categories =~ /video/ 	
 				    	unless KalturaVideo.find_by_mediaId(a.id)
 					      kaltura_video = KalturaVideo.new
@@ -74,7 +75,7 @@ namespace :kaltura do
 							else
 								#a friendly reminder.
 								#TODO: dirty record checking?
-								p "#{a.name} video exists!"
+								p "video #{a.name} exists!"
 							end
 						
 			    	elsif a.categories =~ /audio/
@@ -89,10 +90,10 @@ namespace :kaltura do
 							else
 								#a friendly reminder.
 								#TODO: dirty record checking?
-								p "#{a.name} audio exists!"
+								p "audio #{a.name} exists!"
 							end 
 			    	end #video/audio
-		    	end #mcrnmz
+		    	#end #mcrnmz
 	    	end #entries
 			end #if/else crappp
 			
@@ -111,7 +112,9 @@ namespace :kaltura do
 	end
 
 	desc "destroy everything"
-	task :destroyEveryting => :environment  do
+	task :destroyEveryting => :environment  do	
+   
+
 		v = KalturaVideo.find(:all)
 		vvv = v.count
 		v.each{ |vv| vv.destroy }
@@ -143,6 +146,17 @@ namespace :kaltura do
 		p "#{aaa} audios destroy'd. "  
 	end
 	
+	desc "destroy video thumbnails"
+	task :destroyVideoThumbnails => :environment  do
+		v = KalturaVideo.find(:all)
+		vvv = v.count
+		v.each{ |vv| vv.destroy }
+		
+		p "success! (perhaps?)"
+		p "#{vvv} videos destroy'd. "  
+	end
+
+	
 	desc "download video thumbnailz to public/images"
 	task :getVideoThumbnails => :environment do
 		#require 'uri'
@@ -152,16 +166,19 @@ namespace :kaltura do
 	
 		v.each do |video|
 			uri = URI(video.thumbnailUrl)
-			uriNewHost = URI(newHost)
-			if uri.host != uriNewHost.host
 			
-				sani_fresh = sanitize_filename(video.name) + '.jpg'
+			uriNewHost = URI(newHost)
+			unless uri.host != uriNewHost.host
+				puts "#{video.downloadUrl} has already been downloaded"
+			end #unless
+			
+				sani_fresh = sanitize_filename(video.mediaId) + '.jpg'
 				saveto = "#{Rails.root}/public/images/#{sani_fresh}"
 				newDownloadUrl = "#{newHost}/images/#{sani_fresh}"
 				
 				
 				Net::HTTP.start(uri.host) do |http|
-						newHeight = "#{uri.path}/height/#{height}"
+						newHeight = "#{kalturaHost}#{uri.path}/height/#{height}"
 				    p "connecting to #{newHeight}"
 				    resp = http.get(newHeight)
 				    if resp.response['Location']!=nil then
@@ -173,24 +190,21 @@ namespace :kaltura do
 						#TODO: better file-already-exists inspection, md5sum or simmilar? 
 						# does the resp need to be downloaded to get a FileTest.size ???
 						#catches zero-byte filez
-				    if FileTest.size?(saveto) == 0 				    
+				    #if FileTest.size?(saveto) == 0 				    
 					    open(saveto, "wb") do |file|
 					        file.write(resp.body)
 					    end
-					  else
+					  #else
 					  	#friendly reminder.
-					  	puts "zero-byte file"
-					  end
+					  #	puts "zero-byte file"
+					  #end
 					  
 				end
 				puts "saved to #{saveto} "
-				video.thumbnailUrl = newDownloadUrl
+				video.thumbnailUrl = newDownloadUrl				
 				video.save!
 				puts "updated db #{newDownloadUrl}"
-			else 
-			#friendly reminder
-				puts "#{video.downloadUrl} has already been downloaded"
-			end #unless
+			
 		end #each
 		puts "done."
 	end #task
@@ -209,7 +223,7 @@ namespace :kaltura do
 			uriNewHost = URI(newHost)
 			unless uri.host == uriNewHost.host
 				#TODO: use a more dynamic filename.
-				sani_fresh = sanitize_filename(audio.name) + '.mp3'
+				sani_fresh = sanitize_filename(audio.mediaId) + '.mp3'
 				saveto = "#{Rails.root}/public/audio/#{sani_fresh}"
 				newDownloadUrl = "#{newHost}/audio/#{sani_fresh}"
 				p "connecting to #{uri}"
@@ -238,3 +252,4 @@ namespace :kaltura do
 	end
 
 end
+
