@@ -9,10 +9,11 @@
 //= require jquery.timer
 //= require jquery.waitforimages
 
-//= require kaltura_html5
 //= require kaltura_config
 
 //= require soundmanager2
 //= require page-player
 //= require scrollr
 //= require homejs
+
+//= require goog_urchin.js

@@ -112,7 +112,7 @@ namespace :kaltura do
 	end
 
 	desc "destroy everything"
-	task :destroyEveryting => :environment  do	
+	task :destroyEverything => :environment  do	
    
 
 		v = KalturaVideo.find(:all)

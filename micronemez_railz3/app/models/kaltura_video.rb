@@ -4,8 +4,7 @@ class KalturaVideo < ActiveRecord::Base
 	#composed_of :id, :mapping => %W(id mediaId)
 	#alias_attribute :id, :mediaId
 	#alias_method_chain :mediaId, :id
-	
-  
+	  
   #def before_create
   #	self.mediaId = id
   #end
