@@ -30,7 +30,11 @@ $(document).ready(function() {
 				showArrows: true,
 				arrowScrollOnHover: true,
 				horizontalArrowPositions: 'after',
-				speed: 100,
+				speed: 200,
+				animateScroll: true,
+				animateDuration: 200,
+				mouseWheelSpeed: 220,
+				keyboardSpeed: 200,
 				scrollPagePercent: .6
 			}
 		);
