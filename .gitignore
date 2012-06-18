@@ -4,3 +4,5 @@ micronemez_railz3/config/initializers/kaltura.rb
 micronemez_railz3/db/development.sqlite3.bak
 
 micronemez_railz3/db/development.sqlite3.bak2.bak
+
+*.swp
