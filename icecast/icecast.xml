@@ -142,6 +142,53 @@
         <on-disconnect>/home/icecast/bin/stream-stop</on-disconnect>
     </mount>
 
+		<mount>
+			<mount-name>/micronemez_video.ogv</mount-name>
+			<max-listeners>20</max-listeners>
+			<burst-size>65536</burst-size>
+			<stream-name>FUTURE__DEATH__TOLL__VIDEO</stream-name>
+    	<stream-description>HOTT_STREAM</stream-description>
+			<stream-url>http://micronemez.com</stream-url>
+			<genre>Easy Listening</genre>
+			<type>application/ogg</type>
+			<subtype>theora</subtype>
+			<hidden>0</hidden>
+			<no-yp>1</no-yp>
+			<on-connect>/home/icecast/bin/stream-start</on-connect>
+			<on-disconnect>/home/icecast/bin/stream-stop</on-disconnect>
+    </mount>
+
+		<mount> 
+        <mount-name>/v0.ogv</mount-name> 
+				<fallback-mount>/micronemez_video.ogv</fallback-mount> 
+        <fallback-override>1</fallback-override> 
+        <max-listeners>20</max-listeners> 
+        <hidden>0</hidden> 
+				<stream-name>MICRONEMEZ VIDEO_0</stream-name> 
+        <stream-description>future_death_toll</stream-description> 
+        <stream-url>http://micronemez.com</stream-url> 
+        <charset>ISO8859-1</charset> 
+        <burst-size>65536</burst-size> 
+        <type>application/ogg</type> 
+        <subtype>theora</subtype> 
+    </mount> 
+
+		<mount> 
+        <mount-name>/v1.ogv</mount-name> 
+				<fallback-mount>/v0.ogv</fallback-mount> 
+        <fallback-override>1</fallback-override> 
+        <max-listeners>20</max-listeners> 
+        <hidden>0</hidden> 
+        <stream-name>MICRONEMEZ VIDEO_1</stream-name> 
+        <stream-description>future_death_toll</stream-description> 
+        <stream-url>http://micronemez.com</stream-url> 
+        <genre>easy listening</genre> 
+        <charset>ISO8859-1</charset> 
+        <burst-size>65536</burst-size> 
+        <type>application/ogg</type> 
+        <subtype>theora</subtype> 
+    </mount> 
+
 <!--
     <mount>
         <mount-name>/auth_example.ogg</mount-name>
@@ -194,6 +241,7 @@
              Default is non-archive mode (i.e. overwrite)
         -->
         <!-- <logarchive>1</logarchive> -->
+        <logarchive>1</logarchive>
     </logging>
 
     <security>

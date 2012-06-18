@@ -7,7 +7,7 @@ set("log.file",true)
 set("log.stdout",false)
 set("log.level",3)
 set("harbor.icy",true)
-set("server.telnet",true)
+#set("server.telnet",true)
 
 default =  single("say:How are you gentlemen!! 
 		     all your base are belong to us. 
