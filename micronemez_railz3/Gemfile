@@ -22,6 +22,7 @@ gem 'jquery-rails'
 gem 'devise', '~> 1.4.6'
 gem 'unicorn'
 gem 'haml'
+#TODO: really need compass? 
 # compass sass css framework
 gem 'compass', '>= 0.11.6'
 #gem 'kaltura-ruby'
@@ -31,6 +32,13 @@ gem 'rake'
 gem 'minitest'
 # Deploy with Capistrano
  gem 'capistrano'
+
+#gem sources -a http://gems.github.com
+gem "thoughtbot-paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+#rackspace cloud files
+#gem 'cloudfiles'
+#gem 'cocaine' #a dependency that paperclilp didn't pick up yet
+#gem 'paperclip-cloudfiles', :require => 'thoughtbot-paperclip'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
