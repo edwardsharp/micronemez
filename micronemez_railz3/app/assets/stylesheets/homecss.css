@@ -1,8 +1,3 @@
-
-
-
-
-
 #scrollz {
 	height: 330px;
 } 
@@ -16,14 +11,14 @@
 	/* default width (gets overridden by js) TODO: bigger value?*/
 	width: 4666px;
 }
-#middle-scrollr {
+#bottom-scroller {
   position: relative;
 	overflow: auto;
 	width: 100%;
 	overflow-x: hidden;
 }
 
-#middle-scrollr div.scrollableArea img
+#bottom-scroller div.scrollableArea img
 {
 	position: relative;
 	float: left;
@@ -59,7 +54,7 @@
 }
 
 #home_index {
-	min-height: 530px;
+min-height: 530px;
 }
 
 .cc_license_txt {

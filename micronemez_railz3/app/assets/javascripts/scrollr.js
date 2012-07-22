@@ -51,8 +51,10 @@ $(document).ready(function() {
 		//$("#inline").colorbox({inline:true, href:$form});
 
 		//var $mcrnmz_clrbx;
-
-		$("div#middle-scrollr a").colorbox({
+    
+    //TODO: yank this?
+    
+		$("div#bottom-scroller a").colorbox({
 			scrolling: false,
 			rel: 'gal', 
 			title: function(){

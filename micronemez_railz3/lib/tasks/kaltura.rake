@@ -10,7 +10,7 @@ namespace :kaltura do
 	  entries = Kaltura::MediaEntry.list(@options)
       
     p entries.last
-    p "LAST ONE   "
+    p "LAST ONE"
 	  entries.last do |a| 
       #p "do a "
 	  	#note the remapping of id, type = mediaId, mediaType
@@ -264,6 +264,7 @@ namespace :kaltura do
 	task :destroyVideoFiles => :environment  do
 		v = KalturaVideo.find(:all)
     v.each do |vv| 
+      # this is raddy-taddy (refactor?)
       video = Video.find_by_kaltura_mediaId(vv.mediaId).file_saveto
       if File.exist?(video) 
         p "VIDEO FILE FOUND. CAN BE DESTROYED? #{video} "
