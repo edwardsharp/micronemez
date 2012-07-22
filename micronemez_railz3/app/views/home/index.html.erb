@@ -1,12 +1,15 @@
+<% content_for :header do %>
+  <%= javascript_include_tag 'soundmanager2' %>
+  <%= javascript_include_tag 'page-player' %>
+  <%= javascript_include_tag 'scrollr' %>
+  <%= javascript_include_tag 'homejs' %>
+<% end %>
 <div id="home_index">
 	
-	<div id="top">
-		<%= render "nav" %>
-	</div>	
-	<div id="makeMeScrollable" class="scrollWrapper video-scroll-pane horizontal-only">
-		<%= render "video" %>
-	</div>
-	<div id="middle-scrollr" class="audio-scroll-pane">
+	<div id="middle-scrollr" class="home-scroll-pane">
+    
+    <%= render "video" %>
+    
 		<%= render "audio" %>
 	</div>
 	<div id="bottom">

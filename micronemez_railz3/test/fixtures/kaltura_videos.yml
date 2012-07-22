@@ -38,7 +38,7 @@ one:
   startDate: MyString
   status: MyString
   tags: MyString
-  thumbnailUrl: MyString
+  thumbnail_url: MyString
   totalRank: MyString
   type: 
   updatedAt: MyString
@@ -86,7 +86,7 @@ two:
   startDate: MyString
   status: MyString
   tags: MyString
-  thumbnailUrl: MyString
+  thumbnail_url: MyString
   totalRank: MyString
   type: 
   updatedAt: MyString

@@ -1,31 +1,7 @@
 
-body {
-min-height: 555px;
-overflow-y: hidden;
-}
-a {
-	color: #ff6600;
-}
 
 
-#makeMeScrollable
-{
 
-	height: 330px;
-	position: relative;
-	overflow: auto;
-	width: 100%;
-	overflow-y: hidden;
-}
-
-#makeMeScrollable div.scrollableArea img
-{
-	position: relative;
-	float: left;
-	margin: 0;
-	padding: 0;
-	overflow: auto;
-}
 
 #scrollz {
 	height: 330px;
@@ -41,9 +17,21 @@ a {
 	width: 4666px;
 }
 #middle-scrollr {
-	height: 200px;
-	min-height: 200px;
+  position: relative;
+	overflow: auto;
+	width: 100%;
+	overflow-x: hidden;
 }
+
+#middle-scrollr div.scrollableArea img
+{
+	position: relative;
+	float: left;
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+}
+
 #bottom {
 	bottom:0;
 	height: 0;
@@ -72,7 +60,6 @@ a {
 
 #home_index {
 	min-height: 530px;
-	background-color:#ff6600;
 }
 
 .cc_license_txt {

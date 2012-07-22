@@ -2,8 +2,8 @@
 
 	<div class="scrollableArea">
 		<% @videos.each do |video| %>
-			<%= link_to image_tag("#{video.thumbnailUrl}", :class=> 'video_thumb', :height => '330'), "/video/show/#{video.mediaId}", :title => "#{video.name}",  :id => "#{video.mediaId}" %>
-
+			<%= link_to image_tag("#{video.thumbnail_url}", :class=> 'video_thumb'), "/video/show/#{video.mediaId}", :title => "#{video.name}",  :id => "#{video.mediaId}" %>
+      
 		<% end %>
 	</div>
 

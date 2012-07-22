@@ -1,51 +1,75 @@
-source 'http://rubygems.org'
+source "http://rubygems.org"
 
-gem 'rails', '3.1.1'
+gem "rails", "3.2.1"
+gem "sass-rails", "~> 3.2.3"
+gem "coffee-rails", "3.2.1"
+gem 'uglifier', ">= 1.0.3"
 
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+gem 'heroku'
 
-gem 'sqlite3'
+gem 'json'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.1.4'
-  gem 'coffee-rails', '~> 3.1.1'
-  gem 'uglifier', '>= 1.0.3'
-end
+gem "devise"
+gem "omniauth-facebook"
 
-gem 'jquery-rails'
+gem "kaminari"
+gem "carrierwave"
+gem "jquery-rails"
+gem "meta_search"
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'devise', '~> 1.4.6'
-gem 'unicorn'
-gem 'haml'
-#TODO: really need compass? 
-# compass sass css framework
-gem 'compass', '>= 0.11.6'
-#gem 'kaltura-ruby'
-gem 'kaltura'
-gem 'whenever'
-gem 'rake'
-gem 'minitest'
-# Deploy with Capistrano
- gem 'capistrano'
+gem "dynamic_form"
+gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'client_side_validations'
+
+#attempt to restrain bot requests, esp. on user data reset requests
+gem "rack-throttle"
+
+gem "acts-as-taggable-on", :git => "git://github.com/mbleigh/acts-as-taggable-on.git", :branch => "master"
+gem "rails3-jquery-autocomplete"
+
+gem "paperclip", ">= 3.1.4"
 
 #gem sources -a http://gems.github.com
-gem "thoughtbot-paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
-#rackspace cloud files
-#gem 'cloudfiles'
-#gem 'cocaine' #a dependency that paperclilp didn't pick up yet
-#gem 'paperclip-cloudfiles', :require => 'thoughtbot-paperclip'
+#gem "thoughtbot-paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+gem "nokogiri", ">= 1.5.5"
 
-group :test do
-  # Pretty printed test output
-  gem 'turn', :require => false
+gem "kaltura"
+gem "kaltura-ruby"
+gem "delayed_job_active_record"
+gem "daemons"
+
+group :test, :development do
+  gem "rspec-rails"
+  gem "spork", "~> 1.0.0rc1"
+  gem "ruby-debug19"
+  gem "awesome_print"
+	gem "sqlite3"
+	gem "mailcatcher"
+	gem "rails3-generators"
+	gem "nested_scaffold"
+	gem "nifty-generators"
 end
 
-# devise auth
+group :development do
+  gem "mongrel", ">= 1.2.0.pre2"
+  gem "chronic"
+  gem "admin_view"
+end
+
+group :test do
+  gem "factory_girl_rails"
+  gem "cucumber-rails", :require => false
+  gem "database_cleaner"
+  gem "selenium-webdriver", "~> 2.18.0"
+  gem "capybara"
+  gem "shoulda"
+  gem "email_spec"
+end
+
+group :production do
+  gem "thin"
+#	gem "pg", :require => "pg"
+end
+
+gem "mocha", :group => :test

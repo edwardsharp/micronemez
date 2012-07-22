@@ -1,9 +1,9 @@
+*.swp
 .bundle
 db/*.sqlite3
 log/*.log
-tmp/
-.sass-cache/
-*.swp
-*.mp3
-*.ogg
-
+tmp/**/*
+config/database.yml
+vendor/bundle
+.redcar
+public/system/*

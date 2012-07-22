@@ -1,15 +1,10 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-require 'compass'
-require 'sass-rails'
-
-if defined?(Bundler)
-  # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
-  # If you want your assets lazily compiled in production, use this line
-  # Bundler.require(:default, :assets, Rails.env)
-end
+#require 'lib/throttle_defense'
+# If you have a Gemfile, require the gems listed there, including any gems
+# you've limited to :test, :development, or :production.
+Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Micronemez
   class Application < Rails::Application
@@ -18,7 +13,7 @@ module Micronemez
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    # config.autoload_paths += %W(#{config.root}/extras)
+    config.autoload_paths += %W(#{config.root}/lib)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -33,7 +28,13 @@ module Micronemez
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    # config.i18n.default_locale = :en
+
+    # JavaScript files you want as :defaults (application.js is always included).
+    config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
+
+    # Enable the asset pipeline
+    config.assets.enabled = true
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
@@ -41,15 +42,18 @@ module Micronemez
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
-    # Enable the asset pipeline
-    config.assets.enabled = true
+    # Heroku requires setting
+    config.assets.initialize_on_precompile = false
+    
+    #throttling 
+    #config.middleware.insert_after Rack::Lock, ThrottleDefense
 
-    # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.0'
-		# compass config
-config.sass.load_paths ||= []
-config.sass.load_paths << "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/compass/stylesheets"
-config.sass.load_paths << "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/blueprint/stylesheets" 
-
+		config.generators do |g|
+  		g.fixture_replacement :factory_girl
+		end
+    
+    #ActsAsTaggableOn::TagList.delimiter = ' ' # use space as delimiter
+    #ActsAsTaggableOn::TagList.delimiter = ' , ' # use comma as delimiter
+    
   end
 end

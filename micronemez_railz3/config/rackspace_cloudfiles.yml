@@ -1,0 +1,15 @@
+DEFAULTS: &DEFAULTS
+  username: yourusernamehere
+  api_key: yourapikeyhere
+
+development:
+  <<: *DEFAULTS
+  container: dev_avatars
+
+test:
+  <<: *DEFAULTS
+  container: test_avatars
+
+production:
+  <<: *DEFAULTS
+  container: avatars

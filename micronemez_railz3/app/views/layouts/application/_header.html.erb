@@ -1,0 +1,22 @@
+<div class="nav">
+<ul> 
+  <li><a href="/" title="index">MICRONEMEZ</a></li>
+  <li><%= link_to "Videos", videos_path %></li>
+  <% if user_signed_in? %>
+    <% if current_user.admin? %>
+      <li><%= link_to "Admin", admin_path %></li>
+    <% end %>
+      <li><%= link_to "Sign out", destroy_user_session_path %></li>
+      <li><%= link_to "Settings", edit_user_registration_path %></li>
+    <% else %>
+      <li><%= link_to "Sign up", new_user_registration_path %></li>
+      <li><%= link_to "Sign in", new_user_session_path %></li>
+    <% if User::OMNIAUTH_PROVIDERS.include? 'facebook' %>
+      <li>
+        <% link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+      </li>
+    <% end -%>
+  <% end -%>
+</ul>
+</div>
+  

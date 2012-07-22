@@ -47,28 +47,7 @@ $(function(){
 	  });
 */ 
 	  
-	  // NAV animation
-	  $("#top").oneTime(6666, function() {
-			//$('#nav').css('background','none');
-			//$('#nav').hide("slow");		
-			$('#nav').slideUp('fast', function() {
-		    $('.menuspan').show("fast");
-		  });
-		});
-		$("#top").mouseover(function () {
-			$("#top").stopTime();
-			$('.menuspan').hide("fast");
-			$('#nav').slideDown("slow");
-			
-	  }); 
-		$("#top").mouseleave(function () {
-			$(this).oneTime(1000, function() {
-				//$('#nav').hide("slow");
-				$('#nav').slideUp('fast', function() {
-		    	$('.menuspan').show("fast");
-		  });
-			});
-	  }); 
+
 	  
 
 });
@@ -87,12 +66,12 @@ $(document).ready(function() {
 });
 
 
-//jQuery(document).keyup(function(e) {
-//  if (e.keyCode == 51) { alert('TO SPEAK WITH AN OPERATOR PRESS 0'); }     // 3
-//  if (e.keyCode == 48) { jQuery('#audio_button').click(); }   // 0
+jQuery(document).keyup(function(e) {
+  if (e.keyCode == 48) { alert('TO SPEAK WITH AN OPERATOR PRESS 0'); }     // 0
+//  if (e.keyCode == 51) { jQuery('#audio_button').click(); }   // 3
 //  if (e.keyCode == 80) { jQuery('#audio_button').click(); }   // p
 //  if (e.keyCode == 83) { jQuery('#audio_button').click(); }   // s
 //  if (e.keyCode == 27) { jQuery('#copzGonnaCloseItDown').click(); }//27 esc
 //  if (e.keyCode == 39) { jQuery('.nav-previous > a').click(); }//right arrow
 //  if (e.keyCode == 37) { jQuery('.nav-next > a').click(); }//left arrow
-//});
+});

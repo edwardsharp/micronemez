@@ -10,13 +10,13 @@
 
 	display: none;
 	top: 0;
+  margin-left: 50px;
 	padding-left: 50px;
 	height:10px; 
 	width: 250px;
 	z-index: 669;
 	float: left;
-	margin:0px; 
-	padding:0px; 
+
 	background-color:#ff6600; 	
 }
 /* menu */
@@ -24,7 +24,7 @@
 #menu{ margin:0px; padding:0px; list-style:none; color:#ff6600; line-height:45px; display:inline-block; float:left; z-index:1000; }
 #menu a { color:#ff6600; text-decoration:none; }
 #menu > li {background:#172322 none repeat scroll 0 0; cursor:pointer; float:left; position:relative;padding:0px 10px; z-index: 100;}
-#menu > li a:hover {color:#B0D730;}
+#menu > li a:hover {color:#ff6600;}
 #menu .logo {background:transparent none repeat scroll 0% 0%; padding:0px; background-color:Transparent;}
 /* sub-menus*/
 #menu ul { padding:0px; margin:0px; display:block; display:inline;}
@@ -47,3 +47,6 @@
 #menu .corner_left { position:absolute; left:0px; top:0px;}
 #menu .corner_right { position:absolute; left:132px; top:0px;}
 #menu .middle { position:absolute; left:18px; height: 20px; width: 115px; top:0px;}
+
+
+#menu .wide_noticealert {width: 500px;}

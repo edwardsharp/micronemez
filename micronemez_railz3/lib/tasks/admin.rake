@@ -2,7 +2,7 @@ namespace :micronemez do
 
   namespace :admin do
 
-    desc "Creates a role."
+    desc "Creates role."
     task :create_role, [:role] => :environment do |t, args|
 
       unless args[:role]

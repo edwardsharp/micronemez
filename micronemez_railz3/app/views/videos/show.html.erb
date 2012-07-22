@@ -1,0 +1,30 @@
+<div class="box">
+<p>
+  <b><%=t(:catnum)%>:</b>
+  <%= @video.catnum %>
+</p>
+
+<p>
+  <b><%=t(:title)%>:</b>
+  <%= @video.title %>
+</p>
+
+<p>
+  <b><%=t(:location)%>:</b>
+  <%= @video.location %>
+</p>
+
+<p>
+  <b><%=t(:tags)%>:</b>
+  <%= @video.tag_list %>
+</p>
+
+<p>
+  <b><%=t(:description)%>:</b>
+  <%= @video.description %>
+</p>
+
+
+<%= link_to t(:edit), edit_video_path(@video) %> |
+<%= link_to t(:back), videos_path %>
+</div>

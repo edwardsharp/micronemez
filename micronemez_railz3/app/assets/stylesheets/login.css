@@ -7,3 +7,84 @@ ul.hmenu {
 ul.hmenu li {
   display: inline;  
 }
+
+.dd_menu 	{
+	padding:0px; 
+	margin:0px; 
+	list-style-type:none; 
+	height:30px;
+}
+
+.dd_menu li 	{
+	float:left; 
+	height:30px;
+}
+
+.dd_menu li a 	{
+	padding:9px 20px; 
+	display:block; 
+	text-decoration:none;
+  font-size: 22pt;
+}
+
+.dd_menu li:hover a {
+	text-decoration:underline;
+}
+
+
+
+
+.dd_menu ul	{
+	position:absolute; 
+	left:-9999px; 
+	top:-9999px; 
+	list-style-type:none;
+}
+
+.dd_menu li:hover	{
+	position:relative;
+}
+
+
+.dd_menu li:hover ul 	{
+	left:0px; 
+	top:30px;  
+	padding:3px; 
+	width:160px;
+}
+
+.dd_menu li:hover ul li 	{
+	height:18px; 
+	border:none;
+}
+
+.dd_menu li:hover ul li a 	{
+	height:18px; 
+	padding:0px; 
+	display:block; 
+	width:158px; 
+	line-height:18px; 
+	text-indent:5px;
+}
+
+.dd_menu li:hover ul li a:hover {
+	height:18px;
+}
+
+
+.dd_menu {background:#ff6600; padding:0px; margin:0; list-style-type:none; height:30px;}
+.dd_menu li {float:left; height:30px;}
+.dd_menu li a {padding:9px 20px; display:block; color:#fff; text-decoration:none; font:12px arial, verdana, sans-serif; font-weight: bold;}
+.dd_menu li:hover a {text-decoration:underline; color:#ff6600;}
+
+.dd_menu ul {position:absolute; left:-9999px; top:-9999px; list-style-type:none;}
+.dd_menu li:hover {position:relative; background:yellow; color: #ff6600;}
+.dd_menu li:hover ul {left:0px; top:30px; background:#ddd; padding:3px; border:none; width:160px;}
+.dd_menu li:hover ul li {height:18px; border:none;}
+.dd_menu li:hover ul li a {height:18px; padding:0px; display:block; font-size:12px; width:158px; line-height:18px; text-indent:5px; color:#444; background-color:#ddd; text-decoration:none; border:none;}
+.dd_menu li:hover ul li a:hover {height:18px; background:silver; color:#000; border:none;}
+
+
+.triangle {
+  font-size: 2em !important;
+}

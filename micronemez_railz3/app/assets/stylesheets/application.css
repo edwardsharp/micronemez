@@ -3,5 +3,89 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
- *= require_tree . 
+ *= require jquery-ui-1.8.18.custom.css
+ *= require_tree .
 */
+
+body {
+  min-width: 500px;
+  text-transform: lowercase;
+  min-height: 555px;
+  overflow-y: hidden;
+  color: #ff6600;
+  background-color: #000000;
+}
+
+.box {
+  position: absolute;
+  top: 50px;
+  width:96%;
+  padding: 2%;
+  background: #ff6600;
+  color: #000;
+  min-width: 640px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px; }
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px; }
+
+a {
+  color: #000;
+}
+a:visited {
+  color: #666; 
+}
+a:hover {
+  color: #ff6600;
+  background-color: #dddddd; 
+}
+
+i {
+  font-size: x-small;
+}
+
+/* #TODO: MOVE THESE OUTTA HERE? */
+.sticky {
+  height: auto;
+  
+}
+.notice, .alert {
+  position:absolute;
+  font-size: 1.3em;
+  height: 1.5em;
+  display:block;
+  top: 5px;
+  left: 320px;
+  text-align: center;
+}
+.field_with_errors {
+  display: inline;
+}
+
+.field_with_errors .message {
+  padding-left: 5px;
+  font-size: 12px;
+}
+.file_field {
+  background-color: #ff6600;
+  
+}
+.content {
+  position:absolute;
+  
+  display:block;
+  
+  top:4em;
+  left: 4em;
+}
+#footer {
+  height:2em;
+  
+}

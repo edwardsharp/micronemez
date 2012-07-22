@@ -1,74 +1,45 @@
 Micronemez::Application.routes.draw do
   
-  get "video"			=> "video#index"
-  get "video/show"
-	
-	match 'video/show/:entry_id' => 'video#show'
-	
-  devise_for :users, :skip => :all
-	#root :to => "sessions#new"
-	get "/users/sign_in"			=> "sessions#new"
-	post "/users/sign_in"    	=> "sessions#create"
-	delete "/users/sign_out" 	=> "sessions#destroy"
+  #this needs to come before the resource definition
+  get "video/tags" => "videos#tags", :as => :tags
+  post "video/tags" => "videos#newtag", :as => :tags
+  #this is not the video name, rather for the video tag tags
+  resources :videos do
+    #get :autocomplete_video_name, :on => :collection 
+    
+  end
+  
+  
 
 
+  get "video/index"
 
-  resources :nodes
+  get "video/new"
 
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+  get "video/edit"
 
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
+  get "pages/index"
 
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  match "/admin" => "admin/base#index", :as => "admin"
 
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  namespace "admin" do
+    resources :users
+  end
 
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+	#resources :videos, except => [:index]
+	#resources :videos, :only => [:new, :create, :edit, :destroy]
+  
+  #segmentz
+  controller :videos do
+    scope '/videos', :name_prefix => 'video' do
+      scope :path => '/:title', :title => /[a-z]+/, :as => :with_title do 
+        match '/:micronemezid', :to => :with_micronemezid
+      end
+    end
+  end
+  
+  root :to => "home#index"
 
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  root :to => 'home#index'
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
 end

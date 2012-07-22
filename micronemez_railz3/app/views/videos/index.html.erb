@@ -1,0 +1,30 @@
+<div class="box">
+
+<table>
+  <tr>
+    <th><%=t(:seperator)%><%=t(:catnum)%></th>
+    <th><%=t(:seperator)%><%=t(:title)%></th>
+    <th><%=t(:seperator)%><%=t(:location)%></th>
+    <th><%=t(:seperator)%><%=t(:tags)%></th>
+    <th><%=t(:seperator)%><%=t(:description)%></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @videos.each do |video| %>
+  <tr>
+    <td><%= video.catnum %></td>
+    <td><%= video.title %></td>
+    <td><%= video.location %></td>
+    <td><%= video.tag_list %></td>
+    <td><%= video.description %></td>
+    <td><%= link_to t(:show), video %></td>
+    <td><%= link_to t(:edit), edit_video_path(video) %></td>
+    <td><%= link_to t(:destroy), video, confirm: t(:confirm), method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+</div>

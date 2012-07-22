@@ -7,10 +7,11 @@
   <%= stylesheet_link_tag    "application" %>
 
 	<script type="text/javascript" src="http://html5.kaltura.org/js"></script>
-	
+
   <%= javascript_include_tag "application" %>
-	
-	
+  
+  <%= yield :header %>
+
   <%= csrf_meta_tags %>
 <script type="text/javascript">
 
@@ -29,10 +30,11 @@
 </head>
 <body>
 
-<%= yield %>
+  <div id="top"> 
+    <%= render "layouts/application/nav" %>
+	</div>	
 
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
-
+  <%= yield %>
+  
 </body>
 </html>

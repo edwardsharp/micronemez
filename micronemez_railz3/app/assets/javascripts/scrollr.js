@@ -1,14 +1,5 @@
 $(document).ready(function() {
 		
-	
-	// AUDIOZ 
-
-	$('.audio-scroll-pane').jScrollPane({
-		autoReinitialise: true,
-		verticalGutter: 0,
-		horizontalGutter: 0
-	});
-	
 	soundManager.url = '';
  
 	function setTheme(sTheme) {
@@ -16,15 +7,14 @@ $(document).ready(function() {
 	  o.className = 'playlist'+(sTheme?' '+sTheme:'');
 	  return false;
 	}
-	
-	// VIDEOZ
-	//jScrollPane
-	$(function()
-	{
-		var pane = $('.video-scroll-pane');
-		pane.jScrollPane(
-			{
-				autoReinitialise: true,
+  
+	// ALLMEDIA
+
+	$('.home-scroll-pane').jScrollPane({
+		autoReinitialise: true,
+		verticalGutter: 0,
+		horizontalGutter: 0,
+    autoReinitialise: true,
 				verticalGutter: 0,
 				horizontalGutter: 0,
 				showArrows: true,
@@ -36,20 +26,10 @@ $(document).ready(function() {
 				mouseWheelSpeed: 220,
 				keyboardSpeed: 200,
 				scrollPagePercent: .6
-			}
-		);
-		var api = pane.data('jsp');
-		
-		//everyTime: function(interval, label, fn, times, belay)
-		//$('.video-scroll-pane').everyTime(10, function() {
-		//	api.scrollBy(1, 0);	
-		//});
-
-		
 	});
+	
 
-
-	$('div.video-scroll-pane').waitForImages(function() {
+	$('div.home-scroll-pane').waitForImages(function() {
 		// gotta wait for all the IMGs to load...
 		// recalc width of video objectz
 		//calculate total width of images in set and set width of .scrollableArea 
@@ -72,7 +52,7 @@ $(document).ready(function() {
 
 		//var $mcrnmz_clrbx;
 
-		$("div#makeMeScrollable a").colorbox({
+		$("div#middle-scrollr a").colorbox({
 			scrolling: false,
 			rel: 'gal', 
 			title: function(){

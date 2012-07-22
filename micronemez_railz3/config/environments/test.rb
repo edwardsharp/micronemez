@@ -7,11 +7,7 @@ Micronemez::Application.configure do
   # and recreated between test runs.  Don't rely on the data there!
   config.cache_classes = true
 
-  # Configure static asset server for tests with Cache-Control for performance
-  config.serve_static_assets = true
-  config.static_cache_control = "public, max-age=3600"
-
-  # Log error messages when you accidentally call methods on nil
+  # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
 
   # Show full error reports and disable caching
@@ -28,6 +24,7 @@ Micronemez::Application.configure do
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
+  config.action_mailer.default_url_options = { :host => 'localhost' }
 
   # Use SQL instead of Active Record's schema dumper when creating the test database.
   # This is necessary if your schema can't be completely dumped by the schema dumper,

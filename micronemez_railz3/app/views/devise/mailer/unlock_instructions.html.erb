@@ -1,0 +1,7 @@
+<p>ohhai <%= @resource.email %>!</p>
+
+<p>yr account has been locked due to an excessive amount of unsuccessful sign in attempts.</p>
+
+<p>click the link below to unlock your account:</p>
+
+<p><%= link_to 'unlock my account', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>

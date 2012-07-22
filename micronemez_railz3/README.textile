@@ -1,0 +1,23 @@
+h1. micronemez
+
+A base Rails application. Features a user and admin system with Facebook login. 
+
+* For Facebook login to work, export environment variables @FACEBOOK_APP_ID@ and @FACEBOOK_APP_SECRET@.
+
+SETUP COMMANDS:
+
+#install gems (may need to delete Gemfile.lock if installing for the first time...)
+bundle install
+
+#setup db
+rake db:reset 
+rake db:migrate
+#create roles for users
+rake micronemez:admin:create_role[admin,user]
+#setup a user and admin account
+rake db:seed 
+
+#start the app
+rails server
+
+

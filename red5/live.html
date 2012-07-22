@@ -1,0 +1,283 @@
+<!doctype html>
+<html>
+<head>
+    
+    <title>RTMP</title>
+
+    <style>
+        body{
+            min-width:640px;
+            min-height:480px;
+            margin:0;
+            padding:0;
+            font-family:sans-serif;
+            background-color:#000000;
+        }
+        a:active {
+            outline:none;
+        }
+        :focus { -moz-outline-style:none; }
+
+        .palert {
+            padding: 12px;
+            color: black;
+            background-color: #ededed;
+            box-shadow: none;
+        }
+        /* general playlist settings, light gray */
+        .playlist {
+        
+            position:relative;
+            overflow:hidden;
+            height:285px !important;
+        }
+        
+        .playlist .clips {
+            position:absolute;
+            height:20000em;
+        }
+        
+        .playlist, .clips {
+            width:260px;
+        }
+        
+        .clips a {
+            background:url(/media/img/global/gradient/h80.png);
+            display:block;
+            background-color:#fefeff;
+            padding:12px 15px;
+            height:46px;
+            width:195px;
+            font-size:12px;
+            border:1px outset #ccc;
+            text-decoration:none;
+            letter-spacing:-1px;
+            color:#000;
+            cursor:pointer;
+        }
+        
+        .clips a.first {
+            border-top-width:1px;
+        }
+        
+        .clips a.playing, .clips a.paused, .clips a.progress {
+            background:url(/media/img/playlist/light.png) no-repeat 0px -69px;
+            width:225px;
+            border:0;
+        }
+        
+        .clips a.progress {
+            opacity:0.6;
+        }
+        
+        .clips a.paused {
+            background-position:0 0;
+        }
+        
+        .clips a span {
+            display:block;
+            font-size:11px;
+            color:#666;
+        }
+        
+        .clips a em {
+            font-style:normal;
+            color:#f00;
+        }
+        
+        .clips a:hover {
+            background-color:#f9f9fa;
+        }
+        
+        .clips a.playing:hover, .clips a.paused:hover, .clips a.progress:hover {
+            background-color:transparent !important;
+        }
+        /* /general playlist settings, light gray */
+        
+        
+        /* petrol colored */
+        
+        .clips.petrol a {
+            background-color:#193947;
+            color:#fff;
+            border:1px outset #193947;
+        }
+        
+        .clips.petrol a.playing, .clips.petrol a.paused, .clips.petrol a.progress {
+            background:url(/media/img/playlist/dark.png) no-repeat 0px -69px;
+            border:0;
+        }
+        
+        .clips.petrol a.paused {
+            background-position:0 0;
+        }
+        
+        .clips.petrol a span {
+            color:#aaa;
+        }
+        
+        .clips.petrol a em {
+            color:#FCA29A;
+            font-weight:bold;
+        }
+        
+        .clips.petrol a:hover {
+            background-color:#274D58;
+        }
+        
+        .clips.petrol a.playing:hover, .clips.petrol a.paused:hover, 
+        .clips.petrol a.progress:hover {
+            background-color:transparent !important;
+        }
+        /* /petrol colored */
+        
+        
+        /* low version */
+        
+        .clips.low a {
+            height:31px;
+        }
+        
+        .clips.low a.playing, .clips.low a.paused, .clips.low a.progress {
+            background-image:url(/media/img/playlist/light_small.png);
+            background-position:0 -55px;
+        }
+        
+        .clips.low a.paused {
+            background-position:0 0;
+        }
+        
+        
+        /* /low version */
+        
+        
+        /* go buttons */
+        
+        a.go {
+            display:block;
+            width:18px;
+            height:18px;
+            background:url(/media/img/playlist/arrow/up.png) no-repeat;
+            margin:5px 0 5px 105px;
+            cursor:pointer;
+        }
+        
+        a.go:hover, a.go.down:hover {
+            background-position:0px -18px;
+        }
+        
+        a.go.down {
+            background-image:url(/media/img/playlist/arrow/down.png);
+        }
+        
+        .petrol a.go {
+            background-image:url(/media/img/playlist/arrow/up_dark.png);
+        }
+        
+        .petrol a.go.down {
+            background-image:url(/media/img/playlist/arrow/down_dark.png);
+        }
+        
+        a.go.disabled {
+            visibility:hidden;
+        }
+
+    </style>
+
+    
+    
+    <!-- flowplayer js -->
+    <script src="http://releases.flowplayer.org/js/flowplayer-3.2.11.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://releases.flowplayer.org/js/flowplayer.playlist-3.2.10.min.js" type="text/javascript" charset="utf-8"></script>
+    
+</head>
+
+<body>
+  <!--
+<div id="video_container" style="width:640px;height:480px;margin:0 auto;text-align:center">
+    <img src="blaze.jpg" height="480" width="640" />
+</div>
+-->
+
+<div class="clips" style="float:left">
+
+    <!-- single playlist entry as an "template" -->
+    <a href="${url}">
+        ${title} 
+        <em>${subTitle}</em>
+    </a>
+
+</div>
+
+<!-- the player using splash image -->
+<a class="player plain" id="player1" style="width:640px;height:480px;margin:0 auto;text-align:center;float:left">
+    <img class="button" src="blaze.jpg" height="480" width="640" />
+</a>
+
+<!-- let rest of the page float normally -->
+<br clear="all"/>
+
+<script>
+// wait for the DOM to load using jQuery
+$(function() {
+    $f("player1", "http://releases.flowplayer.org/swf/flowplayer-3.2.12.swf", {
+
+        clip: {
+            provider: 'rtmp',
+            subTitle: 'micronemez live'
+        },
+
+        playlist: [
+          {
+            netConnectionUrl: 'rtmp://micronemez.com/live',
+            live: true,
+            url:'noonnoise',
+            title: 'noonnoise'
+          },
+          {
+            netConnectionUrl: 'rtmp://micronemez.com/live',
+            live: true,
+            url:'g4',
+            title: 'g4'
+          },
+          {
+            netConnectionUrl: 'rtmp://micronemez.com/live',
+            live: true,
+            url:'ezz',
+            title: 'ezz'
+          },
+          {
+            netConnectionUrl: 'rtmp://micronemez.com/live',
+            live: true,
+            url:'pwn',
+            title: 'pwn'
+          }
+        ],
+
+        // show playlist buttons in controlbar
+        plugins: {
+            rtmp: {
+              url: "flowplayer.rtmp-3.2.10.swf",
+              netConnectionUrl: 'rtmp://micronemez.com:1935/live'
+            },
+            controls: {
+                playlist: true
+            }
+        }
+    });
+
+
+    // here comes the magic plugin. It uses first div.clips element as the
+    // root for as playlist entries. loop parameter makes clips play
+    // from the beginning to the end.
+
+    $f("player1").playlist("div.clips:first", {loop:true});
+
+
+});
+</script>
+
+</body>
+
+</html>

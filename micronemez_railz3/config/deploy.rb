@@ -9,7 +9,7 @@ role :app, "micronemez.com"                          # This may be the same as y
 role :db,  "micronemez.com", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 
-depend :remote, :directory, "/home/edward/micronemez/micronemez_railz3/public/audio"
+#depend :remote, :directory, "/home/edward/micronemez/micronemez_railz3/public/audio"
 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts

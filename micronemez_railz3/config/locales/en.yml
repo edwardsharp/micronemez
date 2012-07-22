@@ -1,5 +1,38 @@
 # Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  never_signed_in: 'never signed in'
+  username: 'username'
+  password: 'password'
+  remember: 'never forget'
+  sign_in: 'tell me'
+  cancel: 'cancel my account'
+  you_are: 'you are signed in as'
+  new_session: 'sign in'
+  sign_up: 'sign up'
+  forgot_password: 'forgot password?'
+  no_confirmation: 'no confirmation?'
+  no_unlock: 'no unlock instructions?'
+  sign_in_with: 'sign in with'
+  users: '▼'
+  password_reset_submit: 'send reset instructions QUICK!'
+  password_update_submit: 'update'
+  delete_account_question: 'are you tired of the beatingz in yr neighborhood?'
+  delete_account: 'cancel my account'
+  current_password_i: '(we need your current password to confirm your changes)'
+  password_i: '(leave blank if you donot want to change it)'
+  confirm: 'are you sure?'
+  resend_confirmation: 'resend confirmation instructions'
+  resend_unlock: 'resend unlock instructions'
+  back: 'back'
+  show: 'show'
+  edit: 'edit'
+  destroy: 'destroy'
+  catnum: 'catnum'
+  title: 'title'
+  location: 'location'
+  tags: 'tags'
+  description: 'description'
+  seperator: '|'
+  
