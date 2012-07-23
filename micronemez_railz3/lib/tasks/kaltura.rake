@@ -135,7 +135,7 @@ namespace :kaltura do
     end #areyousure	
 	end #task
 	
-	desc "download video thumbnailz to assets/images"
+	desc "download video thumbnailz to public/images"
 	task :getVideoThumbnails => :environment do
     #START THE CHAIN SAWWWW
 		require 'uri'
@@ -148,7 +148,7 @@ namespace :kaltura do
 			uri = URI(video.thumbnailUrl)
 			uriNewHost = URI(newHost)
       sani_fresh = video.mediaId + '.jpg'
-			saveto = "#{Rails.root}/assets/images/#{sani_fresh}"
+			saveto = "#{Rails.root}/public/images/#{sani_fresh}"
 			newDownloadUrl = "#{newHost}/images/#{sani_fresh}"
         
 			unless !File.exist?(saveto) 
@@ -246,7 +246,8 @@ namespace :kaltura do
 				
         # switch over to the plain Audio object and save some attrz there
         newAudio = Audio.new
-				newAudio.update_attributes audio
+				newAudio.title = audio.name
+        #newAudio.update_attributes audio
         newAudio.file_saveto = saveto
         #TODO: audio thumbnail?
         newAudio.file_pub_url = newDownloadUrl
