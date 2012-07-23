@@ -6,14 +6,17 @@
 <% end %>
 <div id="home_index">
 	
-	<div id="bottom-scroller" class="home-scroll-pane">
+  <div id="makeMeScrollable" class="scrollWrapper video-scroll-pane horizontal-only">
+	  <%= render "video" %>
+	</div>
     
-    <%= render "video" %>
-    
+	<div id="middle-scrollr" class="audio-scroll-pane">
 		<%= render "audio" %>
 	</div>
+
 	<div id="bottom">
 		<%= render "bottom" %>
 	</div>
 
 </div>
+

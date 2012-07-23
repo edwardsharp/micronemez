@@ -3,12 +3,11 @@
 <head>
 	<meta charset="UTF-8">
   <title>micronemez</title>
-
-  <%= stylesheet_link_tag    "application" %>
-
-	<script type="text/javascript" src="http://html5.kaltura.org/js"></script>
+  <% unless params[:entry_id] %>
+  <%= stylesheet_link_tag "application" %>
 
   <%= javascript_include_tag "application" %>
+  <% end %>
   
   <%= yield :header %>
 
@@ -29,11 +28,11 @@
 </script>
 </head>
 <body>
-
+  <% unless params[:entry_id] %>
   <div id="top"> 
     <%= render "layouts/application/nav" %>
 	</div>	
-
+  <% end %>
   <%= yield %>
   
 </body>

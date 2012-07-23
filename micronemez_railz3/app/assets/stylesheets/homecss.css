@@ -1,3 +1,22 @@
+#makeMeScrollable
+{
+
+	height: 330px;
+	position: relative;
+	overflow: auto;
+	width: 100%;
+	overflow-y: hidden;
+}
+
+#makeMeScrollable div.scrollableArea img
+{
+	position: relative;
+	float: left;
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+}
+
 #scrollz {
 	height: 330px;
 } 
@@ -11,14 +30,14 @@
 	/* default width (gets overridden by js) TODO: bigger value?*/
 	width: 4666px;
 }
-#bottom-scroller {
+#middle-scroller {
   position: relative;
 	overflow: auto;
 	width: 100%;
 	overflow-x: hidden;
 }
 
-#bottom-scroller div.scrollableArea img
+#middle-scroller div.scrollableArea img
 {
 	position: relative;
 	float: left;

@@ -1,6 +1,6 @@
 <ul class="playlist">
 	<% @audios.each do |audio| %>
-		<li> <%= link_to audio.name, audio.downloadUrl %> </li>
+		<li> <%= link_to audio.title, audio.file_pub_url %> </li>
 	<% end %>
 </ul>
 

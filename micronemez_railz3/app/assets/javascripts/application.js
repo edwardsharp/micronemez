@@ -5,11 +5,11 @@
 // // the compiled file.
 // //
 //= require jquery
+//= require jquery.timer
 //= require jquery.colorbox-min
 //= require jquery.mousewheel
 //= require mwheelIntent
 //= require jquery.jscrollpane
-//= require jquery.timer
 //= require jquery.waitforimages
 
 // //= require jquery_ujs
@@ -19,6 +19,5 @@
 // //= require jquery-tokeninput
 // //= require jquery-resizer
 
-//= require kaltura_config
 
 // //= require nav

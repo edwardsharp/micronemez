@@ -14,6 +14,7 @@ $(function(){
     });
     
     // FADEZ!!
+    
 /*
     
     $(".scrollingHotSpotLeftVisible").oneTime(5000, function() {
@@ -55,6 +56,7 @@ $(function(){
 
 $(document).ready(function() {
   //TODO: nav colorbox'rz
+  /*
   $("#info").on("click", function(event){
 		$(this).colorbox({
 			scrolling: false,
@@ -62,6 +64,7 @@ $(document).ready(function() {
 			
 		});
 	});
+  */
   
 });
 

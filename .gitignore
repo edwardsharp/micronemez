@@ -8,7 +8,11 @@ micronemez_railz3/db/development.sqlite3.bak2.bak
 *.swp
 *.redcar
 icecast/icecast.xml
-
+*.mp3
+*.mp4
+*.ogg
+*.ogv
+*.jpg
 icecast/micronemez-video.liq
 
 .DS_Store

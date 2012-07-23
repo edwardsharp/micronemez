@@ -11,7 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120404175258) do
+ActiveRecord::Schema.define(:version => 20120723021907) do
+
+  create_table "audios", :force => true do |t|
+    t.string   "catnum"
+    t.string   "title"
+    t.string   "location"
+    t.string   "description"
+    t.string   "thumbnail_saveto"
+    t.string   "thumbnail_url"
+    t.string   "file_saveto"
+    t.string   "file_pub_url"
+    t.string   "file_cdn_url"
+    t.integer  "user_id"
+    t.integer  "tag_id"
+    t.integer  "keyword_id"
+    t.integer  "sort"
+    t.string   "kaltura_mediaId"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.string   "audio_upload_file_name"
+    t.string   "audio_upload_content_type"
+    t.integer  "audio_upload_file_size"
+    t.datetime "audio_upload_updated_at"
+  end
+
+  add_index "audios", ["catnum"], :name => "index_audios_on_catnum", :unique => true
+  add_index "audios", ["kaltura_mediaId"], :name => "index_audios_on_kaltura_mediaId"
+  add_index "audios", ["keyword_id"], :name => "index_audios_on_keyword_id"
+  add_index "audios", ["sort"], :name => "index_audios_on_sort"
+  add_index "audios", ["tag_id"], :name => "index_audios_on_tag_id"
+  add_index "audios", ["user_id"], :name => "index_audios_on_user_id"
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -76,8 +106,16 @@ ActiveRecord::Schema.define(:version => 20120404175258) do
     t.string   "views"
     t.string   "votes"
     t.string   "width"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "conversionProfileId"
+    t.string   "operationAttributes"
+    t.string   "partnerSortValue"
+    t.string   "referenceId"
+    t.string   "replacedEntryId"
+    t.string   "replacementStatus"
+    t.string   "replacingEntryId"
+    t.string   "rootEntryId"
   end
 
   create_table "kaltura_videos", :force => true do |t|

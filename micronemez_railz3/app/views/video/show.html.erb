@@ -1,0 +1,52 @@
+<% content_for :header do %>
+  <script type="text/javascript" src="http://html5.kaltura.org/js" ></script>
+  <script type="text/javascript" src="http://cdn.jquerytools.org/1.2.4/jquery.tools.min.js" ></script>  <script type='text/javascript'>
+            mw.setConfig( 'Kaltura.ServiceUrl' , 'http://video.micronemez.com' );
+            mw.setConfig( 'Kaltura.CdnUrl' , 'http://video.micronemez.com' );
+            mw.setConfig('EmbedPlayer.EnableIframeApi', false );
+            mw.setConfig('EmbedPlayer.UseFlashOnAndroid', false );
+            mw.setConfig('Kaltura.LoadScriptForVideoTags', true );
+            mw.setConfig('Kaltura.AllowRemoteService', false );
+            mw.setConfig('Kaltura.UseAppleAdaptive', true );
+	    mw.setConfig('EmbedPlayer.kalturaAttribution', false );
+	    mw.setConfig( 'EmbedPlayer.NativeControlsMobileSafari', false );
+	</script>
+
+	<script src="http://video.micronemez.com/p/100/sp/10000/embedIframeJs/uiconf_id/6709457/partner_id/100"></script>
+	<script>mw.setConfig('Kaltura.NoApiCache', true);</script>
+	<style type="text/css">
+  body {background-color:#000000;}
+	#main .content .contwrap { border: none !important;}
+	</style>
+<% end %>
+
+<div id="main" style="position: static;">
+
+		<div class="content">
+			<div class="contwrap">
+        
+			<div id="videoContainer">
+			    <object id="kaltura_player" name="kaltura_player" type="application/x-shockwave-flash" 
+				    allowFullScreen="true" allowNetworking="all" allowScriptAccess="always" height="330" width="400"
+				    xmlns:dc="http://purl.org/dc/terms/" 
+				    xmlns:media="http://search.yahoo.com/searchmonkey/media/" 
+				    rel="media:video" 
+				    resource="http://video.micronemez.com/index.php/kwidget/cache_st/1343016234/wid/_100/uiconf_id/6709457/entry_id/<%= params[:entry_id] %>" 
+				    data="http://video.micronemez.com/index.php/kwidget/cache_st/1343016234/wid/_100/uiconf_id/6709457/entry_id/<%= params[:entry_id] %>">
+				<param name="allowFullScreen" value="true" />
+				<param name="allowNetworking" value="all" />
+				<param name="allowScriptAccess" value="always" />
+				<param name="bgcolor" value="#000000" />
+				<param name="flashVars" value="Array" />
+				<param name="movie" value="http://video.micronemez.com/index.php/kwidget/cache_st/1343016234/wid/_100/uiconf_id/6709457/entry_id/<%= params[:entry_id] %>" />
+				<span property="dc:description" content=""></span>
+				<span property="media:title" content="Kaltura Video"></span>
+				<span property="media:width" content="400"></span>
+				<span property="media:height" content="333"></span> 
+				<span property="media:type" content="application/x-shockwave-flash"></span> 
+			   </object>
+			</div>
+
+			</div><!-- end contwrap -->
+		</div><!-- end content -->
+	</div><!-- end #main -->

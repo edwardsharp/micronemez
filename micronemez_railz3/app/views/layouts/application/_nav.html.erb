@@ -21,38 +21,13 @@
             </ul>
             
         </li>
-        <li><a href="/" title="LAND:FORMATION">[ main ]</a>
-        &nbsp;
-        <% if user_signed_in? %>
-        [ <%= link_to "sign out", destroy_user_session_path, :title => current_user.username %> ]
-        <% else %>
-          <a href="/users/sign_in" title="you can be somebody!">[ users ]</a>
-        <% end %>
-        <%# <a href="#live" title="#live">[ live ]</a> %>
+        <!-- li><a href="/" title="LAND:FORMATION">[ main ]</a -->
+         &nbsp;
+        <a href="/info" title="INFO">[ info ]</a>
+         &nbsp;
+        
       </li>
-        <%# <li class="searchContainer">
-            <div>
-            <input type="text" id="searchField" />
-            <img src="/images/magnifier.png" alt="search" onclick="alert('sssearch')" /></div>
-            <ul id="search">
-                <li>
-                    <img class="corner_inset_left" alt="" src="/images/corner_inset_left.png"/>
-                    <input id="cbxAll" type="checkbox" />All
-                    <img class="corner_inset_right" alt="" src="/images/corner_inset_right.png"/>
-                </li>
-                <li><input id="pump" type="checkbox" />pump</li>
-                <li><input id="throbb" type="checkbox" />throbb</li>
-                <li><input id="poop" type="checkbox" />poop</li>
-                <li><input id="bill" type="checkbox" />bill</li>
-                <li class="last">
-                    <img class="corner_left" alt="" src="/images/corner_left.png"/>
-                    <img class="middle" alt="" src="/images/dot.gif"/>
-                    <img class="corner_right" alt="" src="/images/corner_right.png"/>
-                </li>
-            </ul>
-        </li>
-        %>
-
+      
     <span class="notice wide_noticealert"><%= notice %></span>
     <span class="alert wide_noticealert"><%= alert %></span>
     </ul>

@@ -1,5 +1,6 @@
 // NAV animation
 $(function(){
+    // FADEZ!!
     $("#top").oneTime(6666, function() {
 			//$('#nav').css('background','none');
 			//$('#nav').hide("slow");		
@@ -21,4 +22,5 @@ $(function(){
 		  });
 			});
 	  }); 
+    
 });
