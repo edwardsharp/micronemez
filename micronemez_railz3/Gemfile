@@ -39,6 +39,7 @@ gem "kaltura-ruby"
 gem "delayed_job_active_record"
 gem "daemons"
 
+
 group :test, :development do
   gem "rspec-rails"
   gem "spork", "~> 1.0.0rc1"

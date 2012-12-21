@@ -21,9 +21,15 @@
             </ul>
             
         </li>
-        <!-- li><a href="/" title="LAND:FORMATION">[ main ]</a -->
+        <li><a href="/" title="LAND:FORMATION">[ main ]</a>
          &nbsp;
         <a href="/info" title="INFO">[ info ]</a>
+         &nbsp;
+         <% if user_signed_in? %>
+        [ <%= link_to "sign out", destroy_user_session_path, :title => current_user.username %> ]
+        <% else %>
+            <a href="/users/sign_in" title="you can be somebody!">[ users ]</a>
+        <% end %>
          &nbsp;
         
       </li>

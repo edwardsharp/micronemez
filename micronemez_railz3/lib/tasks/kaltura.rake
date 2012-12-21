@@ -416,6 +416,16 @@ namespace :kaltura do
 		p "#{v.count} videos destroy'd. "  
 	end #task 
   
-  
+  desc "destroy audios that donot have a url"
+	task :getVideoThumbnails => :environment do
+    a = Audio.find(:all)
+    
+    a.each do |audio|
+      if audio.file_pub_url.nil?
+        p "#{audio.file_pub_url}"
+        #audio.destroy
+      end
+    end
+  end #task
   
 end

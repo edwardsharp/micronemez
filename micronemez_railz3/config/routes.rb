@@ -4,25 +4,28 @@ Micronemez::Application.routes.draw do
   
   ## ##iscomingsoon!
   #this needs to come before the resource definition
-  ##get "video/tags" => "videos#tags", :as => :tags
-  ##post "video/tags" => "videos#newtag", :as => :tags
+  get "video/tags" => "videos#tags", :as => :tags
+  post "video/tags" => "videos#newtag", :as => :tags
   #this is not the video name, rather for the video tag tags
-  ##resources :videos do
-    #get :autocomplete_video_name, :on => :collection 
+  resources :videos do
+    get :autocomplete_video_name, :on => :collection 
     
-  ##end 
+  end 
   
-  ##get "video/index"
-  ##get "video/new"
-  ##get "video/edit"
+  get "node/tags" => "nodes#tags", :as => :tags
+  post "node/tags" => "nodes#newtag", :as => :tags
+  resources :nodes do
+    get :autocomplete_node_name, :on => :collection 
+    
+  end 
 
-  ##devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
 
-  ##match "/admin" => "admin/base#index", :as => "admin"
-  ##namespace "admin" do
-  ##  resources :users
-  ##end
+  match "/admin" => "admin/base#index", :as => "admin"
+  namespace "admin" do
+    resources :users
+  end
 
 	#resources :videos, except => [:index]
 	#resources :videos, :only => [:new, :create, :edit, :destroy]
