@@ -1,0 +1,150 @@
+p.title {
+    font-size:28px;
+}
+p.subtitle {
+    font-size: 16px;
+}
+
+
+#cluster {
+    padding-top: 30px;
+}
+
+/* GENERIC HEX PROPERTIEZ */
+.hex, .hex_connector {
+    float: left;
+    margin-left: 50px;
+    /*margin-bottom: -28px;*/
+}
+
+.hex-row {
+    clear: left;
+} 
+
+.hex-row.even {
+    margin-left: 116px;
+}
+
+.pagination, .none {
+    visibility:hidden;
+}
+
+.middle {
+    padding-right: 5px;
+    word-wrap: break-word;
+}
+
+.middle h1, .middle p {   
+    padding-left: 3px;
+    
+}
+
+.middle h1 {
+    padding-top: 30px;
+    padding-left: 10px;
+    font-size: 28px;
+}
+
+/* HEX (CONTENT) */
+.hex:not(.notForHover):hover .top, .hex:not(.notForHover):hover .bottom {
+    filter: alpha(opacity=50); 
+    -khtml-opacity: 0.5;     
+    -moz-opacity: 0.5;  
+    opacity: 0.5;     
+}
+
+.hex .middle:hover {
+    background: #000;
+    color: #ff6600;
+}
+
+.hex .top {
+    width: 0;
+    border-bottom: 60px solid #ff6600;
+    border-left: 104px solid transparent;
+    border-right: 104px solid transparent;
+}
+
+.hex .middle {
+    width: 202px;
+    height: 116px;
+    background: #ff6600;
+    color: #000;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+
+.hex .bottom {
+    width: 0;
+    border-top: 60px solid #ff6600;
+    border-left: 104px solid transparent;
+    border-right: 104px solid transparent;
+}
+
+.hex .no-background {
+    background: #000;
+    color: #ff6600;
+}
+
+/* HEX_CONNECTOR */
+.hex_connector .top {
+    width: 0;
+    border-bottom: 60px solid #1F1F1F;
+    border-left: 104px solid transparent;
+    border-right: 104px solid transparent;
+}
+
+
+.hex_connector .middle {
+    width: 202px;
+    height: 116px;
+    background: #1F1F1F;
+    color: #ff6600;
+    overflow: hidden;
+    font-size: 30px;
+}
+
+
+.hex_connector .bottom {
+    width: 0;
+    border-top: 60px solid #1F1F1F;
+    border-left: 104px solid transparent;
+    border-right: 104px solid transparent;
+}
+
+.northeast {
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform: rotate(-60deg);
+    -moz-transform-origin: 50% 50%;
+    -moz-transform: rotate(-60deg);
+    -ms-transform: rotate(-60deg);
+    -ms-transform-origin: 50% 50%;
+    -o-transform: rotate(-60deg);
+    -o-transform-origin: 50% 50%;
+    transform: rotate(-60deg);
+    transform-origin: 50% 50%;
+}
+
+
+.hex_east {
+    
+}
+
+.southeast {
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform: rotate(60deg);
+    -moz-transform-origin: 50% 50%;
+    -moz-transform: rotate(60deg);
+    -ms-transform-origin: 50% 50%;
+    -ms-transform: rotate(60deg);
+    -o-transform-origin: 50% 50%;
+    -o-transform: rotate(60deg);
+    transform-origin: 50% 50%;
+    transform: rotate(60deg); 
+}
+
+
+/* END HEXX */
+
+​

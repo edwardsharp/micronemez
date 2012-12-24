@@ -38,7 +38,7 @@ gem "kaltura"
 gem "kaltura-ruby"
 gem "delayed_job_active_record"
 gem "daemons"
-
+gem 'will_paginate', '~> 3.0'
 
 group :test, :development do
   gem "rspec-rails"

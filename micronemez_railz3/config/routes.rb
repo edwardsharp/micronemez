@@ -1,7 +1,14 @@
 Micronemez::Application.routes.draw do
   
+  get "hexx/index"
+
+  resources :schedules
+
+
   match "/info" => "pages#info", :as => "info"
-  
+  match "/info/:ajax" => "pages#info", :as => "info_ajax"
+  match "/archive/:ajax" => "videos#index", :as => "archive_ajax"
+
   ## ##iscomingsoon!
   #this needs to come before the resource definition
   get "video/tags" => "videos#tags", :as => :tags
@@ -41,6 +48,6 @@ Micronemez::Application.routes.draw do
   
   match "/video/show/:entry_id" => "video#show", :as => "video"
   
-  root :to => "home#index"
+  root :to => "hexx#index"
 
 end

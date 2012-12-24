@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
   <title>micronemez</title>
-  <% unless params[:entry_id] %>
+  <% unless params[:entry_id] or params[:ajax] %>
   <%= stylesheet_link_tag "application" %>
 
   <%= javascript_include_tag "application" %>
@@ -28,11 +28,7 @@
 </script>
 </head>
 <body>
-  <% unless params[:entry_id] %>
-  <div id="top"> 
-    <%= render "layouts/application/nav" %>
-	</div>	
-  <% end %>
+
   <%= yield %>
   
 </body>

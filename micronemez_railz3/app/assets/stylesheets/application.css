@@ -11,15 +11,18 @@
 */
 
 body {
-  min-width: 500px;
-  text-transform: lowercase;
-  min-height: 555px;
-  overflow-y: hidden;
-  color: #ff6600;
-  background-color: #000000;
+    background: #000;
+    padding:0;
+    margin:0;
+    min-width:675px;
+
+    color: #ff6600;
+
+    font-size: 16px;
+    font-family: helvetica, sans-serif;
 }
 
-.box {
+/*.box {
   position: absolute;
   top: 50px;
   width:96%;
@@ -53,7 +56,7 @@ a:hover {
 i {
   font-size: x-small;
 }
-
+*/
 /* #TODO: MOVE THESE OUTTA HERE? */
 .sticky {
   height: auto;

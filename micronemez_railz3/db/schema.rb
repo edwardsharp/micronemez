@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120723021907) do
+ActiveRecord::Schema.define(:version => 20121221023716) do
 
   create_table "audios", :force => true do |t|
     t.string   "catnum"
@@ -195,6 +195,16 @@ ActiveRecord::Schema.define(:version => 20120723021907) do
   create_table "roles_users", :id => false, :force => true do |t|
     t.integer "role_id"
     t.integer "user_id"
+  end
+
+  create_table "schedules", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "live"
+    t.string   "channel"
+    t.string   "status"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "sessions", :force => true do |t|

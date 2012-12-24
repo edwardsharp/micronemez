@@ -1,30 +1,30 @@
-<div class="box">
+<% content_for :header do %>
 
-<table>
-  <tr>
-    <th><%=t(:seperator)%><%=t(:catnum)%></th>
-    <th><%=t(:seperator)%><%=t(:title)%></th>
-    <th><%=t(:seperator)%><%=t(:location)%></th>
-    <th><%=t(:seperator)%><%=t(:tags)%></th>
-    <th><%=t(:seperator)%><%=t(:description)%></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @videos.each do |video| %>
-  <tr>
-    <td><%= video.catnum %></td>
-    <td><%= video.title %></td>
-    <td><%= video.location %></td>
-    <td><%= video.tag_list %></td>
-    <td><%= video.description %></td>
-    <td><%= link_to t(:show), video %></td>
-    <td><%= link_to t(:edit), edit_video_path(video) %></td>
-    <td><%= link_to t(:destroy), video, confirm: t(:confirm), method: :delete %></td>
-  </tr>
+  <%= javascript_include_tag 'hexx_assets' %>
+  <%= javascript_include_tag 'hexx' %>
 <% end %>
-</table>
 
-<br />
-</div>
+<div id="archive-container" class="transitions-enabled infinite-scroll clearfix">
+    <% @videos.each do |video| %>
+      <div class="box col2">
+        <span><%= link_to t(video.catnum), video %></span>
+        <span><%= truncate(video.title, :length => 28) %></span>
+        <span><%= truncate(video.location, :length => 28) %></span>
+        <span><%= video.tag_list %></span>
+        <span><%= truncate(video.description, :length => 28) %></span>
+        <% if user_signed_in? %>
+            <span><%= link_to t(:edit), edit_video_path(video) %></span>
+            <span><%= link_to t(:destroy), video, confirm: t(:confirm), method: :delete %></span>
+        <% end %>
+        <%= link_to image_tag("/images/#{video.catnum}.jpg", :class=> 'video_thumb', :width => "100"), "/video/show/#{video.catnum}", :title => "#{video.title}",  :id => "#{video.catnum}" %>
+
+      </div>
+      
+    <% end %>
+
+    
+
+</div> <!-- #container -->
+
+<!--<nav id="page-nav"><a href="../pages/2.html"></a></nav>-->
+<%= will_paginate @videos %>
