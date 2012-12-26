@@ -2,8 +2,10 @@ Micronemez::Application.routes.draw do
   
   get "hexx/index"
 
+  #dhtmlxscheduler matchez
+  match "/schedules/records" => "schedules#records"
+  match "/schedules/dbaction" => "schedules#dbaction"
   resources :schedules
-
 
   match "/info" => "pages#info", :as => "info"
   match "/info/:ajax" => "pages#info", :as => "info_ajax"

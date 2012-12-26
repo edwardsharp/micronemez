@@ -198,13 +198,26 @@ ActiveRecord::Schema.define(:version => 20121221023716) do
   end
 
   create_table "schedules", :force => true do |t|
-    t.string   "name"
     t.text     "description"
     t.boolean  "live"
     t.string   "channel"
     t.string   "status"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "url"
+    t.string   "type"
+    t.string   "extended"
+    t.string   "metadata"
+    t.string   "title"
+    t.datetime "start"
+    t.datetime "end"
+    t.string   "event_pid"
+    t.string   "event_length"
+    t.string   "rec_pattern"
+    t.string   "rec_type"
+    t.string   "single_checkbox"
+    t.string   "radiobutton_option"
+    t.string   "custom_type"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "sessions", :force => true do |t|

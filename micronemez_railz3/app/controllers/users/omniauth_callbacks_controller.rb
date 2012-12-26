@@ -1,4 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  
+  #TODO: twitter & google
+
   def facebook
     @user = User.find_for_facebook_oauth(env["omniauth.auth"], current_user)
 
