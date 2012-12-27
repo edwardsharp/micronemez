@@ -2,14 +2,17 @@ Micronemez::Application.routes.draw do
   
   get "hexx/index"
 
+
+  match "/info" => "pages#info", :as => "info"
+  match "/info/:ajax" => "pages#info", :as => "info_ajax"
+  match "/archives/:ajax" => "videos#index", :as => "archive_ajax"
+  match "/schedules/:ajax" => "schedules#index", :as => "schedule_ajax"
+  match "/nodes/:ajax" => "nodes#index", :as => "nodes_ajax"
+
   #dhtmlxscheduler matchez
   match "/schedules/records" => "schedules#records"
   match "/schedules/dbaction" => "schedules#dbaction"
   resources :schedules
-
-  match "/info" => "pages#info", :as => "info"
-  match "/info/:ajax" => "pages#info", :as => "info_ajax"
-  match "/archive/:ajax" => "videos#index", :as => "archive_ajax"
 
   ## ##iscomingsoon!
   #this needs to come before the resource definition
@@ -21,11 +24,16 @@ Micronemez::Application.routes.draw do
     
   end 
   
+  #TODO: q: can this be refactored into the resources method? 
+  # a: kindof particular here b/c having a convience :as method 
+  # named :tags DRYz up the controller code...
   get "node/tags" => "nodes#tags", :as => :tags
   post "node/tags" => "nodes#newtag", :as => :tags
   resources :nodes do
     get :autocomplete_node_name, :on => :collection 
-    
+    #TODO: (above)
+    #get :tags
+    #post :tags
   end 
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

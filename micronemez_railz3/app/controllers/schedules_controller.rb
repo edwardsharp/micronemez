@@ -6,7 +6,8 @@ class SchedulesController < ApplicationController
 
   #GET
   def records
-    @records = Schedule.all
+    #TODO: limit this?
+    @records = Schedule.find(:all, :order => "start ASC", :limit => "250")
     respond_to do |format|
       format.xml # index.html.rxml
       format.json { render json: @schedules }
@@ -15,9 +16,7 @@ class SchedulesController < ApplicationController
   
 
   def dbaction
-    @records = Schedule.all
-    
-
+    #@records = Schedule.all
     #called for all db actions
     text = params["text"]
     start_date = params["start_date"]
@@ -71,7 +70,7 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       format.xml # index.html.rxml
-      format.json { render json: @schedules }
+      format.json { render json: @id }
     end
 
   end
@@ -80,8 +79,12 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   def index
-    @schedules = Schedule.all
-
+    #@schedules = Schedule.find(:all, :conditions => ["start > ?", DateTime.now], :order => "start ASC", :limit => "250")
+    @schedules = Schedule.paginate(
+      :conditions => ["end > ?", DateTime.now], 
+      :page => params[:page], 
+      :per_page => 2, 
+      :order => "start ASC" )
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @schedules }

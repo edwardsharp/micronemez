@@ -1,33 +1,65 @@
-<table>
-  <tr>
-    <th>title</th>
-    <th>description</th>
-    <th>live</th>
-    <th>channel</th>
-    <th>status</th>
-    <th>start</th>
-    <th>end</th>
-    <th></th>
-    <th></th>
-  </tr>
+<% if user_signed_in? %>
 
-<% @schedules.each do |schedule| %>
-  <tr>
-    <td><%= link_to schedule.title, schedule %></td>
-    <td><%= schedule.description %></td>
-    <td><%= schedule.live %></td>
-    <td><%= schedule.channel %></td>
-    <td><%= schedule.status %></td>
-    <td><%= schedule.start %></td>
-    <td><%= schedule.end %></td>
-    <% if user_signed_in? %>
-        <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
-        <td><%= link_to 'Destroy', schedule, confirm: 'Are you sure?', method: :delete %></td>
+    <table>
+      <tr>
+        <th>title</th>
+        <th>date</th>
+        <% if user_signed_in? %>
+            <th>description</th>
+            <th>live</th>
+            <th>channel</th>
+            <th>status</th>
+            <th>event_length</th>
+            <th>rec_pattern</th>
+            <th>single_checkbox</th>
+            <th>radiobutton_option</th>
+            <th>custom_type</th>
+            <th></th>
+            <th></th>
+        <% end %>
+      </tr>
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td><%= link_to schedule.title, schedule %></td>
+        <td><%= schedule.datespan %></td>
+        <% if user_signed_in? %>
+            <td><%= schedule.description %></td>
+            <td><%= schedule.live %></td>
+            <td><%= schedule.channel %></td>
+            <td><%= schedule.status %></td>
+            <td><%= schedule.event_length %></td>
+            <td><%= schedule.rec_pattern %></td>
+            <td><%= schedule.single_checkbox %></td>
+            <td><%= schedule.radiobutton_option %></td>
+            <td><%= schedule.custom_type %></td>
+            <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
+            <td><%= link_to 'Destroy', schedule, confirm: 'Are you sure?', method: :delete %></td>
+        <% end %>
+      </tr>
     <% end %>
-  </tr>
+    </table>
+    <br />
+    <%= link_to 'NEW SCHEDULE', new_schedule_path %>
+
+<% else %>
+
+    <% content_for :header do %>
+      <%= javascript_include_tag 'hexx_assets' %>
+      <%= javascript_include_tag 'hexx' %>
+    <% end %>
+
+    <div id="schedule-container" class="transitions-enabled infinite-scroll clearfix">
+        
+        <% @schedules.each do |schedule| %>
+            <div class="box col2">
+            <span><%= link_to t(schedule.title), schedule %></span>
+            <span><%= truncate(schedule.datespan, :length => 255) %></span>
+            </div>
+        <% end %>
+       
+    </div> <!-- #container -->
+
+    <%= will_paginate @schedules %>
+
+    
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'new schedule', new_schedule_path %>

@@ -118,8 +118,9 @@ $(function(){
       nextSelector : 'a.next_page',  // selector for the NEXT link (to page 2)
       itemSelector : '.box',     // selector for all items you'll retrieve
       loading: {
-          finishedMsg: 'No more pages to load.',
-          img: 'http://i.imgur.com/6RMhx.gif'
+          finishedMsg: '',
+          msgText: '',
+          img: '/images/loader.gif'
         }
       },
       // trigger Masonry as a callback
@@ -136,7 +137,7 @@ $(function(){
     ); //end_infinitescroll
     
 });    
-//ARCHIVE_FAKE_JAX
+//ARCHIVE_AJAX
 $(function() {  
         
     $('.archive').on('click', function(e) {
@@ -157,7 +158,7 @@ $(function() {
                 async: true,
                 cache: false,
                 type: 'post',
-                url: '/archive/ajax',
+                url: '/archives/ajax',
                 //dataType: 'html',
                 beforeSend: function() {
                     console.log('Fired prior to the request');
@@ -180,6 +181,106 @@ $(function() {
     });
 
 }); //END__ARCHIVE__AJAX
+
+
+/*
+ * SCHEDULE MASONRY & INFINITE SCROLL'R
+ *
+ */
+$(function(){
+    
+    var $container = $('#schedule-container');
+    
+    $container.imagesLoaded(function(){
+      $container.masonry({
+        itemSelector: '.box',
+        columnWidth: 100
+      });
+    });
+    
+    if ($('.schedule').length > 0) {
+        console.log("USING schedule ELEM");
+        binder_elem = $('.schedule');
+    } else {
+        console.log("CAN NOT FIND schedule CLASS! (USING WINDOW)!");
+        binder_elem = $(window);
+    }
+    
+    
+    $container.infinitescroll({
+        debug: true,
+      behavior: 'local',
+      binder: binder_elem,  
+      extraScrollPx: 20,
+      navSelector  : '.pagination',    // selector for the paged navigation 
+      nextSelector : 'a.next_page',  // selector for the NEXT link (to page 2)
+      itemSelector : '.box',     // selector for all items you'll retrieve
+      loading: {
+          finishedMsg: '',
+          msgText: '',
+          img: '/images/loader.gif'
+        }
+      },
+      // trigger Masonry as a callback
+      function( newElements ) {
+        // hide new items while they are loading
+        var $newElems = $( newElements ).css({ opacity: 0 });
+        // ensure that images load before adding to masonry layout
+        $newElems.imagesLoaded(function(){
+          // show elems now they're ready
+          $newElems.animate({ opacity: 1 });
+          $container.masonry( 'appended', $newElems, true ); 
+        });
+      }
+    ); //end_infinitescroll
+    
+});    
+//SCHEDULE_AJAX
+$(function() {  
+        
+    $('.schedule').on('click', function(e) {
+        e.preventDefault();
+        if( $(this).parent().hasClass('notForHover')){
+            
+        } else {
+            $(this).parent().addClass('notForHover');
+        }
+        
+        if ($(this).hasClass('schedule_selected')) {
+            
+        } else {
+            
+            $(this).addClass('schedule_selected');                    
+            // ajax request
+            $.ajax({
+                async: true,
+                cache: false,
+                type: 'post',
+                url: '/schedules/ajax',
+                //dataType: 'html',
+                beforeSend: function() {
+                    //console.log('Fired prior to the request');
+                },
+                success: function(data) {
+                    //console.log('Fired when the request is successfull');
+                    $('.schedule h1').toggle();
+                    $('.schedule').append(data);
+                },
+                complete: function() {
+                    //console.log('Fired when the request is complete');
+                }
+            });
+        } //endif  
+
+              
+
+
+    
+    });
+
+}); //END__SCHEDULE__AJAX
+
+
 
 jQuery(document).ready(function($) {
 

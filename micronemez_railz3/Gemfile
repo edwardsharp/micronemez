@@ -34,11 +34,11 @@ gem "paperclip", ">= 3.1.4"
 
 gem "nokogiri", ">= 1.5.5"
 
-gem "kaltura"
-gem "kaltura-ruby"
 gem "delayed_job_active_record"
 gem "daemons"
 gem 'will_paginate', '~> 3.0'
+#snazzy forUmz!
+#gem 'forum_monster'
 
 group :test, :development do
   gem "rspec-rails"
@@ -53,6 +53,8 @@ group :test, :development do
 end
 
 group :development do
+  gem "kaltura"
+  gem "kaltura-ruby"
   gem "mongrel", ">= 1.2.0.pre2"
   gem "chronic"
   gem "admin_view"

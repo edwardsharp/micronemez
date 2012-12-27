@@ -13,6 +13,9 @@ ul.hmenu li {
 	margin:0px; 
 	list-style-type:none; 
 	height:30px;
+	-webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
 }
 
 .dd_menu li 	{
@@ -88,3 +91,22 @@ ul.hmenu li {
 .triangle {
   font-size: 2em !important;
 }
+
+
+label, #error_explanation {
+  text-transform: lowercase;
+}
+
+
+#notice {
+  color: yellow; 
+}
+
+.field_with_errors, #error_explanation, #error_explanation h2 {
+	border-color: orange!important;
+  background-color: orange!important;
+  color: #1f1f1f!important;
+	-webkit-border-radius: 2px;
+   -moz-border-radius: 2px;
+        border-radius: 2px;
+ }
