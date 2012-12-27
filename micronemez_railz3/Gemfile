@@ -38,7 +38,7 @@ gem "delayed_job_active_record"
 gem "daemons"
 gem 'will_paginate', '~> 3.0'
 #snazzy forUmz!
-#gem 'forum_monster'
+gem 'forum_monster'
 
 group :test, :development do
   gem "rspec-rails"

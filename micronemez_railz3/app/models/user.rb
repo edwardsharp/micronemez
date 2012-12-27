@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
+  # default devise modules. others available are:
   # :token_authenticatable, and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -16,11 +16,16 @@ class User < ActiveRecord::Base
   
   acts_as_tagger
   
-  # Setup accessible (or protected) attributes for your model
+  # setup accessible (or protected) model attributes 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :agree, :username, :name, :zip
 
   has_and_belongs_to_many :roles
-  has_many :videos, :dependent => :destroy
+  has_many :videos, :dependent => :nullify
+  has_many :nodes, :dependent => :nullify 
+  has_many :schedules, :dependent => :nullify
+  has_many :topics, :dependent => :nullify
+  has_many :posts, :dependent => :nullify
+
   #for _header view
   #OMNIAUTH_PROVIDERS = ['facebook']
   OMNIAUTH_PROVIDERS = []

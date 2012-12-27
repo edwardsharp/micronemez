@@ -17,7 +17,7 @@ private
   	startdate = Date.strptime(startdatetime,"%Y-%m-%d %H:%M:%S UTC")
   	enddate = Date.strptime(enddatetime,"%Y-%m-%d %H:%M:%S UTC")
   	unless startdate == enddate 
-  		_enddatetime = DateTime.strptime(enddatetime,"%Y-%m-%d %H:%M:%S UTC").strftime("%a, %b %e, %Y, %l:%M%P ") 
+  		_enddatetime = DateTime.strptime(enddatetime,"%Y-%m-%d %H:%M:%S UTC").strftime("%a, %b %e, %Y, %l:%M%P") 
   	end
   	#TODO: translation ready plz: http://guides.rubyonrails.org/i18n.html#translations-for-active-record-models
   	return "#{_startdatetime} until #{_enddatetime} (#{_totalminutes}minz)"

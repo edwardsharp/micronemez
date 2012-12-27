@@ -109,6 +109,7 @@ GEM
       multipart-post (~> 1.1)
       rack (~> 1.1)
     ffi (1.0.11)
+    forum_monster (1.0.3)
     gem_plugin (0.2.3)
     gherkin (2.7.6)
       json (>= 1.4.6)
@@ -321,6 +322,7 @@ DEPENDENCIES
   dynamic_form
   email_spec
   factory_girl_rails
+  forum_monster
   heroku
   jquery-rails
   json

@@ -4,6 +4,16 @@ require File.expand_path('../application', __FILE__)
 # Initialize the rails application
 Micronemez::Application.initialize!
 
+#time magic that allows us to use things like this: some_model.created_at.to_s(:short)
+#%a, %b %e, %Y, %l:%M%P
+DateTime::DATE_FORMATS[:short]="%b %Y"
+Time::DATE_FORMATS[:short] = "%b %Y"
+Date::DATE_FORMATS[:short] = "%b %Y"
+
+DateTime::DATE_FORMATS[:joined]="%a, %b %e, %Y, %l:%M%P"
+Time::DATE_FORMATS[:joined] = "%a, %b %e, %Y, %l:%M%P"
+Date::DATE_FORMATS[:joined] = "%a, %b %e, %Y, %l:%M%P"
+
 def yell(msg)
   f = File.open(File.expand_path(File.dirname(__FILE__) + "/../log/yell.log"), "a")
   f.puts msg

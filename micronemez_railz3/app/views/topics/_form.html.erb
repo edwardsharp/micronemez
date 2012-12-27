@@ -1,0 +1,29 @@
+<%= form_for [@forum, @topic] do |f| %>
+<% if @topic.errors.any? %>
+  <% flash.now[:error] = @topic.errors.full_messages.join(', and ') %>
+<% end %>
+<div class="module">
+  <div class="module_header"><%= action_name.humanize %> Topic</div>
+    <div class="module_subheader smaller"></div>
+    <div class="module_body">
+      <div class="fieldset">
+        <span class="input indent smaller" title="title"><%= f.text_field :title, :size => 75 %></span>
+        <div class="clear"></div>
+      </div>
+      <% unless @topic.id %>
+      <div class="fieldset">
+
+        <span class="input indent smaller" title="body"><%= f.text_area :body, :cols => 55, :rows => 15 %></span>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <% end %>
+    <div class="module_footer">
+      <div class="fieldset">
+        <span class="input"><%= f.submit "submit" %> or <%= link_to "cancel", @topic.nil? ?  @topic : @forum %></span>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
