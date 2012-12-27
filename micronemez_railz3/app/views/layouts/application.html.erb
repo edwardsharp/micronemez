@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-  <title>micronemez</title>
   <% unless params[:entry_id] or params[:ajax] %>
-  <%= stylesheet_link_tag "application" %>
+    <meta charset="UTF-8">
+    <title>micronemez</title>
+    <%= stylesheet_link_tag "application" %>
 
-  <%= javascript_include_tag "application" %>
-  <% end %>
+    <%= javascript_include_tag "application" %>
+  
   
   <%= yield :header %>
+  
+  <% end %>
 
   <%= csrf_meta_tags %>
 <script type="text/javascript">

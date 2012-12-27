@@ -10,7 +10,10 @@ private
   		_startdatetime = DateTime.strptime(startdatetime,"%Y-%m-%d %H:%M:%S UTC").strftime("%a, %b %e, %Y from %l:%M%P") 
   		_enddatetime = DateTime.strptime(enddatetime,"%Y-%m-%d %H:%M:%S UTC").strftime("%l:%M%P") 
       _totalminutes = ((DateTime.strptime(enddatetime,"%Y-%m-%d %H:%M:%S UTC").to_time - DateTime.strptime(startdatetime,"%Y-%m-%d %H:%M:%S UTC").to_time)/60).to_i
-  	rescue
+  	rescue => e
+  		logger.info e.inspect
+  		logger.info startdatetime
+  		logger.info enddatetime
   		return "SORRY"
 	  end 
     #if on the same day just show the time difference.

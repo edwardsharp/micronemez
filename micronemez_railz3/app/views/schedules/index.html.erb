@@ -46,6 +46,13 @@
     <% content_for :header do %>
       <%= javascript_include_tag 'hexx_assets' %>
       <%= javascript_include_tag 'hexx' %>
+
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+          init_schedule_infinite_scroller();
+        });
+      </script>
+
     <% end %>
 
     <div id="schedule-container" class="transitions-enabled infinite-scroll clearfix">

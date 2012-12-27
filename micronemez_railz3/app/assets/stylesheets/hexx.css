@@ -47,14 +47,15 @@ p.subtitle {
 }
 
 /* HEX (CONTENT) */
-.hex:not(.notForHover):hover .top, .hex:not(.notForHover):hover .bottom {
+/*http://www.nczonline.net/blog/2012/07/05/ios-has-a-hover-problem/ */
+.no-touch .hex:not(.notForHover):hover .top, .hex:not(.notForHover):hover .bottom {
     filter: alpha(opacity=50); 
     -khtml-opacity: 0.5;     
     -moz-opacity: 0.5;  
     opacity: 0.5;     
 }
 
-.hex .middle:hover {
+.no-touch .hex .middle:hover {
     background: #000;
     color: #ff6600;
 }

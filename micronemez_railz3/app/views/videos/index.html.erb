@@ -2,6 +2,13 @@
 
   <%= javascript_include_tag 'hexx_assets' %>
   <%= javascript_include_tag 'hexx' %>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function($) {
+      init_archive_infinite_scroller();
+    });
+  </script>
+
 <% end %>
 
 <div id="archive-container" class="transitions-enabled infinite-scroll clearfix">

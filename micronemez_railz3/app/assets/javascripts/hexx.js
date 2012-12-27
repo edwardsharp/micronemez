@@ -89,7 +89,7 @@ $(function() {
  * ARCHIVE MASONRY & INFINITE SCROLL'R
  *
  */
-$(function(){
+function init_archive_infinite_scroller(){
     
     var $container = $('#archive-container');
     
@@ -108,14 +108,17 @@ $(function(){
         binder_elem = $(window);
     }
     
-    
+    //first test to see if these selectors exists. 
+    var nav_sel = $('.archive .pagination').length ? '.archive .pagination' : '.pagination';
+    var next_sel = $('.archive a.next_page').length ? '.archive a.next_page' : 'a.next_page';
+
     $container.infinitescroll({
-        debug: true,
+      debug: true,
       behavior: 'local',
       binder: binder_elem,  
-      extraScrollPx: 20,
-      navSelector  : '.pagination',    // selector for the paged navigation 
-      nextSelector : 'a.next_page',  // selector for the NEXT link (to page 2)
+      extraScrollPx: 30,
+      navSelector  : nav_sel,    // selector for the paged navigation 
+      nextSelector : next_sel,  // selector for the NEXT link (to page 2)
       itemSelector : '.box',     // selector for all items you'll retrieve
       loading: {
           finishedMsg: '',
@@ -136,7 +139,7 @@ $(function(){
       }
     ); //end_infinitescroll
     
-});    
+}    
 //ARCHIVE_AJAX
 $(function() {  
         
@@ -155,6 +158,7 @@ $(function() {
             $(this).addClass('archive_selected');                    
             // ajax request
             $.ajax({
+                context: this,
                 async: true,
                 cache: false,
                 type: 'post',
@@ -169,7 +173,8 @@ $(function() {
                     $('.archive').append(data);
                 },
                 complete: function() {
-                    console.log('Fired when the request is complete');
+                    console.log('/archives/ajax request is complete. going to init_archive_infinite_scroller(');
+                    init_archive_infinite_scroller();
                 }
             });
         } //endif  
@@ -187,7 +192,7 @@ $(function() {
  * SCHEDULE MASONRY & INFINITE SCROLL'R
  *
  */
-$(function(){
+ function init_schedule_infinite_scroller(){
     
     var $container = $('#schedule-container');
     
@@ -206,14 +211,18 @@ $(function(){
         binder_elem = $(window);
     }
     
+     //first test to see if these selectors exists. 
+    var nav_sel = $('.schedule .pagination').length ? '.schedule .pagination' : '.pagination';
+    var next_sel = $('.schedule a.next_page').length ? '.schedule a.next_page' : 'a.next_page';
+    console.log("nav_sel: "+nav_sel);
     
     $container.infinitescroll({
-        debug: true,
+      debug: true,
       behavior: 'local',
       binder: binder_elem,  
-      extraScrollPx: 20,
-      navSelector  : '.pagination',    // selector for the paged navigation 
-      nextSelector : 'a.next_page',  // selector for the NEXT link (to page 2)
+      extraScrollPx: 30,
+      navSelector  : nav_sel,    // selector for the paged navigation 
+      nextSelector : next_sel,  // selector for the NEXT link (to page 2)
       itemSelector : '.box',     // selector for all items you'll retrieve
       loading: {
           finishedMsg: '',
@@ -234,7 +243,7 @@ $(function(){
       }
     ); //end_infinitescroll
     
-});    
+}    
 //SCHEDULE_AJAX
 $(function() {  
         
@@ -253,13 +262,14 @@ $(function() {
             $(this).addClass('schedule_selected');                    
             // ajax request
             $.ajax({
+                context: this,
                 async: true,
                 cache: false,
                 type: 'post',
                 url: '/schedules/ajax',
                 //dataType: 'html',
                 beforeSend: function() {
-                    //console.log('Fired prior to the request');
+                    console.log('Fired prior to the request');
                 },
                 success: function(data) {
                     //console.log('Fired when the request is successfull');
@@ -267,7 +277,8 @@ $(function() {
                     $('.schedule').append(data);
                 },
                 complete: function() {
-                    //console.log('Fired when the request is complete');
+                    console.log('/schedules/ajax request is complete. going to init_schedule_infinite_scroller(');
+                    init_schedule_infinite_scroller();
                 }
             });
         } //endif  
@@ -284,16 +295,16 @@ $(function() {
 
 jQuery(document).ready(function($) {
 
-    var is_touch_device = 'ontouchstart' in document.documentElement;
-
-    if(!is_touch_device) {
+    if(!("ontouchstart" in document.documentElement)) {
         // self-desctruct...
         console.log("ADDING ZOOM TAGETZ!");
+        document.documentElement.className += " no-touch";
         $('.z').zoomTarget();
     } else {
         //#TODO: aplologize, i guess.
         console.log("TOUCH DEV SELF-DESCTRUCT! (SORRY)");
     }
+
 
     //$('.middle').jScrollPane();
 
@@ -302,10 +313,10 @@ jQuery(document).ready(function($) {
         //$("body").css("background", "#121212");
     });
     
-    $('body').click(function() {
-        $('.no-background').removeClass('.no-background');
+    //$('body').click(function() {
+        //$('.no-background').removeClass('.no-background');
         //$("body").css("background", "#000");
-    });
+    //});
 
  
 });

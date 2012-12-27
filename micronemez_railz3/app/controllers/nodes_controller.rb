@@ -5,6 +5,11 @@ class NodesController < ApplicationController
   # GET /nodes.json
   def index
     @nodes = Node.all
+    @nodes = Node.paginate(
+      :conditions => ["updated_at > ?", DateTime.now], 
+      :page => params[:page], 
+      :per_page => 2, 
+      :order => "start ASC",)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -81,9 +81,9 @@ class SchedulesController < ApplicationController
   def index
     #@schedules = Schedule.find(:all, :conditions => ["start > ?", DateTime.now], :order => "start ASC", :limit => "250")
     @schedules = Schedule.paginate(
-      :conditions => ["end > ?", DateTime.now], 
+      #:conditions => ["end > ?", DateTime.now], 
       :page => params[:page], 
-      :per_page => 2, 
+      :per_page => 50, 
       :order => "start ASC" )
     respond_to do |format|
       format.html # index.html.erb
