@@ -1,16 +1,16 @@
-// MICRONEMEZ HOME
+// MICRONEMEZ PLAYLIST
 
 $(function(){
 		//resizeable 
-    $('#home_index').css({'height':(($(window).height()))+'px'});
+    $('#playlist_index').css({'height':(($(window).height()))+'px'});
     $('#middle-scrollr').css({'height':(($(window).height())-$('#makeMeScrollable').height()-$('#bottom').height())+'px'});
-    $('#home_index, #bottom').css({'width':(($(window).width()))+'px'});
+    $('#playlist_index, #bottom').css({'width':(($(window).width()))+'px'});
     
     $(window).resize(function(){
           //$('.scroll-pane').jScrollPaneRemove();
-          $('#home_index').css({'height':(($(window).height()))+'px'});
+          $('#playlist_index').css({'height':(($(window).height()))+'px'});
           $('#middle-scrollr').css({'height':(($(window).height())-$('#makeMeScrollable').height()-$('#bottom').height())+'px'});
-          $('#home_index, #bottom').css({'width':(($(window).width()))+'px'});
+          $('#playlist_index, #bottom').css({'width':(($(window).width()))+'px'});
     });
     
     // FADEZ!!

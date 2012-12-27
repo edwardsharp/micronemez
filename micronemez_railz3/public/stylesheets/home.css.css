@@ -1,11 +1,11 @@
-/* line 5, ../../app/assets/stylesheets/home.css.scss */
+/* line 5, ../../app/assets/stylesheets/playlist.css.scss */
 #makeMeScrollable {
   width: 100%;
   height: 330px;
   position: relative;
 }
 
-/* line 12, ../../app/assets/stylesheets/home.css.scss */
+/* line 12, ../../app/assets/stylesheets/playlist.css.scss */
 #makeMeScrollable div.scrollableArea img {
   position: relative;
   float: left;
@@ -13,25 +13,25 @@
   padding: 0;
 }
 
-/* line 20, ../../app/assets/stylesheets/home.css.scss */
+/* line 20, ../../app/assets/stylesheets/playlist.css.scss */
 .scroll-pane {
   width: 100%;
   height: auto;
   overflow: auto;
 }
 
-/* line 27, ../../app/assets/stylesheets/home.css.scss */
+/* line 27, ../../app/assets/stylesheets/playlist.css.scss */
 #bottom {
   position: absolute;
   bottom: 0;
 }
 
-/* line 32, ../../app/assets/stylesheets/home.css.scss */
+/* line 32, ../../app/assets/stylesheets/playlist.css.scss */
 #bottomline {
   height: 25px;
 }
 
-/* line 36, ../../app/assets/stylesheets/home.css.scss */
+/* line 36, ../../app/assets/stylesheets/playlist.css.scss */
 #paypal_donate {
   float: right;
   position: absolute;

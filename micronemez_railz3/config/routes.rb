@@ -10,6 +10,8 @@ Micronemez::Application.routes.draw do
 
   get "hexx/index"
 
+  match "/playlist" => "playlists#index", :as => "playlist_index"
+  match "/playlist/:playlist_id" => "playlists#show", :as => "playlist_index"
 
   match "/info" => "pages#info", :as => "info"
   match "/info/:ajax" => "pages#info", :as => "info_ajax"
