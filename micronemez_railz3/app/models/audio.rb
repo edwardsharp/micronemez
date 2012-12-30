@@ -27,6 +27,8 @@ class Audio < ActiveRecord::Base
     
   has_attached_file :audio_upload, 
     :hash_secret => Micronemez::Application.config.upload_secret_token,
+    :storage => :cloud_files,
+    #:cloudfiles_credentials =>  "#{RAILS_ROOT}/config/rackspace.yml",
     :path => "/opt/drop/:catnum.:extension"
     #:url => "/u/:hashed_path/:catnum.:extension",
     #:path => ":rails_root/public/u/:hashed_path/:catnum.:extension",

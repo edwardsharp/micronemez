@@ -1,0 +1,15 @@
+DEFAULTS: &DEFAULTS
+  username: example
+  api_key: 666aaa666bbb666ccc666ddd
+
+development:
+  <<: *DEFAULTS
+  container: development_example
+
+test:
+  <<: *DEFAULTS
+  container: text_example
+
+production:
+  <<: *DEFAULTS
+  container: production_example

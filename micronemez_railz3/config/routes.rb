@@ -16,8 +16,8 @@ Micronemez::Application.routes.draw do
   match "/info" => "pages#info", :as => "info"
   match "/info/:ajax" => "pages#info", :as => "info_ajax"
   match "/archives/:ajax" => "videos#index", :as => "archive_ajax"
-  match "/schedules/:ajax" => "schedules#index", :as => "schedule_ajax"
-  match "/nodes/:ajax" => "nodes#index", :as => "nodes_ajax"
+  match "/upcoming/:ajax" => "schedules#index", :as => "schedule_ajax"
+  match "/events/:ajax" => "nodes#index", :as => "nodes_ajax"
 
   #dhtmlxscheduler matchez
   match "/schedules/records" => "schedules#records"

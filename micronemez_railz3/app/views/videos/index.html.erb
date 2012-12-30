@@ -10,10 +10,13 @@
   </script>
 
 <% end %>
+  <!--div id="container" class="variable-sizes clearfix infinite-scrolling"-->
 
-<div id="archive-container" class="transitions-enabled infinite-scroll clearfix">
+<div id="archive-container" class="variable-sizes infinite-scroll clearfix">
     <% @videos.each do |video| %>
-      <div class="box col2">
+
+    <div class="box element width2 " data-symbol="<%= video.catnum %>" data-category="<%= video.tag_list %>" >
+
         <span><%= link_to t(video.catnum), video %></span>
         <span><%= truncate(video.title, :length => 28) %></span>
         <span><%= truncate(video.location, :length => 28) %></span>
@@ -23,7 +26,7 @@
             <span><%= link_to t(:edit), edit_video_path(video) %></span>
             <span><%= link_to t(:destroy), video, confirm: t(:confirm), method: :delete %></span>
         <% end %>
-        <%= link_to image_tag("/images/#{video.catnum}.jpg", :class=> 'video_thumb', :width => "100"), "/video/show/#{video.catnum}", :title => "#{video.title}",  :id => "#{video.catnum}" %>
+        <%= link_to image_tag("/images/#{video.catnum}.jpg", :class=> 'video_thumb', :height => "240"), "/video/show/#{video.catnum}", :title => "#{video.title}",  :id => "#{video.catnum}" %>
 
       </div>
       

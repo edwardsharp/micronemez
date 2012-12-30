@@ -1,0 +1,16 @@
+DEFAULTS: &DEFAULTS
+  partner_id: 100
+  administrator_secret: 666aaa666bbb666ccc666ddd
+  service_url: http://video.example.org
+
+development:
+  <<: *DEFAULTS
+  kaltura_env: development
+
+test:
+  <<: *DEFAULTS
+  kaltura_env: test
+
+production:
+  <<: *DEFAULTS
+  kaltura_env: production

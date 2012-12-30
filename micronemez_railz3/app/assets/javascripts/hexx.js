@@ -8,9 +8,11 @@ $(function(){
     var $container = $('#info-container');
     
     $container.imagesLoaded(function(){
-      $container.masonry({
+      $container.isotope({
         itemSelector: '.box',
-        columnWidth: 100
+        masonry: {
+          columnWidth: 240
+        }
       });
     });
     
@@ -89,16 +91,22 @@ $(function() {
  * ARCHIVE MASONRY & INFINITE SCROLL'R
  *
  */
+
+
 function init_archive_infinite_scroller(){
-    
+
     var $container = $('#archive-container');
     
     $container.imagesLoaded(function(){
-      $container.masonry({
+      $container.isotope({
         itemSelector: '.box',
-        columnWidth: 100
+        layoutMode: 'masonry',
+        masonry: {
+          columnWidth: 240
+        }
       });
     });
+     
     
     if ($('.archive').length > 0) {
         console.log("USING ARCHIVE ELEM");
@@ -107,7 +115,8 @@ function init_archive_infinite_scroller(){
         console.log("CAN NOT FIND ARCHIVE CLASS! (USING WINDOW)!");
         binder_elem = $(window);
     }
-    
+
+      
     //first test to see if these selectors exists. 
     var nav_sel = $('.archive .pagination').length ? '.archive .pagination' : '.pagination';
     var next_sel = $('.archive a.next_page').length ? '.archive a.next_page' : 'a.next_page';
@@ -134,10 +143,15 @@ function init_archive_infinite_scroller(){
         $newElems.imagesLoaded(function(){
           // show elems now they're ready
           $newElems.animate({ opacity: 1 });
-          $container.masonry( 'appended', $newElems, true ); 
+          $container.isotope( 'appended', $newElems ); 
+
+          
         });
       }
-    ); //end_infinitescroll
+    ); //end_infinitescroll  
+    
+
+
     
 }    
 //ARCHIVE_AJAX
@@ -197,9 +211,11 @@ $(function() {
     var $container = $('#schedule-container');
     
     $container.imagesLoaded(function(){
-      $container.masonry({
+      $container.isotope({
         itemSelector: '.box',
-        columnWidth: 100
+        masonry: {
+          columnWidth: 240
+        }
       });
     });
     
@@ -238,7 +254,7 @@ $(function() {
         $newElems.imagesLoaded(function(){
           // show elems now they're ready
           $newElems.animate({ opacity: 1 });
-          $container.masonry( 'appended', $newElems, true ); 
+          $container.isotope( 'appended', $newElems, true ); 
         });
       }
     ); //end_infinitescroll
@@ -297,9 +313,9 @@ jQuery(document).ready(function($) {
 
     if(!("ontouchstart" in document.documentElement)) {
         // self-desctruct...
-        console.log("ADDING ZOOM TAGETZ!");
+        //console.log("ADDING ZOOM TAGETZ!");
         document.documentElement.className += " no-touch";
-        $('.z').zoomTarget();
+        //$('.z').zoomTarget();
     } else {
         //#TODO: aplologize, i guess.
         console.log("TOUCH DEV SELF-DESCTRUCT! (SORRY)");

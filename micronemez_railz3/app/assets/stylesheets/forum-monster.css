@@ -1,9 +1,9 @@
 /* Modules
 --------------------------------------------------------------------------------------------------*/
-.module { border:1px solid #e2e2e2; margin:.8em 0; background-color:#fff; overflow:auto; }
+.module { border:1px solid #e2e2e2; margin:.8em 0; background-color:#1a1a1a; overflow:auto; }
 .module_controls { padding:.8em; }
-.module_header { color:#fff; padding:.7em .7em .7em 1.4em; background-color:#000; text-transform: uppercase;}
-.module_header a { color:#fff; }
+.module_header { color:#ff6600; padding:.7em .7em .7em 1.4em; background-color:#000; text-transform: uppercase;}
+.module_header a { color:#ff6600; }
 .module_subheader, .module_footer { margin:.6em .8em; padding:.6em; text-transform: lowercase;}
 .module_subheader { border-bottom:1px solid #e2e2e2; }
 .module_footer { border-top:1px solid #e2e2e2; }
@@ -23,15 +23,15 @@
 .module .smaller { font-size:.9em; }
 .module .left { float:left; }
 .module .right { float:right; text-align:right; }
-.controls { padding: 5px; background-color: #ff6600; text-transform: uppercase; }
-.controls a { margin:0 5px; font-size:1em; color: #1a1a1a;}
+.controls { padding-left: 5px; text-transform: uppercase; }
+.controls a {  color: #ff6600;}
 .controls a:hover { color: yellow;}
 
 /* Tables
 --------------------------------------------------------------------------------------------------*/
 table { width:100%; border-collapse:collapse; }
 table th { font-weight:normal; padding:.7em; font-size:.8em; }
-table td { padding:.5em; border:1px solid #e2e2e2; border-bottom:0px; vertical-align:top; background:#fff; }
+table td { padding:.5em; border:1px solid #e2e2e2; border-bottom:0px; vertical-align:top;  }
 table td:first-child { border-left:0px; }
 table td:last-child { border-right:0px; }
 

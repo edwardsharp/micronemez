@@ -9,3 +9,14 @@
 	</style>
 
 <% end %>
+
+<% if @video %>
+	<table>
+
+		<% @video.attributes.each do |attr_name, attr_value| %>
+		  <tr>
+		    <td><%= attr_name %></td> <td><%= attr_value %></td>
+		  </tr>
+		<% end %>
+
+<% end %>

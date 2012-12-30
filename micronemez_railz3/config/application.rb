@@ -55,5 +55,7 @@ module Micronemez
     #ActsAsTaggableOn::TagList.delimiter = ' ' # use space as delimiter
     #ActsAsTaggableOn::TagList.delimiter = ' , ' # use comma as delimiter
     
+    config.gem "paperclip-cloudfiles", :lib => 'paperclip', :source => "http://gemcutter.org/"
+
   end
 end

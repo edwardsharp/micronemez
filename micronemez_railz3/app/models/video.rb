@@ -25,10 +25,11 @@ class Video < ActiveRecord::Base
   #validates_attachment_extension :video_upload,
   #  :extensions => %w[jpg jpeg gif png]
 
-    
   has_attached_file :video_upload, 
     :hash_secret => Micronemez::Application.config.upload_secret_token,
-    :path => "/opt/drop/:catnum.:extension"
+    :storage => :cloud_files,
+    :cloudfiles_credentials => Micronemez::Application.config.cloudfilez,
+    :path => ":catnum.:extension"
     #:url => "/u/:hashed_path/:catnum.:extension",
     #:path => ":rails_root/public/u/:hashed_path/:catnum.:extension",
     #:url => ":rails_root/public/u/:hashed_path/:catnum.:extension",
