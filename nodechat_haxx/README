@@ -1,4 +1,5 @@
-Demo for node.js http://tinyclouds.org/node
+NODE CHAT, some hackin' on the og chat example. 
 
-to run
-$ /usr/local/bin/node server.js
+hopefully this doesn't eat up all the system ram?
+
+tuning TBA. 
