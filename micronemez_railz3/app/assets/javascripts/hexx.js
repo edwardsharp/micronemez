@@ -282,7 +282,7 @@ $(function() {
                 async: true,
                 cache: false,
                 type: 'post',
-                url: '/schedules/ajax',
+                url: '/upcoming/ajax',
                 //dataType: 'html',
                 beforeSend: function() {
                     console.log('Fired prior to the request');
@@ -293,7 +293,7 @@ $(function() {
                     $('.schedule').append(data);
                 },
                 complete: function() {
-                    console.log('/schedules/ajax request is complete. going to init_schedule_infinite_scroller(');
+                    console.log('/upcoming/ajax request is complete. going to init_schedule_infinite_scroller(');
                     init_schedule_infinite_scroller();
                 }
             });
