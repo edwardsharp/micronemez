@@ -1,0 +1,157 @@
+body {
+	background:#1a1a1a;
+}
+
+#qb-widget * {
+	margin:0;
+	padding:0;
+}
+#qb-widget {
+	background:#fff;
+	font:14px/1.3 "Lucida Grande", Arial, Tahoma, sans-serif;
+	color:#1a1a1a;
+	height:455px;
+	width:420px;
+	-webkit-border-radius: 1em;
+      -moz-border-radius: 1em;
+          border-radius: 1em;
+}
+#qb-widget a {
+	text-decoration:none;
+	color:#3B5998;
+}
+#qb-widget a:hover {
+	opacity:0.8;
+}
+#qb-widget #qb-map,
+#qb-widget #qb-chat,
+#qb-widget #qb-auth {
+	height:400px;
+	width:400px;
+	margin:10px;
+}
+#qb-widget #qb-map #qb_map_canvas {
+	height:400px;
+	width:400px;
+}
+#qb-widget #qb-chat #qb-chat-room {
+	height:370px;
+	overflow:auto;
+}
+#qb-widget #qb-auth {
+	background:#fff;
+}
+	#qb-widget #mcrnmz-logo {
+		height:161px;
+		width:200px;
+		background:url(mcrnmz-logo.png);
+		margin:0 auto;
+		position:relative;
+		top:50px;
+	}
+	#qb-widget #mcrnmz-welcome-text {
+		text-align:center;
+		margin-top:80px;
+		margin-bottom:20px;
+		font-size: x-large;
+	}
+	#qb-widget #fb-login-button {
+		text-align:center;
+	}
+		#qb-widget #fb-login-button span {
+			padding:5px 10px;
+		}
+
+#qb-widget #qb-welcome-user {
+	font-size:10px;
+	position:absolute;
+	margin-left:180px;
+	margin-top:15px;
+}
+
+#qb-widget #qb-map,
+#qb-widget #qb-chat {
+	display:none;
+}
+#qb-widget #qb-map {
+
+}
+#qb-widget #qb-status-message, 
+#qb-widget #qb-send-message {
+	font:14px/1.3 "Lucida Grande", Arial, Tahoma, sans-serif;
+}
+#qb-widget #qb-status-message {
+	color:#333;
+	padding:3px;
+	border:1px gray solid;
+	width:270px;
+	margin-top:4px;
+}
+#qb-widget #qb-send-message {
+	background-color:#ff6600;
+	border:1px solid #1a1a1a;
+	color:#fff;
+	cursor:pointer;
+	font-size: 14px !important;
+	padding:3px 20px;
+	-webkit-border-radius: 0.2em;
+      -moz-border-radius: 0.2em;
+          border-radius: 0.2em;
+}
+#qb-widget #qb-send-message:hover {
+	opacity:0.9;
+}
+#qb-widget #qb-send-message:active {
+	background:#ff6600;
+}
+
+#qb-widget #qb-chat .qb-chat-message {
+	background:#ededed;
+	border-bottom:5px solid #fff;
+	min-height:50px;
+}
+	#qb-widget .qb-chat-message .qb-message-author {
+		font-weight:bold;
+		margin-top:-50px;
+		margin-left:60px;
+		margin-bottom:5px;
+	}
+	#qb-widget .qb-chat-message .qb-chat-message-content {
+		margin-left:60px;
+		margin-right:10px;
+		overflow:hidden;
+	}
+	
+#qb-widget .qb-iw-container .qb-iw-user {
+	margin-top:-50px;
+	margin-left:60px;
+	font-weight:bold;
+}
+
+#qb-widget .qb-iw-container .qb-iw-status {
+	margin-left:60px;
+	margin-top:5px;
+}
+
+#qb-widget #qb-tabs {
+	display:none;
+	margin:0 10px;
+	padding-top:10px;
+	border-bottom:1px solid gray;
+}
+	#qb-widget #qb-tabs div {
+		background:#dfdfdf;
+		display:inline-block;
+		padding:3px 20px;
+		cursor:pointer;
+		border:1px solid gray;
+		position:relative;
+		bottom:-1px;
+	}
+	#qb-widget #qb-tabs div.selected {
+		background:#fff;
+		border-bottom:1px solid #fff;
+	}
+	#qb-widget #qb-tabs #qb-map-tab {
+		margin-left:10px;
+	}
