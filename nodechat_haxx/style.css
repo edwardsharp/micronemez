@@ -134,4 +134,5 @@ a:hover { text-decoration: underline; color: #aaa; }
 .highlight {
   font-weight: bold;
   font-style: italic;
+  font-color: #ededed!important;
 }

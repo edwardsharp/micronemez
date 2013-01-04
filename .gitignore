@@ -20,3 +20,5 @@ icecast/micronemez-video.liq
 micronemez_railz3/config/kaltura_config.yml
 
 micronemez_railz3/config/rackspace_cloudfiles.yml
+
+micronemez_railz3/micronemez_development

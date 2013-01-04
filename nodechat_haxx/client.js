@@ -325,7 +325,7 @@ function longPoll (data) {
          , dataType: "json"
          , data: { since: CONFIG.last_message_time, id: CONFIG.id }
          , error: function () {
-             addMessage("", "connection timeout. attempting to reconnect...", new Date(), "error");
+             addMessage("", "PING? PONG!", new Date(), "error");
              transmission_errors += 1;
              //don't flood the servers on error, wait 10 seconds before retrying
              setTimeout(longPoll, 10*1000);
