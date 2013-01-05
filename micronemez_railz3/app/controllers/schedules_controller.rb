@@ -4,87 +4,18 @@ class SchedulesController < ApplicationController
   #TODO: fix this!
   skip_before_filter :verify_authenticity_token, :dbaction
 
-  #GET
-  def records
-    #TODO: limit this?
-    @records = Schedule.find(:all, :order => "start ASC", :limit => "250")
-    respond_to do |format|
-      format.xml # index.html.rxml
-      format.json { render json: @schedules }
-    end
-  end
-  
-
-  def dbaction
-    #@records = Schedule.all
-    #called for all db actions
-    text = params["text"]
-    start_date = params["start_date"]
-    end_date = params["end_date"]   
-
-    event_length = params["event_length"]
-    rec_pattern = params["rec_pattern"]
-    rec_type = params["rec_type"]
-
-    single_checkbox = params["single_checkbox"]
-    radiobutton_option = params["radiobutton_option"]
-    custom_type = params["type"]
-
-    @mode = params["!nativeeditor_status"]
-    @id = params["id"]
-    @tid = @id
-    
-    case @mode
-      when "inserted"
-        n_rec = Schedule.new
-        n_rec.title = text
-        n_rec.start = start_date
-        n_rec.end = end_date
-        n_rec.event_length = event_length
-        n_rec.rec_pattern = rec_pattern
-        n_rec.rec_type = rec_type
-        n_rec.single_checkbox = single_checkbox
-        n_rec.radiobutton_option = radiobutton_option
-        n_rec.custom_type = custom_type
-
-        n_rec.save!
-        
-        @tid = n_rec.id
-      when "deleted"
-        n_rec=Schedule.find(@id)
-          n_rec.destroy
-      when "updated"
-        n_rec=Schedule.find(@id)
-        n_rec.title = text
-        n_rec.start = start_date
-        n_rec.end = end_date
-        n_rec.event_length = event_length
-        n_rec.rec_pattern = rec_pattern
-        n_rec.rec_type = rec_type
-        n_rec.single_checkbox = single_checkbox
-        n_rec.radiobutton_option = radiobutton_option
-        n_rec.custom_type = custom_type
-
-        n_rec.save!
-    end
-
-    respond_to do |format|
-      format.xml # index.html.rxml
-      format.json { render json: @id }
-    end
-
-  end
-
-
   # GET /schedules
   # GET /schedules.json
   def index
     #@schedules = Schedule.find(:all, :conditions => ["start > ?", DateTime.now], :order => "start ASC", :limit => "250")
-    @schedules = Schedule.paginate(
-      #:conditions => ["end > ?", DateTime.now], 
+    #yay scopez!
+    @schedules = Schedule.onlypublic.after.paginate(
+      #:conditions => ["end > ? ", DateTime.now], 
       :page => params[:page], 
       :per_page => 50, 
-      :order => "start ASC" )
+      #:order => "start ASC" 
+      )
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @schedules }
@@ -166,4 +97,77 @@ class SchedulesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  #DHTMLXSCHEDULER API PLUGZ
+  #GET
+  def records
+    #TODO: limit this?
+    @records = Schedule.find(:all, :order => "start ASC", :limit => "250")
+    respond_to do |format|
+      format.xml # index.html.rxml
+      format.json { render json: @schedules }
+    end
+  end
+  
+
+  def dbaction
+    #@records = Schedule.all
+    #called for all db actions
+    text = params["text"]
+    start_date = params["start_date"]
+    end_date = params["end_date"]   
+
+    event_length = params["event_length"]
+    rec_pattern = params["rec_pattern"]
+    rec_type = params["rec_type"]
+
+    single_checkbox = params["single_checkbox"]
+    radiobutton_option = params["radiobutton_option"]
+    custom_type = params["type"]
+
+    @mode = params["!nativeeditor_status"]
+    @id = params["id"]
+    @tid = @id
+    
+    case @mode
+      when "inserted"
+        n_rec = Schedule.new
+        n_rec.title = text
+        n_rec.start = start_date
+        n_rec.end = end_date
+        n_rec.event_length = event_length
+        n_rec.rec_pattern = rec_pattern
+        n_rec.rec_type = rec_type
+        n_rec.single_checkbox = single_checkbox
+        n_rec.radiobutton_option = radiobutton_option
+        n_rec.custom_type = custom_type
+
+        n_rec.save!
+        
+        @tid = n_rec.id
+      when "deleted"
+        n_rec=Schedule.find(@id)
+          n_rec.destroy
+      when "updated"
+        n_rec=Schedule.find(@id)
+        n_rec.title = text
+        n_rec.start = start_date
+        n_rec.end = end_date
+        n_rec.event_length = event_length
+        n_rec.rec_pattern = rec_pattern
+        n_rec.rec_type = rec_type
+        n_rec.single_checkbox = single_checkbox
+        n_rec.radiobutton_option = radiobutton_option
+        n_rec.custom_type = custom_type
+
+        n_rec.save!
+    end
+
+    respond_to do |format|
+      format.xml # index.html.rxml
+      format.json { render json: @id }
+    end
+
+  end
+
 end

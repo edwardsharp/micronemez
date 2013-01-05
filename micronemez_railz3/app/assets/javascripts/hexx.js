@@ -16,6 +16,18 @@ $(function(){
       });
     });
     
+    //razzle dazzle TOP/BOTTOM button thing...
+    //$('.info').prev().click( function(){
+      //console.log("PROCESSING .INFO.PREV() CLICKZ");
+      //$('.info p').toggle();
+    //});
+
+    /*$('.info').next().click( function(){
+      //console.log("PROCESSING .INFO.NEXT() CLICKZ");
+      $('.info p').hide();
+      $('html, body').animate({ scrollTop: $('.info p').offset().top + $('.info p').offset().height }, 500);
+    });*/
+
     /*
     $container.infinitescroll({
       navSelector  : '#page-nav',    // selector for the paged navigation 
@@ -68,15 +80,15 @@ $(function() {
                 url: '/info/ajax',
                 //dataType: 'html',
                 beforeSend: function() {
-                    console.log('Fired prior to the ajax request');
+                    //console.log('zomg, before req');
                 },
                 success: function(data) {
-                    console.log('Fired when the request is successfull');
+                    //console.log('info ajaz succezz!');
                     //$('.info p').toggle();
                     $('.info').append(data);
                 },
                 complete: function() {
-                    console.log('Fired when the request is complete');
+                    //console.log('info ajax done');
                 }
             }); //endajax
             
@@ -85,121 +97,8 @@ $(function() {
 
     }); //endonclick
 
-}); //INFO_FAKE_JAX
+}); //INFO_AJAX
 
-/*
- * ARCHIVE MASONRY & INFINITE SCROLL'R
- *
- */
-
-
-function init_archive_infinite_scroller(){
-
-    var $container = $('#archive-container');
-    
-    $container.imagesLoaded(function(){
-      $container.isotope({
-        itemSelector: '.box',
-        layoutMode: 'masonry',
-        masonry: {
-          columnWidth: 240
-        }
-      });
-    });
-     
-    
-    if ($('.archive').length > 0) {
-        console.log("USING ARCHIVE ELEM");
-        binder_elem = $('.archive');
-    } else {
-        console.log("CAN NOT FIND ARCHIVE CLASS! (USING WINDOW)!");
-        binder_elem = $(window);
-    }
-
-      
-    //first test to see if these selectors exists. 
-    var nav_sel = $('.archive .pagination').length ? '.archive .pagination' : '.pagination';
-    var next_sel = $('.archive a.next_page').length ? '.archive a.next_page' : 'a.next_page';
-
-    $container.infinitescroll({
-      debug: true,
-      behavior: 'local',
-      binder: binder_elem,  
-      extraScrollPx: 30,
-      navSelector  : nav_sel,    // selector for the paged navigation 
-      nextSelector : next_sel,  // selector for the NEXT link (to page 2)
-      itemSelector : '.box',     // selector for all items you'll retrieve
-      loading: {
-          finishedMsg: '',
-          msgText: '',
-          img: '/images/loader.gif'
-        }
-      },
-      // trigger Masonry as a callback
-      function( newElements ) {
-        // hide new items while they are loading
-        var $newElems = $( newElements ).css({ opacity: 0 });
-        // ensure that images load before adding to masonry layout
-        $newElems.imagesLoaded(function(){
-          // show elems now they're ready
-          $newElems.animate({ opacity: 1 });
-          $container.isotope( 'appended', $newElems ); 
-
-          
-        });
-      }
-    ); //end_infinitescroll  
-    
-
-
-    
-}    
-//ARCHIVE_AJAX
-$(function() {  
-        
-    $('.archive').on('click', function(e) {
-        e.preventDefault();
-        if( $(this).parent().hasClass('notForHover')){
-            
-        } else {
-            $(this).parent().addClass('notForHover');
-        }
-        
-        if ($(this).hasClass('archive_selected')) {
-            
-        } else {
-            
-            $(this).addClass('archive_selected');                    
-            // ajax request
-            $.ajax({
-                context: this,
-                async: true,
-                cache: false,
-                type: 'post',
-                url: '/archives/ajax',
-                //dataType: 'html',
-                beforeSend: function() {
-                    console.log('Fired prior to the request');
-                },
-                success: function(data) {
-                    console.log('Fired when the request is successfull');
-                    $('.archive h1').toggle();
-                    $('.archive').append(data);
-                },
-                complete: function() {
-                    console.log('/archives/ajax request is complete. going to init_archive_infinite_scroller(');
-                    init_archive_infinite_scroller();
-                }
-            });
-        } //endif  
-
-              
-
-
-    
-    });
-
-}); //END__ARCHIVE__AJAX
 
 
 /*
@@ -222,6 +121,18 @@ $(function() {
     if ($('.schedule').length > 0) {
         console.log("USING schedule ELEM");
         binder_elem = $('.schedule');
+        //razzle dazzle TOP/BOTTOM button thing...
+        /*$('.schedule').prev().click( function(){
+          //console.log("PROCESSING .SCHEDULE.PREV() CLICKZ");
+          $('.schedule h1').show();
+          $('html, body').animate({ scrollTop: $('.schedule').offset().top }, 500);
+        });
+
+        $('.schedule').next().click( function(){
+          //console.log("PROCESSING .SCHEDULE.NEXT() CLICKZ");
+          $('.schedule h1').hide();
+          $('html, body').animate({ scrollTop: $('.schedule').offset().top + $('.schedule').offset().height }, 500);
+        });*/
     } else {
         console.log("CAN NOT FIND schedule CLASS! (USING WINDOW)!");
         binder_elem = $(window);
@@ -285,15 +196,15 @@ $(function() {
                 url: '/upcoming/ajax',
                 //dataType: 'html',
                 beforeSend: function() {
-                    console.log('Fired prior to the request');
+                    //console.log('BEFORE THE REQUEST!');
                 },
                 success: function(data) {
-                    //console.log('Fired when the request is successfull');
-                    $('.schedule h1').toggle();
+                    //console.log('egad!');
+                    //$('.schedule h1').toggle();
                     $('.schedule').append(data);
                 },
                 complete: function() {
-                    console.log('/upcoming/ajax request is complete. going to init_schedule_infinite_scroller(');
+                    //console.log('/upcoming/ajax request is complete. going to init_schedule_infinite_scroller(');
                     init_schedule_infinite_scroller();
                 }
             });
@@ -336,4 +247,123 @@ jQuery(document).ready(function($) {
 
  
 });
+
+
+/*
+ * ARCHIVE MASONRY & INFINITE SCROLL'R
+ *
+ */
+
+
+function init_archive_infinite_scroller(){
+
+    var $container = $('#archive-container');
+    
+    $container.imagesLoaded(function(){
+      $container.isotope({
+        itemSelector: '.box',
+        layoutMode: 'masonry',
+        masonry: {
+          columnWidth: 240
+        }
+      });
+    });
+     
+    
+    if ($('.archive').length > 0) {
+        console.log("USING ARCHIVE ELEM");
+        binder_elem = $('.archive');
+    } else {
+        console.log("CAN NOT FIND ARCHIVE CLASS! (USING WINDOW)!");
+        binder_elem = $(window);
+       
+    }
+
+      
+    //first test to see if these selectors exists. 
+    var nav_sel = $('.archive .pagination').length ? '.archive .pagination' : '.pagination';
+    var next_sel = $('.archive a.next_page').length ? '.archive a.next_page' : 'a.next_page';
+
+    $container.infinitescroll({
+      debug: true,
+      behavior: 'local',
+      binder: binder_elem,  
+      extraScrollPx: 30,
+      navSelector  : nav_sel,    // selector for the paged navigation 
+      nextSelector : next_sel,  // selector for the NEXT link (to page 2)
+      itemSelector : '.box',     // selector for all items you'll retrieve
+      loading: {
+          finishedMsg: '',
+          msgText: '',
+          img: '/images/loader.gif'
+        }
+      },
+      // trigger Masonry as a callback
+      function( newElements ) {
+        // hide new items while they are loading
+        var $newElems = $( newElements ).css({ opacity: 0 });
+        // ensure that images load before adding to masonry layout
+        $newElems.imagesLoaded(function(){
+          // show elems now they're ready
+          $newElems.animate({ opacity: 1 });
+          $container.isotope( 'appended', $newElems ); 
+
+          
+        });
+      }
+    ); //end_infinitescroll  
+    
+
+
+    
+}    
+//ARCHIVE_AJAX
+$(function() {  
+    /*$('.archive').on('click', function(e) {
+      //display teaser?
+
+    });   */ 
+    $('.archive').on('click', function(e) {
+        e.preventDefault();
+        if( $(this).parent().hasClass('notForHover')){
+            
+        } else {
+            $(this).parent().addClass('notForHover');
+        }
+        
+        if ($(this).hasClass('archive_selected')) {
+            
+        } else {
+            
+            $(this).addClass('archive_selected');                    
+            // ajax request
+            $.ajax({
+                context: this,
+                async: true,
+                cache: false,
+                type: 'post',
+                url: '/archives/ajax',
+                //dataType: 'html',
+                beforeSend: function() {
+                    console.log('Fired prior to the request');
+                },
+                success: function(data) {
+                    console.log('Fired when the request is successfull');
+                    $('.archive h1').toggle();
+                    $('.archive').append(data);
+                },
+                complete: function() {
+                    console.log('/archives/ajax request is complete. going to init_archive_infinite_scroller(');
+                    init_archive_infinite_scroller();
+                }
+            });
+        } //endif  
+
+              
+
+
+    
+    });
+
+}); //END__ARCHIVE__AJAX
 

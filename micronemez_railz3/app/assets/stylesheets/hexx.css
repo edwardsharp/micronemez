@@ -1,13 +1,25 @@
 p.title {
-    font-size:28px;
+    font-size:3.5em;
+    margin-left: 5px;
 }
 p.subtitle {
-    font-size: 16px;
+    margin: .5em;
+    font-size: 1.5em;
 }
 
-
+.schedule_title {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.schedulez {
+    margin-left: .5em;
+}
+.info_qanda {
+   margin-left: .5em; 
+}
 #cluster {
-    padding-top: 30px;
+    padding-top: 30px;  
+    min-width: 800px;
 }
 
 /* GENERIC HEX PROPERTIEZ */
@@ -19,10 +31,11 @@ p.subtitle {
 
 .hex-row {
     clear: left;
+
 } 
 
 .hex-row.even {
-    margin-left: 116px;
+    margin-left: 190px;
 }
 
 .pagination, .none {
@@ -42,34 +55,50 @@ p.subtitle {
 .middle h1 {
     padding-top: 30px;
     padding-left: 10px;
-    font-size: 28px;
+    font-size: 3.5em;
     font-family: sans-serif;
+}
+
+.big-header {
+    font-size: 2.5em;
+    pdding-left: .5em;
 }
 
 /* HEX (CONTENT) */
 /*http://www.nczonline.net/blog/2012/07/05/ios-has-a-hover-problem/ */
-.no-touch .hex:not(.notForHover):hover .top, .hex:not(.notForHover):hover .bottom {
+/*.no-touch .hex:not(.notForHover):hover .top, .hex:not(.notForHover):hover .bottom {*/
+.no-touch .hex:hover .top,  .hex:not(.notForHover):hover .bottom {    
     filter: alpha(opacity=50); 
     -khtml-opacity: 0.5;     
     -moz-opacity: 0.5;  
     opacity: 0.5;     
 }
 
-.no-touch .hex .middle:hover {
-    background: #000;
-    color: #ff6600;
+.hex:not(.notForHover):hover .middle {
+    border: thin  solid #ededed;
 }
+.no-touch .hex .middle:hover . {
+    
+}
+
+.current_info {
+    margin-top: .5em;
+    margin-left: 1em;
+    margin-right: .3em;
+}
+
+
 
 .hex .top {
     width: 0;
-    border-bottom: 60px solid #ff6600;
-    border-left: 104px solid transparent;
-    border-right: 104px solid transparent;
+    border-bottom: 92px solid #ff6600;
+    border-left: 163px solid transparent;
+    border-right: 163px solid transparent;
 }
 
 .hex .middle {
-    width: 202px;
-    height: 116px;
+    width: 321px;
+    height: 240px;
     background: #ff6600;
     color: #000;
     overflow: hidden;
@@ -79,28 +108,28 @@ p.subtitle {
 
 .hex .bottom {
     width: 0;
-    border-top: 60px solid #ff6600;
-    border-left: 104px solid transparent;
-    border-right: 104px solid transparent;
+    border-top: 92px solid #ff6600;
+    border-left: 163px solid transparent;
+    border-right: 163px solid transparent;
 }
 
 .hex .no-background {
-    background: #000;
-    color: #ff6600;
+    background: #ff6600;
+    color: #1a1a1a;
 }
 
 /* HEX_CONNECTOR */
 .hex_connector .top {
     width: 0;
-    border-bottom: 60px solid #1F1F1F;
-    border-left: 104px solid transparent;
-    border-right: 104px solid transparent;
+    border-bottom: 92px solid #1F1F1F;
+    border-left: 163px solid transparent;
+    border-right: 163px solid transparent;
 }
 
 
 .hex_connector .middle {
-    width: 202px;
-    height: 116px;
+    width: 320px;
+    height: 240px;
     background: #1F1F1F;
     color: #ff6600;
     overflow: hidden;
@@ -110,9 +139,9 @@ p.subtitle {
 
 .hex_connector .bottom {
     width: 0;
-    border-top: 60px solid #1F1F1F;
-    border-left: 104px solid transparent;
-    border-right: 104px solid transparent;
+    border-top: 92px solid #1F1F1F;
+    border-left: 163px solid transparent;
+    border-right: 163px solid transparent;
 }
 
 .northeast {

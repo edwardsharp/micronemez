@@ -160,7 +160,7 @@ body {
 }
 
 #archive-container {
-  border: 1px solid #666;
+  border: none;
   padding: 5px;
   margin-bottom: 20px;
 }

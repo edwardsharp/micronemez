@@ -16,8 +16,8 @@ class User < ActiveRecord::Base
   
   acts_as_tagger
   
-  # setup accessible (or protected) model attributes 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :agree, :username, :name, :zip
+  # setup accessible (or protected) model attributes (and now with omniauth providerz!)
+  attr_accessible :provider, :uid, :email, :password, :password_confirmation, :remember_me, :agree, :username, :name, :zip
 
   has_and_belongs_to_many :roles
   has_many :videos, :dependent => :nullify
@@ -27,8 +27,8 @@ class User < ActiveRecord::Base
   has_many :posts, :dependent => :nullify
 
   #for _header view
-  #OMNIAUTH_PROVIDERS = ['facebook']
-  OMNIAUTH_PROVIDERS = []
+  OMNIAUTH_PROVIDERS = ['facebook', 'twitter']
+  #OMNIAUTH_PROVIDERS = []
   
   def role?(role)
     return !!self.roles.find_by_name(role.to_s)
@@ -59,4 +59,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        Rails.logger.info("session__devise_fb_data: #{data.inspect}")
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
 end

@@ -55,14 +55,19 @@
 
     <% end %>
 
-    <div id="schedule-container" class="transitions-enabled infinite-scroll clearfix">
-        
-        <% @schedules.each do |schedule| %>
-            <div class="box col2">
-            <span><%= link_to t(schedule.title), schedule %></span>
-            <span><%= truncate(schedule.datespan, :length => 255) %></span>
+    <div id="schedule-container" class="transitions-enabled infinite-scroll clearfix schedulez">
+        <% if @schedules.count > 0 %>
+            <% @schedules.each do |schedule| %>
+                <div class="box col2">
+                <h2 class="schedule_title"><%=schedule.title%></h2>
+                <span class="schedule_datespan"><%= schedule.datespan %></span>
+                </div>
+            <% end %>
+        <% else %>
+             <div class="box col2">
+                <h2 class="schedule_title">...nothing yet</h2>
             </div>
-        <% end %>
+        <% end %>    
        
     </div> <!-- #container -->
 

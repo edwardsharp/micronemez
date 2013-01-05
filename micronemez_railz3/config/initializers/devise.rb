@@ -3,6 +3,7 @@
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
+  #TODO: move this into config that's not checked into a public repo..
   config.mailer_sender = "null@micronemez.com"
 
   # Configure the class responsible to send e-mails.
@@ -54,7 +55,8 @@ Devise.setup do |config|
   config.stretches = 10
 
   # Setup a pepper to generate the encrypted password.
-  config.pepper = "034A1FB8638C27CE00DC52A39EC74E56C342FAD2F11585F179E5A821248D439C"
+  pepper_config = YAML::load(File.open("#{Rails.root}/config/pepper.yml"))
+  config.pepper = pepper_config['production']['pep']
 
   # ==> Configuration for :confirmable
   # The time you want to give your user to confirm his account. During this time
@@ -77,7 +79,7 @@ Devise.setup do |config|
 
   # If true, uses the password salt as remember token. This should be turned
   # to false if you are not using database authenticatable.
-  config.use_salt_as_remember_token = true
+  # config.use_salt_as_remember_token = true
 
   # ==> Configuration for :validatable
   # Range for password length. Default is 6..20.
@@ -174,8 +176,12 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   
   # FACEBOOK AUTH!
-  # config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET']
-
+  require 'omniauth-facebook' 
+  omniauth_providers_config = YAML::load(File.open("#{Rails.root}/config/omniauth_providers.yml"))
+  #Rails.logger.info("GOT OMNIAUTH: #{omniauth_providers_config['production']['fb_app_id']}")
+  config.omniauth :facebook, omniauth_providers_config['production']['fb_app_id'], omniauth_providers_config['production']['fb_app_secret']
+  config.omniauth :twitter, omniauth_providers_config['production']['twit_consumer_key'], omniauth_providers_config['production']['twit_consumer_secret']
+  
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

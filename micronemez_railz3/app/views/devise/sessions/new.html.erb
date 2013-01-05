@@ -1,4 +1,4 @@
-<div class="box">
+<div class="box userz">
 <% if user_signed_in? %>
   <%=t(:you_are)%> <%= current_user.email %>. <%= link_to "sign out", destroy_user_session_path, :method => :delete %>?
 <% else %>
@@ -15,6 +15,8 @@
   
     <div><%= f.submit t(:sign_in) %></div>
   <% end %>
+
+  <%= link_to "...or sign in with facebook", user_omniauth_authorize_path(:facebook) %>
 
   <%= render "links" %>
 <% end %>

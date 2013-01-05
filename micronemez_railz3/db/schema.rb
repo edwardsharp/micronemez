@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121227012907) do
+ActiveRecord::Schema.define(:version => 20130104232912) do
 
   create_table "audios", :force => true do |t|
     t.string   "catnum"
@@ -316,6 +316,8 @@ ActiveRecord::Schema.define(:version => 20121227012907) do
     t.datetime "updated_at",                             :null => false
     t.integer  "topics_count",           :default => 0
     t.integer  "posts_count",            :default => 0
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

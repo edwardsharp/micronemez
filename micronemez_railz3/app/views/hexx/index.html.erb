@@ -12,33 +12,44 @@
             <div class="middle info z"><p class="title">micronemez</p><p class="subtitle" title="--marvin minisky">those inner mental context clues that shade our minds&#039; activities in ways we can rarely express.</p></div>
             <div class="bottom"></div>
         </div>
-				<div class="hex z">
-				    <div class="top"></div>
-				    <div class="middle"><h1>CURRENT <br /></h1></div>
-				    <div class="bottom"></div>
-				</div>
+		<div class="hex z">
+		    <div class="top"></div>
+                
+		    <div class="middle"><h1>CURRENT</h1>
+                <p class="current_info">
+                    <% if @live_now %>
+                        LIVE: 
+                        <% @live_now.each do |l| %>
+                            <%= l.title %> <i>until</i> <%= l.end.to_s(:onlytime) %>
+                        <% end %>
+                    <% else %>
+                        UPCOMING: <%= @upcoming_this_month.first.title %> <i>in</i> <%= distance_of_time_in_words_to_now(@upcoming_this_month.first.start) %>
+                    <% end %> 
+                  
+                </p>
+            </div>
+		    <div class="bottom"></div>
+		</div>
         
     </div>
     <div class="hex-row even row2">
-				<div class="hex">
+    <div class="hex">
             <div class="top"></div>
             <div class="middle schedule z"><h1>UPCOMING <br /></h1></div>
             <div class="bottom"></div>
-        </div>
-        <div class="hex">
-            <div class="top"></div>
-            <div class="middle archive z"><h1>ARCHIVE <br/></h1></div>
-            <div class="bottom"></div>
-        </div>
+        </div>		
         
-       
-
-
     </div>
-   <!--div class="hex-row row3">
+   <!--div class="hex-row even row3">
         
                 
-
+       <div class="hex">
+            <div class="top"></div>
+            <div class="middle archive z"><h1>ARCHIVE <br /></h1></div>
+            <div class="bottom"></div>
+        </div>      
+        
+    </div> 
        <div class="hex_connector">
             <div class="top"></div>
             <div class="middle"></div>

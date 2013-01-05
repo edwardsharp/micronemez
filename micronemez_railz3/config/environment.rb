@@ -14,6 +14,10 @@ DateTime::DATE_FORMATS[:joined]="%a, %b %e, %Y, %l:%M%P"
 Time::DATE_FORMATS[:joined] = "%a, %b %e, %Y, %l:%M%P"
 Date::DATE_FORMATS[:joined] = "%a, %b %e, %Y, %l:%M%P"
 
+DateTime::DATE_FORMATS[:onlytime]=" %l:%M%P"
+Time::DATE_FORMATS[:onlytime] = "%l:%M%P"
+Date::DATE_FORMATS[:onlytime] = "%l:%M%P"
+
 def yell(msg)
   f = File.open(File.expand_path(File.dirname(__FILE__) + "/../log/yell.log"), "a")
   f.puts msg

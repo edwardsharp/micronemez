@@ -3,7 +3,7 @@ class CreateSchedules < ActiveRecord::Migration
     create_table :schedules do |t|
       
       t.text :description
-      t.boolean :live
+      t.boolean :is_live_stream
       t.string :channel
       t.string :status
       t.string :url

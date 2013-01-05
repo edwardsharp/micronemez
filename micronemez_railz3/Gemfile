@@ -10,7 +10,9 @@ gem 'heroku'
 gem 'json'
 
 gem "devise"
+gem "devise-encryptable"
 gem "omniauth-facebook"
+gem "omniauth-twitter"
 
 gem "kaminari"
 gem "carrierwave"
