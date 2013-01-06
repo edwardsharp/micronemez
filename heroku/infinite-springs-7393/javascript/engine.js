@@ -130,8 +130,8 @@ function addPlaceFirstTime(latlng) {
 
 	qbmePlace = qb.addPlace({
 		lat : latlng.lat(),
-		lng : latlng.lng(),
-		status : 'PING?PONG!'
+		lng : latlng.lng() //,
+		//status : 'PING?PONG!'
 	});
 	
 	main();
