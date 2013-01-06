@@ -2,7 +2,8 @@
 
 <%= render 'form' %>
 
-<%= link_to t(:show), catnum_path(@video.catnum) %> |
-<%= link_to t(:back), videos_path %>
+<%= link_to t(:back), videos_path %> | 
+<%= link_to t(:destroy), @video, :method => :delete, confirm: t(:confirm), title: :destroy %> |
+<%= link_to t(:show), catnum_path(@video.catnum) %> 
 
 </div>

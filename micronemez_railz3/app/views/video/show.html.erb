@@ -41,7 +41,8 @@
 
   <%= link_to t(:back), videos_path %> | 
   <%= link_to t(:new), new_video_path %> |
-  <%= link_to t(:edit), edit_video_path(@video) %> |
+  <%= link_to t(:edit), edit_video_path(@video) %> | 
+  <%= link_to t(:destroy), @video, :method => :delete, confirm: t(:confirm), title: :destroy %>
   
   </div>
   

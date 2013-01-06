@@ -21,7 +21,7 @@
   <% @videos.each do |video| %> 
   <div class="element_meta">
     
-    <%= link_to image_tag("/images/#{video.catnum}.jpg", :class=> 'video_thumb', :height => "60"), "/video/show/#{video.catnum}", :title => "#{video.title}",  :id => "#{video.catnum}" %>
+    <%= link_to image_tag("/images/#{video.catnum}.jpg", :class=> 'video_thumb', :height => "100"), "/video/show/#{video.catnum}", :title => "#{video.title}",  :id => "#{video.catnum}" %>
     <div class="video_block">
       <%= link_to t(video.catnum), catnum_path(video.catnum) %>
       <br /><%= link_to t(:edit), edit_video_path(video), title: :edit %> 

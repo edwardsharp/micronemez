@@ -32,23 +32,7 @@ class VideosController < ApplicationController
     yell "tagZ: #{@tags}"
 
 
-    respond_to do |format|
-        if request.post?
-          if @video.save
-            cookies[:last_video_id] = @video.id 
-            #Delayed::Job.enqueue(FileUploadJob.new(@video.id, @video.path), -3, 3.days.from_now)
-
-            #format.html { redirect_to catnum_path, notice: 'video updated!' }
-            #format.json { render json: catnum_path, status: :updated, location: @video }
-          else 
-            #format.html { redirect_to catnum_path, notice: 'can NOT save it!' }
-            #format.json { render json: catnum_path, status: :unprocessable_entity, location: @video }
-          end
-        else
-          format.html { render action: "edit" }
-          format.json { render json: @video.errors, status: :unprocessable_entity }
-        end
-    end
+    
 
   end
 
@@ -64,8 +48,8 @@ class VideosController < ApplicationController
         cookies[:last_video_id] = @video.id 
         #Delayed::Job.enqueue(FileUploadJob.new(@video.id, @video.path), -3, 3.days.from_now)
 
-        format.html { redirect_to @video, notice: 'Video was successfully created.' }
-        format.json { render json: @video, status: :created, location: @video }
+        format.html { redirect_to catnum_path(@video.catnum), notice: 'Video was successfully created.' }
+        format.json { render json: catnum_path(@video.catnum), status: :created, location: @video }
       else
         format.html { render action: "new" }
         format.json { render json: @video.errors, status: :unprocessable_entity }
