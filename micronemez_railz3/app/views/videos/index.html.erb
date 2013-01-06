@@ -8,33 +8,41 @@
       init_archive_infinite_scroller();
     });
   </script>
+  <% if user_signed_in? %>
+    <style type="text/css">
+      .pagination {
+        visibility: visible;
+      }
+    </style>
+  <% end %>
+<% end %>
+<div class="bodd_marg">
+<% if user_signed_in? %>
+  <% @videos.each do |video| %> 
+  <div class="element_meta">
+    
+    <%= link_to image_tag("/images/#{video.catnum}.jpg", :class=> 'video_thumb', :height => "60"), "/video/show/#{video.catnum}", :title => "#{video.title}",  :id => "#{video.catnum}" %>
+    <div class="video_block">
+      <%= link_to t(video.catnum), catnum_path(video.catnum) %>
+      <br /><%= link_to t(:edit), edit_video_path(video), title: :edit %> 
+      <br /> <%= link_to t(:destroy), video, :method => :delete, confirm: t(:confirm), title: :destroy %>
+    <span><%= truncate(video.title, :length => 166) %></span>
+    <span><%= truncate(video.location, :length => 166) %></span>
+    <span><%= video.tag_list %></span>
+    <span><%= truncate(video.description, :length => 255) %></span>
+    
+    </div>
+  <% end %>
+<% else %>
+  <div id="archive-container" class="variable-sizes infinite-scroll clearfix">
+    <% @videos.each do |video| %>
+      <div class="box element width2 " data-symbol="<%= video.catnum %>" data-category="<%= video.tag_list %>" >
+        <%= link_to image_tag("/images/#{video.catnum}.jpg", :class=> 'video_thumb', :width => "240"), "/video/show/#{video.catnum}", :title => "#{video.title}",  :id => "#{video.catnum}" %>
+      </div>     
+    <% end %>
+  </div> <!-- #container -->
 
 <% end %>
-  <!--div id="container" class="variable-sizes clearfix infinite-scrolling"-->
-
-<div id="archive-container" class="variable-sizes infinite-scroll clearfix">
-    <% @videos.each do |video| %>
-
-    <div class="box element width2 " data-symbol="<%= video.catnum %>" data-category="<%= video.tag_list %>" >
-
-        <span><%= link_to t(video.catnum), video %></span>
-        <span><%= truncate(video.title, :length => 28) %></span>
-        <span><%= truncate(video.location, :length => 28) %></span>
-        <span><%= video.tag_list %></span>
-        <span><%= truncate(video.description, :length => 28) %></span>
-        <% if user_signed_in? %>
-            <span><%= link_to t(:edit), edit_video_path(video) %></span>
-            <span><%= link_to t(:destroy), video, confirm: t(:confirm), method: :delete %></span>
-        <% end %>
-        <%= link_to image_tag("/images/#{video.catnum}.jpg", :class=> 'video_thumb', :height => "240"), "/video/show/#{video.catnum}", :title => "#{video.title}",  :id => "#{video.catnum}" %>
-
-      </div>
-      
-    <% end %>
-
-    
-
-</div> <!-- #container -->
-
+</div>
 <!--<nav id="page-nav"><a href="../pages/2.html"></a></nav>-->
 <%= will_paginate @videos %>

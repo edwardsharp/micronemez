@@ -11,7 +11,7 @@
 */
 
 body {
-    background: #000;
+    background: #1a1a1a;
     padding:0;
     margin:0;
     
@@ -22,6 +22,11 @@ body {
     font-family: Sans-Serif;
 }
 
+.box form {
+
+  padding: 2em 3em 2em 3em;
+
+}
 
 /*.box {
   position: absolute;
@@ -65,12 +70,12 @@ i {
 }
 .notice, .alert {
   position:absolute;
-  font-size: 1.3em;
+  font-size: 1em;
   height: 1.5em;
   display:block;
   top: 5px;
-  left: 320px;
-  text-align: center;
+  padding-right: 1em;
+  text-align: right;
 }
 .field_with_errors {
   display: inline;

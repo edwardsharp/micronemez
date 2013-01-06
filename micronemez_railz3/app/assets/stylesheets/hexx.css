@@ -1,9 +1,23 @@
+body {
+    background-color: #1a1a1a;
+    font-family: sans-serif;
+}
+
+a {
+    color: #ff6600;
+    background-color: #1a1a1a;
+    text-decoration: none;
+}
+a:hover {
+    color: yellow;
+    text-decoration: none;
+}
 p.title {
-    font-size:3.5em;
-    margin-left: 5px;
+    font-size:3.3em;
+
 }
 p.subtitle {
-    margin: .5em;
+    margin: 0.5em 0.5em 1em 0.5em;
     font-size: 1.5em;
 }
 
@@ -12,14 +26,15 @@ p.subtitle {
     font-size: 1.2em;
 }
 .schedulez {
-    margin-left: .5em;
+    margin-left: 0.5em;
 }
 .info_qanda {
-   margin-left: .5em; 
+   margin-left: 0.5em; 
 }
 #cluster {
-    padding-top: 30px;  
+    padding-top: 3em;  
     min-width: 800px;
+    font-family: sans-serif;
 }
 
 /* GENERIC HEX PROPERTIEZ */
@@ -31,13 +46,15 @@ p.subtitle {
 
 .hex-row {
     clear: left;
-
 } 
 
 .hex-row.even {
     margin-left: 190px;
-}
 
+}
+.even .hex {
+    margin-top: -45px;
+}
 .pagination, .none {
     visibility:hidden;
 }
@@ -48,15 +65,14 @@ p.subtitle {
 }
 
 .middle h1, .middle p {   
-    padding-left: 3px;
-    
+    padding-left: 7px;
 }
 
 .middle h1 {
     padding-top: 30px;
-    padding-left: 10px;
+    padding-left: 5px;
     font-size: 3.5em;
-    font-family: sans-serif;
+    
 }
 
 .big-header {
@@ -67,7 +83,8 @@ p.subtitle {
 /* HEX (CONTENT) */
 /*http://www.nczonline.net/blog/2012/07/05/ios-has-a-hover-problem/ */
 /*.no-touch .hex:not(.notForHover):hover .top, .hex:not(.notForHover):hover .bottom {*/
-.no-touch .hex:hover .top,  .hex:not(.notForHover):hover .bottom {    
+
+/*.no-touch .hex:hover .top,  .hex:not(.notForHover):hover .bottom {    
     filter: alpha(opacity=50); 
     -khtml-opacity: 0.5;     
     -moz-opacity: 0.5;  
@@ -75,15 +92,14 @@ p.subtitle {
 }
 
 .hex:not(.notForHover):hover .middle {
-    border: thin  solid #ededed;
 }
 .no-touch .hex .middle:hover . {
     
-}
+}*/
 
 .current_info {
     margin-top: .5em;
-    margin-left: 1em;
+    margin-left: 5px;
     margin-right: .3em;
 }
 
@@ -98,7 +114,7 @@ p.subtitle {
 
 .hex .middle {
     width: 321px;
-    height: 240px;
+    height: 200px;
     background: #ff6600;
     color: #000;
     overflow: hidden;
@@ -129,7 +145,7 @@ p.subtitle {
 
 .hex_connector .middle {
     width: 320px;
-    height: 240px;
+    height: 200px;
     background: #1F1F1F;
     color: #ff6600;
     overflow: hidden;
@@ -178,4 +194,22 @@ p.subtitle {
 
 /* END HEXX */
 
-​
+/* misc ssssstuf */
+.info_nav {
+    padding-top: 2em;
+    font-family: sans-serif;
+    margin: 3px;
+    font-size: 0.9em;
+}
+.info_nav a {
+    color: #ff6600;
+    background-color: #1a1a1a;
+    text-decoration: none;
+    margin-left: -3px;
+}
+.info_nav a:hover {
+    color: yellow;
+}
+.bodd_marg {
+    margin-top: 3em;
+}

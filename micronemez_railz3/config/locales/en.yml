@@ -11,6 +11,7 @@ en:
   username: 'username'
   password: 'password'
   remember: 'never forget'
+  video_submit: 'save'
   sign_in: 'submit'
   cancel: 'cancel my account'
   you_are: 'you are signed in as'
@@ -27,12 +28,13 @@ en:
   delete_account: 'cancel my account'
   current_password_i: '(we need your current password to confirm your changes)'
   password_i: '(leave blank if you donot want to change it)'
-  confirm: 'are you sure?'
+  confirm: 'o rly?'
   resend_confirmation: 'resend confirmation instructions'
   resend_unlock: 'resend unlock instructions'
   back: 'back'
   show: 'show'
   edit: 'edit'
+  new: 'new'
   destroy: 'destroy'
   catnum: 'catnum'
   title: 'title'
@@ -42,7 +44,8 @@ en:
   seperator: '|'
   enddatetime_prefix: 'until '
   datetime_totalminutes: 'minutez'
-
+  is_public: 'is public?'
+  
   errors:
     messages:
       not_found: "not found"
@@ -62,7 +65,7 @@ en:
       inactive: 'NOT ACTIVATED YET'
     sessions:
       signed_in: 'SUCCESS!'
-      signed_out: 'get outta here!(signed out successfully)'
+      signed_out: 'get outta here! (signed out successfully)'
     passwords:
       send_instructions: 'you will receive an email with instructions about how to reset your password in a few minutez.'
       updated: 'your password was changed successfully. you are now signed in.'

@@ -15,15 +15,22 @@
 		<div class="hex z">
 		    <div class="top"></div>
                 
-		    <div class="middle"><h1>CURRENT</h1>
+		    <div class="middle current"><h1>CURRENT</h1>
                 <p class="current_info">
-                    <% if @live_now %>
+                    <% unless @live_now.count == 0 %>
                         LIVE: 
                         <% @live_now.each do |l| %>
                             <%= l.title %> <i>until</i> <%= l.end.to_s(:onlytime) %>
                         <% end %>
                     <% else %>
-                        UPCOMING: <%= @upcoming_this_month.first.title %> <i>in</i> <%= distance_of_time_in_words_to_now(@upcoming_this_month.first.start) %>
+                        UPCOMING: 
+                        <% unless @upcoming_this_month %>
+                            
+                            <%= @upcoming_this_month.title %> <i>until</i> <%= @upcoming_this_month.end.to_s(:onlytime) %>
+ 
+                        <% else %>
+                            NONE YET (BRB!)
+                        <% end %>
                     <% end %> 
                   
                 </p>

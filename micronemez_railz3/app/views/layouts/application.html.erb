@@ -30,6 +30,17 @@
 </script>
 </head>
 <body>
+  <% unless params[:ajax] %>
+
+      <span class="notice wide_noticealert"><%= notice %></span>
+      <span class="alert wide_noticealert"><%= alert %></span>
+
+    <% if user_signed_in? %>
+      <div id="top">
+        <%= render "layouts/application/nav" %>
+      </div>
+    <% end %>
+  <% end %>
 
   <%= yield %>
   

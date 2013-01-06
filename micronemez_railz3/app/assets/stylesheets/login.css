@@ -4,7 +4,7 @@
 
 ul.hmenu {
   list-style: none;	
-  margin: 0 0 2em;
+  margin: 0;
   padding: 0;
 }
 
@@ -13,18 +13,18 @@ ul.hmenu li {
 }
 
 .dd_menu 	{
-	padding:0; 
-	margin:50px; 
 	list-style-type:none; 
 	height:30px;
 	-webkit-border-radius: 5px;
      -moz-border-radius: 5px;
           border-radius: 5px;
+          background-color: yellow;
 }
 
 .dd_menu li 	{
 	float:left; 
 	height:30px;
+
 }
 
 .dd_menu li a 	{
@@ -32,10 +32,15 @@ ul.hmenu li {
 	display:block; 
 	text-decoration:none;
   font-size: 22pt;
+  color: #ff6600!important;
+  background-color: yellow;
 }
+
 
 .dd_menu li:hover a {
 	text-decoration:underline;
+	color: yellow;
+  background-color: #ff6600;
 }
 
 
@@ -57,7 +62,7 @@ ul.hmenu li {
 	left:0px; 
 	top:30px;  
 	padding:3px; 
-	width:160px;
+	width:150px;
 }
 
 .dd_menu li:hover ul li 	{
@@ -69,7 +74,7 @@ ul.hmenu li {
 	height:18px; 
 	padding:0px; 
 	display:block; 
-	width:158px; 
+	width:148px; 
 	line-height:18px; 
 	text-indent:5px;
 }
@@ -79,16 +84,16 @@ ul.hmenu li {
 }
 
 
-.dd_menu {background:#ff6600; padding:0px; margin:0; list-style-type:none; height:30px;}
+.dd_menu {background:#ff6600; padding:0px; margin-left:5px; list-style-type:none; height:30px;}
 .dd_menu li {float:left; height:30px;}
 .dd_menu li a {padding:9px 20px; display:block; color:#fff; text-decoration:none; font:12px arial, verdana, sans-serif; font-weight: bold;}
 .dd_menu li:hover a {text-decoration:underline; color:#ff6600;}
 
 .dd_menu ul {position:absolute; left:-9999px; top:-9999px; list-style-type:none;}
 .dd_menu li:hover {position:relative; background:yellow; color: #ff6600;}
-.dd_menu li:hover ul {left:0px; top:30px; background:#ddd; padding:3px; border:none; width:160px;}
+.dd_menu li:hover ul {left:0px; top:30px; background:#ddd; padding:3px; border:none; width:150px;}
 .dd_menu li:hover ul li {height:18px; border:none;}
-.dd_menu li:hover ul li a {height:18px; padding:0px; display:block; font-size:12px; width:158px; line-height:18px; text-indent:5px; color:#444; background-color:#ddd; text-decoration:none; border:none;}
+.dd_menu li:hover ul li a {height:18px; padding:0px; display:block; font-size:12px; width:148px; line-height:18px; text-indent:5px; color:#444; background-color:#ddd; text-decoration:none; border:none;}
 .dd_menu li:hover ul li a:hover {height:18px; background:silver; color:#000; border:none;}
 
 
@@ -101,7 +106,16 @@ label, #error_explanation {
   text-transform: lowercase;
 }
 
+.userz div {
+	margin: 1em 0 0 0;
+}
 
+input {
+	background-color: #ff6600;
+	color:#1a1a1a;
+	border: medium solid #1a1a1a;
+	font-size: 1em;
+}
 #notice {
   color: yellow; 
 }

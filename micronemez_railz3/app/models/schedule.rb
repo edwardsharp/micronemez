@@ -47,6 +47,8 @@ scope :upcoming_this_year, lambda {
   onlypublic.where("start between ? and ?", Date.today, Date.today.next_year).order('start ASC')
 } 
 
+default_scope order 'start DESC'
+
   #unused?
   def live?(startdatetime, enddatetime)
     #if on the same day return TRUE.

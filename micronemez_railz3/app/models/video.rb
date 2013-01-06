@@ -17,7 +17,7 @@ class Video < ActiveRecord::Base
   #validates :video_upload, :attachment_presence => true
    
   #TODO: does :video_upload need to be here?
-  attr_accessible :title, :location, :description, :video_upload, :tag_list
+  attr_accessible :title, :location, :description, :video_upload, :tag_list, :is_public
   
   validates_attachment_size :video_upload, :less_than => 999.megabytes
   validates_attachment_content_type :video_upload, :content_type => [ /^video/, nil ], :message => 'please upload correct format'
@@ -42,7 +42,13 @@ class Video < ActiveRecord::Base
   
   before_create :generate_catnum
   #after_save :move_file
-  
+  scope :onlypublic, lambda {
+    #yeah, :public is a bool!
+    where :is_public => true
+  }
+
+  default_scope order 'created_at DESC'
+
   #@SuppressWarnings("unused")
   def video
     [ 'application/x-mp4',

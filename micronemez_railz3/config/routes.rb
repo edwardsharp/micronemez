@@ -8,6 +8,9 @@ Micronemez::Application.routes.draw do
     root :to => 'categories#index', :via => :get
   end
 
+#resources :videos, except => [:index]
+#resources :videos, :only => [:new, :create, :edit, :destroy]
+
   get "hexx/index"
 
   match "/playlist" => "playlists#index", :as => "playlist_index"
@@ -37,14 +40,14 @@ Micronemez::Application.routes.draw do
   #TODO: q: can this be refactored into the resources method? 
   # a: kindof particular here b/c having a convience :as method 
   # named :tags DRYz up the controller code...
-  get "node/tags" => "nodes#tags", :as => :tags
-  post "node/tags" => "nodes#newtag", :as => :tags
-  resources :nodes do
-    get :autocomplete_node_name, :on => :collection 
+  #get "node/tags" => "nodes#tags", :as => :tags
+  #post "node/tags" => "nodes#newtag", :as => :tags
+  #resources :nodes do
+  #  get :autocomplete_node_name, :on => :collection 
     #TODO: (above)
     #get :tags
     #post :tags
-  end 
+  #end 
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
@@ -53,9 +56,6 @@ Micronemez::Application.routes.draw do
   namespace "admin" do
     resources :users
   end
-
-	#resources :videos, except => [:index]
-	#resources :videos, :only => [:new, :create, :edit, :destroy]
   
   #segmentz
   ##controller :videos do
@@ -66,7 +66,7 @@ Micronemez::Application.routes.draw do
   ##  end
   ##end
   
-  match "/video/show/:entry_id" => "video#show", :as => "video"
+  match "/video/show/:catnum" => "video#show", :as => "catnum"
   
   root :to => "hexx#index"
 

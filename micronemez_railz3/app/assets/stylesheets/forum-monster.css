@@ -1,9 +1,9 @@
 /* Modules
 --------------------------------------------------------------------------------------------------*/
-.module { border:1px solid #e2e2e2; margin:.8em 0; background-color:#1a1a1a; overflow:auto; }
-.module_controls { padding:.8em; }
-.module_header { color:#ff6600; padding:.7em .7em .7em 1.4em; background-color:#000; text-transform: uppercase;}
-.module_header a { color:#ff6600; }
+.module { border:none; margin:2em 0; background-color:#1a1a1a; overflow:auto; }
+.module_controls { }
+.module_header { color:#ff6600; padding:.7em .7em .7em 1.4em; background-color:#000; text-transform: uppercase; font-style: italic;}
+.module_header a { color:#ff6600; font-style: normal; }
 .module_subheader, .module_footer { margin:.6em .8em; padding:.6em; text-transform: lowercase;}
 .module_subheader { border-bottom:1px solid #e2e2e2; }
 .module_footer { border-top:1px solid #e2e2e2; }
@@ -23,9 +23,9 @@
 .module .smaller { font-size:.9em; }
 .module .left { float:left; }
 .module .right { float:right; text-align:right; }
-.controls { padding-left: 5px; text-transform: uppercase; }
-.controls a {  color: #ff6600;}
-.controls a:hover { color: yellow;}
+.controls { text-transform: lowercase; font-style: italic; }
+.controls a {  color: yellow; margin-left: 10px;}
+.controls a:hover { color: #ff6600;}
 
 /* Tables
 --------------------------------------------------------------------------------------------------*/
@@ -39,6 +39,8 @@ table .icon { width:26px; text-align:center; }
 table .counts { width:8%; text-align:center; }
 table .last_post { padding-left:10px; }
 table .description { width:55%; text-align:left; padding-left:20px; }
+table .description a { font-size: 1.5em; color: yellow; }
+table .description a:hover { color: #ff6600; }
 
 /* Post View Table
 --------------------------------------------------------------------------------------------------*/
@@ -46,7 +48,7 @@ table .post_author { padding-left:15px; vertical-align:top !important; }
 table .post_author .name { font-size:1.5em; display:block; margin-bottom:5px; }
 table .post_author .name a { margin-left:-20px; }
 table .post_author .info { display:block; margin:5px 0; }
-table .post_body { width:80%; padding:10px 10px 30px 10px; border-bottom:0px; }
+table .post_body { width:80%; padding:10px 10px 30px 10px; border-bottom:0; }
 
 /* BBCode
 --------------------------------------------------------------------------------------------------*/

@@ -30,6 +30,26 @@ class VideosController < ApplicationController
     
 
     yell "tagZ: #{@tags}"
+
+
+    respond_to do |format|
+        if request.post?
+          if @video.save
+            cookies[:last_video_id] = @video.id 
+            #Delayed::Job.enqueue(FileUploadJob.new(@video.id, @video.path), -3, 3.days.from_now)
+
+            #format.html { redirect_to catnum_path, notice: 'video updated!' }
+            #format.json { render json: catnum_path, status: :updated, location: @video }
+          else 
+            #format.html { redirect_to catnum_path, notice: 'can NOT save it!' }
+            #format.json { render json: catnum_path, status: :unprocessable_entity, location: @video }
+          end
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @video.errors, status: :unprocessable_entity }
+        end
+    end
+
   end
 
   # POST /videos
@@ -61,7 +81,7 @@ class VideosController < ApplicationController
 
     respond_to do |format|
       if @video.update_attributes params[:video]
-        format.html { redirect_to @video, notice: 'Video was successfully updated.' }
+        format.html { redirect_to catnum_path(@video.catnum), notice: 'updated!' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -87,7 +107,7 @@ class VideosController < ApplicationController
   # GET /videos.json
   def index
     #@videos = Video.all
-    @videos = Video.paginate(:page => params[:page], :per_page => 20)
+    @videos = Video.paginate(:page => params[:page], :per_page => 25)
 
     respond_to do |format|
       format.html # index.html.erb

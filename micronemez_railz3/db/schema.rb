@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130104232912) do
+ActiveRecord::Schema.define(:version => 20130106075920) do
 
   create_table "audios", :force => true do |t|
     t.string   "catnum"
@@ -347,6 +347,7 @@ ActiveRecord::Schema.define(:version => 20130104232912) do
     t.string   "video_upload_content_type"
     t.integer  "video_upload_file_size"
     t.datetime "video_upload_updated_at"
+    t.boolean  "is_public"
   end
 
   add_index "videos", ["catnum"], :name => "index_videos_on_catnum", :unique => true

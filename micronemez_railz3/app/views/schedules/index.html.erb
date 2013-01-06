@@ -1,10 +1,14 @@
 <% if user_signed_in? %>
 
-    <table>
+    <table class="bodd_marg">
       <tr>
         <th>title</th>
         <th>date</th>
         <% if user_signed_in? %>
+            <% if current_user.try(:admin?) %>
+                <th></th>
+                <th></th>
+            <% end %>
             <th>description</th>
             <th>live</th>
             <th>channel</th>
@@ -14,8 +18,6 @@
             <th>single_checkbox</th>
             <th>radiobutton_option</th>
             <th>custom_type</th>
-            <th></th>
-            <th></th>
         <% end %>
       </tr>
     <% @schedules.each do |schedule| %>
@@ -23,6 +25,10 @@
         <td><%= link_to schedule.title, schedule %></td>
         <td><%= schedule.datespan %></td>
         <% if user_signed_in? %>
+            <% if current_user.try(:admin?) %>
+                <td><%= link_to 'edit', edit_schedule_path(schedule) %></td>
+                <td><%= link_to 'destroy!', schedule, confirm: 'o rly?', method: :delete %></td>
+            <% end %>
             <td><%= schedule.description %></td>
             <td><%= schedule.live %></td>
             <td><%= schedule.channel %></td>
@@ -32,14 +38,13 @@
             <td><%= schedule.single_checkbox %></td>
             <td><%= schedule.radiobutton_option %></td>
             <td><%= schedule.custom_type %></td>
-            <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
-            <td><%= link_to 'Destroy', schedule, confirm: 'Are you sure?', method: :delete %></td>
+            
         <% end %>
       </tr>
     <% end %>
     </table>
     <br />
-    <%= link_to 'NEW SCHEDULE', new_schedule_path %>
+    <% if current_user.try(:admin?) %><%= link_to 'NEW SCHEDULE', new_schedule_path %><% end %>
 
 <% else %>
 

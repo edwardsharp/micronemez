@@ -1,3 +1,27 @@
 // Place all the styles related to the videos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.element_meta {
+    border-left: 20px solid #ff6600;
+    border-top: thick solid #1a1a1a;
+    border-bottom: thick solid #1a1a1a;
+}
+
+.video_block {
+float: left;
+font-size: 1.1em;
+}
+span {
+	font-size: 1.3em;
+	margin-right: 0.2em;
+
+}
+
+.disabled {
+	font-size: 0.7em;
+}
+
+input:hover {
+	color: yellow;
+}

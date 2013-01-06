@@ -6,10 +6,7 @@
 // //
 //= require jquery
 //= require jquery.timer
-//= require jquery.colorbox-min
-//= require jquery.mousewheel
-//= require mwheelIntent
-//= require jquery.jscrollpane
+
 //= require jquery.waitforimages
 
 // //= require jquery_ujs
@@ -22,9 +19,3 @@
 
 // //= require nav
 
-/* le hack
-$(document).ajaxSend(function(e, xhr, options) {
-  var token = $("meta[name='csrf-token']").attr("content");
-  xhr.setRequestHeader("X-CSRF-Token", token);
-});
-*/

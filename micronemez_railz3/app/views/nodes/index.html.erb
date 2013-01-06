@@ -17,9 +17,9 @@
     <td><%= node.date %></td>
     <td><%= node.content %></td>
     <td><%= node.tags %></td>
-    <td><%= link_to 'Show', node %></td>
-    <td><%= link_to 'Edit', edit_node_path(node) %></td>
-    <td><%= link_to 'Destroy', node, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'show', node %></td>
+    <td><%= link_to 'edit', edit_node_path(node) %></td>
+    <td><%= link_to 'destroy!', node, confirm: 'o rly?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

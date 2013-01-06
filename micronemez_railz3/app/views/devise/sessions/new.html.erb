@@ -4,20 +4,18 @@
 <% else %>
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
     <div><%= f.label t :username %><br />
-    <%= f.text_field :username %></div>
+    <%= f.text_field :username, :autofocus => true %></div>
   
     <div><%= f.label t :password %><br />
     <%= f.password_field :password %></div>
   
-    <% if devise_mapping.rememberable? -%>
-      <div><%= f.check_box :remember_me %> <%= t :remember %></div>
-    <% end -%>
+ 
   
     <div><%= f.submit t(:sign_in) %></div>
+    <br/>
   <% end %>
 
-  <%= link_to "...or sign in with facebook", user_omniauth_authorize_path(:facebook) %>
-
   <%= render "links" %>
+  
 <% end %>
 </div>

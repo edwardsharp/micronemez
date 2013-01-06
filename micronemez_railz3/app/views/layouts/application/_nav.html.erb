@@ -17,21 +17,26 @@
             </ul>
             
         </li>
-        <li><a href="/" title="LAND:FORMATION">[ main ]</a>
-         &nbsp;
-        <a href="/info" title="INFO">[ info ]</a>
-         &nbsp;
+        <li>
+        [<%= link_to " upload ", new_video_path %>] 
+        &nbsp;
+        [<%= link_to " all videoz ", videos_path %>]
+        &nbsp;
+        [ <%= link_to " schedulez ", schedules_path %> ] 
+        &nbsp;
+        [ <%= link_to " calendar ", new_schedule_path %> ]
+        &nbsp;
+        [<%= link_to " fourmz ", forums_path %>] 
+        &nbsp;
+
          <% if user_signed_in? %>
-        [ <%= link_to "sign out", destroy_user_session_path, :title => current_user.username %> ]
-        <% else %>
-            <a href="/users/sign_in" title="you can be somebody!">[ users ]</a>
+        [ <%= link_to " sign out ", destroy_user_session_path, :title => current_user.username %> ]
         <% end %>
          &nbsp;
         
       </li>
       
-    <span class="notice wide_noticealert"><%= notice %></span>
-    <span class="alert wide_noticealert"><%= alert %></span>
+    
     </ul>
     
 </div>

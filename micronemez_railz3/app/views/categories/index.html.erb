@@ -4,23 +4,27 @@
     <div class="module_header">
       <%= category.title %>
       <span class="controls right smaller">
-        <%= link_to "New Forum", new_forum_path %>
-        <%= link_to "Edit Category", edit_category_path(category) %>
-        <%= link_to "Delete Category", category_path(category), :confirm => "are you sure you want to delete this category?", :method => :delete %>
+        <% if user_signed_in? %>
+          <%= link_to "new Forum", new_forum_path %>
+          <%= link_to "edit Category", edit_category_path(category) %>
+          <% if current_user.try(:admin?) %>
+            <%= link_to "delete Category", category_path(category), :confirm => "are you sure you want to delete this category?", :method => :delete %>
+          <% end %>
+          <% end %>
       </span>
     </div>
     <% if category.forums.size > 0 %>
     <div>
       <table>
         <tr class="smaller">
-          <th colspan="2" align="left">Forum</th>
-          <th>Topics</th>
-          <th>Posts</th>
-          <th class="last_post" align="left">Last Post</th>
+          <th align="left">forum</th>
+          <th>topicz</th>
+          <th>postz</th>
+          <th class="last_post" align="left">last post</th>
         </tr>
         <% category.forums.each do |forum| %>
         <tr>
-          <td class="icon"><%= image_tag 'ruby.png' %></td>
+          
           <td class="description">
             <%= link_to forum.title, forum_path(forum) %> 
             <span class="smaller"><%= forum.description %></span><br />
@@ -32,7 +36,7 @@
               <%= time_ago_in_words(forum.posts.last.created_at) %> ago by 
               <%= forum.posts.last.user.username %>
             <% else %>
-              No Topics / Posts
+              NOTHIN' YET...
             <% end %>
           </td>
         </tr>
@@ -40,7 +44,7 @@
       </table>
     </div>
     <% else %>
-      <div class="module_body">NO FORUMZ YET!</div>
+      <div class="module_body">NO FORUMZ YET...</div>
     <% end %>
   </div>
 <% end %>

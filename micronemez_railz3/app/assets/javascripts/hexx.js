@@ -3,6 +3,7 @@
  *
  * INFO CONTAIN'R MASONRY-STYLE
  */
+
 $(function(){
     
     var $container = $('#info-container');
@@ -34,7 +35,7 @@ $(function(){
       nextSelector : '#page-nav a',  // selector for the NEXT link (to page 2)
       itemSelector : '.box',     // selector for all items you'll retrieve
       loading: {
-          finishedMsg: 'No more pages to load.',
+          finishedMsg: 'no more nodez!',
           img: 'http://i.imgur.com/6RMhx.gif'
         }
       },
@@ -60,12 +61,7 @@ $(function(){
 $(function() {
 
     $('.info').on('click', function(e) {
-        e.preventDefault();
-        if($(this).parent().hasClass('notForHover')){
-            
-        } else {
-            $(this).parent().addClass('notForHover');
-        }
+        
         
         if ($(this).hasClass('info_selected')) {
             
@@ -85,7 +81,8 @@ $(function() {
                 success: function(data) {
                     //console.log('info ajaz succezz!');
                     //$('.info p').toggle();
-                    $('.info').append(data);
+                    $('.info').append(data) //.hide().fadeIn(500);
+                    $('.info').next().trigger('fader');
                 },
                 complete: function() {
                     //console.log('info ajax done');
@@ -152,7 +149,7 @@ $(function() {
       nextSelector : next_sel,  // selector for the NEXT link (to page 2)
       itemSelector : '.box',     // selector for all items you'll retrieve
       loading: {
-          finishedMsg: '',
+          finishedMsg: 'no more datez!',
           msgText: '',
           img: '/images/loader.gif'
         }
@@ -173,7 +170,7 @@ $(function() {
 }    
 //SCHEDULE_AJAX
 $(function() {  
-        
+    
     $('.schedule').on('click', function(e) {
         e.preventDefault();
         if( $(this).parent().hasClass('notForHover')){
@@ -201,7 +198,7 @@ $(function() {
                 success: function(data) {
                     //console.log('egad!');
                     //$('.schedule h1').toggle();
-                    $('.schedule').append(data);
+                    $('.schedule').append(data).hide().fadeIn(500);
                 },
                 complete: function() {
                     //console.log('/upcoming/ajax request is complete. going to init_schedule_infinite_scroller(');
@@ -220,38 +217,9 @@ $(function() {
 
 
 
-jQuery(document).ready(function($) {
-
-    if(!("ontouchstart" in document.documentElement)) {
-        // self-desctruct...
-        //console.log("ADDING ZOOM TAGETZ!");
-        document.documentElement.className += " no-touch";
-        //$('.z').zoomTarget();
-    } else {
-        //#TODO: aplologize, i guess.
-        console.log("TOUCH DEV SELF-DESCTRUCT! (SORRY)");
-    }
-
-
-    //$('.middle').jScrollPane();
-
-    $('.middle').click(function() {
-        $(this).addClass('no-background');
-        //$("body").css("background", "#121212");
-    });
-    
-    //$('body').click(function() {
-        //$('.no-background').removeClass('.no-background');
-        //$("body").css("background", "#000");
-    //});
-
- 
-});
-
-
 /*
  * ARCHIVE MASONRY & INFINITE SCROLL'R
- *
+ * (whee, bleep.)
  */
 
 
@@ -293,7 +261,7 @@ function init_archive_infinite_scroller(){
       nextSelector : next_sel,  // selector for the NEXT link (to page 2)
       itemSelector : '.box',     // selector for all items you'll retrieve
       loading: {
-          finishedMsg: '',
+          finishedMsg: 'no more nodez!',
           msgText: '',
           img: '/images/loader.gif'
         }
@@ -323,6 +291,7 @@ $(function() {
       //display teaser?
 
     });   */ 
+
     $('.archive').on('click', function(e) {
         e.preventDefault();
         if( $(this).parent().hasClass('notForHover')){
@@ -349,7 +318,7 @@ $(function() {
                 },
                 success: function(data) {
                     console.log('Fired when the request is successfull');
-                    $('.archive h1').toggle();
+                    //$('.archive h1').toggle();
                     $('.archive').append(data);
                 },
                 complete: function() {
@@ -366,4 +335,86 @@ $(function() {
     });
 
 }); //END__ARCHIVE__AJAX
+
+
+jQuery(document).ready(function($) {
+
+    if(!("ontouchstart" in document.documentElement)) {
+        // self-desctruct...
+        //console.log("ADDING ZOOM TAGETZ!");
+        document.documentElement.className += " no-touch";
+        //$('.z').zoomTarget();
+    } else {
+        //#TODO: aplologize, i guess.
+        console.log("TOUCH DEV SELF-DESCTRUCT! (SORRY)");
+    }
+
+
+    //$('.info').trigger('click');   $('.schedule').trigger('click'); $('.archive').trigger('click');
+    //$('.middle').jScrollPane();
+
+
+    setTimeout(function(){  //pass it an anonymous function that calls foo
+      $('.info').trigger('click');
+      //$('.info').next().stop().fadeTo("slow", 0.33);
+      //$('.info').next().trigger('fader');
+    },10);
+
+    /*setTimeout(function(){  //pass it an anonymous function that calls foo
+      //stop fadin after a while...
+      $('.info').next().trigger('fader');
+      console.log("FADER STOPPP!");
+    },20000);*/
+
+    setTimeout(function(){  //pass it an anonymous function that calls foo
+      $('.current').hide().fadeIn(500); //.trigger('click');
+    },500);
+
+    setTimeout(function(){  //pass it an anonymous function that calls foo
+      $('.schedule').trigger('click');
+    },1000);
+    
+
+    $('.middle').click(function() {
+        $(this).addClass('no-background');
+        //$("body").css("background", "#121212");
+    });
+    
+
+
+
+    $('.info').bind('scroll', function()
+    {
+      if($(this).scrollTop() + 
+         $(this).innerHeight()
+         >= $(this)[0].scrollHeight)
+      {
+        //trigger fader 
+        //$('.info').next().stop().fadeTo("slow", 1);
+      }
+    })
+
+    //#TODO: fix this up!
+    /*$("div.current").mouseenter(function() {
+      $(this).stop().fadeTo("slow", 0.80);
+    }).mouseleave(function() {
+      $(this).stop().fadeTo("fast", 1);
+    });*/
+    /*$("div.bottom").mouseenter(function() {
+      $(this).stop().fadeTo("slow", 0.80);
+    }).mouseleave(function() {
+      $(this).stop().fadeTo("fast", 1);
+    });*/
+
+
+    //$('body').click(function() {
+        //$('.no-background').removeClass('.no-background');
+        //$("body").css("background", "#000");
+    //});
+
+ 
+});
+
+
+
 

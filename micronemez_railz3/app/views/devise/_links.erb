@@ -2,7 +2,15 @@
 <li>
   <a href='#TRIANGLE' class="triangle"><%=t(:users)%></a>
 	<ul>
-    
+   
+   <%- if devise_mapping.omniauthable? %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+        <li><%= link_to "sign in with #{provider.to_s}", omniauth_authorize_path(resource_name, provider) %></li>
+      <% end -%>
+  <% end -%>
+
+    <li>------\\\</li>
+
   <%- if controller_name != 'sessions' %>
     <li><%= link_to t(:new_session), new_session_path(resource_name) %><b></li>
   <% end -%>
@@ -24,13 +32,7 @@
     <li><%= link_to t(:no_unlock), new_unlock_path(resource_name) %></li>
   <% end -%>
 
-  <%- if devise_mapping.omniauthable? %>
-    <%- resource_class.omniauth_providers.each do |provider| %>
-        <%- resource_class.omniauth_providers.each do |provider| %>
-          <li><%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %></li>
-        <% end -%>
-    <% end -%>
-  <% end -%>
+  
   
 	</ul>
 </li>
