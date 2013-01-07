@@ -121,7 +121,17 @@ p.subtitle {
     overflow-y: auto;
 }
 
-
+.current_title {
+    background-color: #ff6600;
+    color: #1a1a1a;
+    height: 16px;
+    font-size: 16px;
+    overflow: hidden;
+}
+/* ugh, sorry! !important is just lazy... */
+.mid_heightfix {
+    height: 184px!important;
+}
 .hex .bottom {
     width: 0;
     border-top: 92px solid #ff6600;
@@ -212,4 +222,9 @@ p.subtitle {
 }
 .bodd_marg {
     margin-top: 3em;
+}
+
+th {
+    background-color: #ff6600;
+    color: #1a1a1a;
 }

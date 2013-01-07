@@ -1,58 +1,9 @@
 /*
+ * HEXX
  * WHEE, BLEEP!
  *
- * INFO CONTAIN'R MASONRY-STYLE
  */
 
-$(function(){
-    
-    var $container = $('#info-container');
-    
-    $container.imagesLoaded(function(){
-      $container.isotope({
-        itemSelector: '.box',
-        masonry: {
-          columnWidth: 240
-        }
-      });
-    });
-    
-    //razzle dazzle TOP/BOTTOM button thing...
-    //$('.info').prev().click( function(){
-      //console.log("PROCESSING .INFO.PREV() CLICKZ");
-      //$('.info p').toggle();
-    //});
-
-    /*$('.info').next().click( function(){
-      //console.log("PROCESSING .INFO.NEXT() CLICKZ");
-      $('.info p').hide();
-      $('html, body').animate({ scrollTop: $('.info p').offset().top + $('.info p').offset().height }, 500);
-    });*/
-
-    /*
-    $container.infinitescroll({
-      navSelector  : '#page-nav',    // selector for the paged navigation 
-      nextSelector : '#page-nav a',  // selector for the NEXT link (to page 2)
-      itemSelector : '.box',     // selector for all items you'll retrieve
-      loading: {
-          finishedMsg: 'no more nodez!',
-          img: 'http://i.imgur.com/6RMhx.gif'
-        }
-      },
-      // trigger Masonry as a callback
-      function( newElements ) {
-        // hide new items while they are loading
-        var $newElems = $( newElements ).css({ opacity: 0 });
-        // ensure that images load before adding to masonry layout
-        $newElems.imagesLoaded(function(){
-          // show elems now they're ready
-          $newElems.animate({ opacity: 1 });
-          $container.masonry( 'appended', $newElems, true ); 
-        });
-      }
-    ); //infinitescroll
-    */
-});    
 
 /*
  * INFO__AJAX
@@ -72,7 +23,7 @@ $(function() {
             $.ajax({
                 async: true,
                 cache: false,
-                type: 'post',
+                type: 'get',
                 url: '/info/ajax',
                 //dataType: 'html',
                 beforeSend: function() {
@@ -96,6 +47,50 @@ $(function() {
 
 }); //INFO_AJAX
 
+
+/*
+ * CURRENT_AJAX
+ *
+ */
+$(function() {
+
+    $('.current').on('click', function(e) {
+        
+        
+        if ($(this).hasClass('current_selected')) {
+            
+        } else {
+            
+            $(this).addClass('current_selected');                    
+            // ajax request
+            $.ajax({
+                async: true,
+                cache: false,
+                type: 'get',
+                url: '/live/ajax',
+                //dataType: 'html',
+                beforeSend: function() {
+                    //console.log('zomg, before req');
+                },
+                success: function(data) {
+                    //console.log('info ajaz succezz!');
+                    $('.current h1').hide();
+                    $('.current p').hide();
+
+                    $('.current').append(data) //.hide().fadeIn(500);
+                    $('.current').next().trigger('fader');
+                },
+                complete: function() {
+                    //console.log('info ajax done');
+                }
+            }); //endajax
+            
+               
+        } //endif  
+
+    }); //endonclick
+
+}); //CURRENT_AJAX
 
 
 /*
@@ -189,7 +184,7 @@ $(function() {
                 context: this,
                 async: true,
                 cache: false,
-                type: 'post',
+                type: 'get',
                 url: '/upcoming/ajax',
                 //dataType: 'html',
                 beforeSend: function() {
@@ -310,7 +305,7 @@ $(function() {
                 context: this,
                 async: true,
                 cache: false,
-                type: 'post',
+                type: 'get',
                 url: '/archives/ajax',
                 //dataType: 'html',
                 beforeSend: function() {

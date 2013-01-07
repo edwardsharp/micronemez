@@ -1,6 +1,13 @@
 <% content_for :header do %>
   <%= javascript_include_tag 'hexx_assets' %>
   <%= javascript_include_tag 'hexx' %>
+  <% unless @live_now.count == 0 %>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $('.current').hide().trigger('click');
+        });
+    </script>
+  <% end %>
 <% end %>
 <div id="cluster">
     <div class="hex-row row1">
@@ -14,35 +21,52 @@
 
                 <div class="info_nav">
                     <% unless user_signed_in? %>
-                    <%= link_to " USER LOGIN ", new_user_session_path, :title => "SIGNUP & LOGIN FORMZ" %>
+                    <%= link_to " USERZ ", new_user_session_path, :title => "SIGNUP & LOGIN FORMZ" %>
                     <br />
                     <% end %>
                     <%= link_to " FORUMZ ", forums_root_path, :title => "PUBLIC FORUMZ" %>
                 </div>
                 
-                <p class="subtitle" title="--marvin minisky">those inner mental context clues that shade our minds&#039; activities in ways we can rarely express.</p></div>
+                <p class="subtitle" title="--marvin minisky">those inner mental context cluez that shade our minds&#039; activitiez in wayz we can rarely express.</p></div>
             <div class="bottom"></div>
         </div>
 		<div class="hex z">
 		    <div class="top"></div>
-                
-		    <div class="middle current"><h1>CURRENT</h1>
+            <div class="current_title">
+                <% unless @live_now.count == 0 %>
+
+                    LIVE: 
+                    <% @live_now.each do |l| %>
+                        <%= l.title %> <i>until</i> <%= l.end.to_s(:onlytime) %>
+                    <% end %>
+                <% else %>
+                    UPCOMING: 
+                    <% unless @upcoming_this_month %>
+                        
+                        <%= @upcoming_this_month.title %> <i>until</i> <%= @upcoming_this_month.end.to_s(:onlytime) %>
+
+                    <% else %>
+                        NONE YET (BRB!)
+                    <% end %>
+                <% end %> 
+            </div>
+		    <div class="middle current mid_heightfix"><h1>CURRENT</h1>
                 <p class="current_info">
                     <% unless @live_now.count == 0 %>
-                        LIVE: 
-                        <% @live_now.each do |l| %>
-                            <%= l.title %> <i>until</i> <%= l.end.to_s(:onlytime) %>
-                        <% end %>
+
+                    <% @live_now.each do |l| %>
+                        <b>starting:</b> <i><%= l.start.to_s(:onlytime) %></i> <b>description:</b> <%= l.description %> 
+                    <% end %>
+                <% else %>
+                    
+                    <% unless @upcoming_this_month %>
+                        
+                       <b>date:</b> <i><%= @upcoming_this_month.datespan %></i> <b>description:</b> <%= @upcoming_this_month.description %> 
+
                     <% else %>
-                        UPCOMING: 
-                        <% unless @upcoming_this_month %>
-                            
-                            <%= @upcoming_this_month.title %> <i>until</i> <%= @upcoming_this_month.end.to_s(:onlytime) %>
- 
-                        <% else %>
-                            NONE YET (BRB!)
-                        <% end %>
-                    <% end %> 
+                        NONE YET (BRB!)
+                    <% end %>
+                <% end %> 
                   
                 </p>
             </div>

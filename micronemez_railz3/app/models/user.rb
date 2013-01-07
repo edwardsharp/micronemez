@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
   has_many :videos, :dependent => :nullify
   has_many :nodes, :dependent => :nullify 
+  has_many :audios, :dependent => :nullify
   has_many :schedules, :dependent => :nullify
   has_many :topics, :dependent => :nullify
   has_many :posts, :dependent => :nullify

@@ -25,7 +25,7 @@ class AddUrlzAndWhatnotToNodes < ActiveRecord::Migration
 
     add_column :nodes, :description, :text
 
-
+    add_column :nodes, :schedule_id, :text
 
   end
 end

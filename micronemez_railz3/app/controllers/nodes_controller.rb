@@ -1,17 +1,41 @@
 class NodesController < ApplicationController
 
-	before_filter :authenticate_admin!, :except => [:index, :show, :tags]
+	before_filter :authenticate_admin!, :except => [:index, :live, :show, :tags]
 
   autocomplete :node, :name, :full => true, :class_name => 'ActsAsTaggableOn::Tag'
 
-  # GET /nodes
+  # GET /live/:ajax :as => "live_ajax"
+  # GET /nodes/live
+  def live 
+    #@nodes = Node.all
+    @live_now = Schedule.live_now
+
+    @live_now.each do |l|
+      if l.custom_type.empty?
+        @nodes = Node.find(:all, :limit => 1, :order => "updated_at ASC")
+      else
+        @nodes = []
+        begin
+          @nodes << Node.find(l.custom_type)
+        rescue
+          @nodes <<[]
+        end
+      end
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @nodes }
+    end
+  end
+
   # GET /nodes.json
   def index
     #@nodes = Node.all
     @nodes = Node.paginate(
       #:conditions => ["updated_at > ?", DateTime.now], 
       :page => params[:page], 
-      :per_page => 2, 
+      :per_page => 100, 
       :order => "updated_at ASC",)
 
     respond_to do |format|

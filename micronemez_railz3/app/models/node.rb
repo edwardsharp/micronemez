@@ -4,6 +4,8 @@ class Node < ActiveRecord::Base
 
 	belongs_to :user
 
+	has_many :schedules #, :dependent => :nullify
+
 	validates :name, :presence => true,
             :length => { :minimum => 3 }
 
@@ -30,7 +32,9 @@ class Node < ActiveRecord::Base
 
   
   
-  before_create :generate_catnum
+  before_create :generate_catnum, :set_file_pub_url_prefix
+  after_create :update_file_pub_url
+
   #after_save :move_file
   scope :onlypublic, lambda {
     #yeah, :public is a bool!
@@ -83,6 +87,22 @@ class Node < ActiveRecord::Base
   
   def generate_catnum
     self.catnum = SecureRandom.hex(5)
+  end
+
+  def set_file_pub_url_prefix
+  	#a little hacky...
+  	if self.file_pub_url.empty?
+  		self.file_pub_url = YAML::load(File.open("#{Rails.root}/config/rackspace_cloudfiles.yml"))['production']['pub_url']
+ 		end
+  end
+
+  def update_file_pub_url
+  	#if self.file_pub_url == YAML::load(File.open("#{Rails.root}/config/rackspace_cloudfiles.yml"))['production']['pub_url']			
+  		#self.file_pub_url = self.file_pub_url + self.catnum + '.' + self.asset_upload_content_type.gsub(/.*\//, '')
+  		self.file_pub_url = self.file_pub_url + self.catnum + File.extname(self.asset_upload_file_name)
+
+  		self.save!
+  	#end
   end
 
 end

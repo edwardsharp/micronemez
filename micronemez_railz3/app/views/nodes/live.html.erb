@@ -1,0 +1,33 @@
+<% content_for :flowplayerheader do %>
+  <!-- site specific styling -->
+  <link rel="stylesheet" type="text/css" href="/assets/flowplayer/skin/minimalist.css" />
+  <style>
+  body { font: 12px "Myriad Pro", "Lucida Grande", sans-serif; padding-top: 5%; }
+  .flowplayer { width: 100%; }
+  </style>
+
+  <%= javascript_include_tag 'flowplayer/flowplayer' %>
+  <script type="text/javascript" src="/assets/flowplayer/flowplayer.js"></script>
+
+  <script type="text/javascript">
+    /*jQuery(document).ready(function($) {
+      
+    });*/
+  </script>
+
+<% end #contentfor %>
+
+<% if @nodes %>
+	
+ <div class="flowplayer" data-swf="/assets/flowplayer/flowplayer.swf" data-ratio="0.417">
+  <video>
+     <source type="video/mp4" src="<%= @nodes.first.file_pub_url %>"/>
+
+  </video>
+</div>
+<% end %>
+
+<!-- the player -->
+
+
+

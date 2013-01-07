@@ -44,7 +44,9 @@ en:
   enddatetime_prefix: 'until '
   datetime_totalminutes: 'minutez'
   is_public: 'is public?'
-  
+  back_to_forum: '...back to forum'
+  back_to_forums: '...all forumz'
+
   errors:
     messages:
       not_found: "not found"

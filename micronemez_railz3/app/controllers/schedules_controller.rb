@@ -38,6 +38,7 @@ class SchedulesController < ApplicationController
   # GET /schedules/new.json
   def new
     @schedule = Schedule.new
+    @nodes = Node.onlypublic.find(:all, :limit => 50, :order => 'created_at DESC')
 
     respond_to do |format|
       format.html # new.html.erb
@@ -47,6 +48,7 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/1/edit
   def edit
+    @nodes = Node.onlypublic.find(:all, :limit => 10, :order => 'created_at DESC')
     @schedule = Schedule.find(params[:id])
   end
 

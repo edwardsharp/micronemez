@@ -21,7 +21,9 @@ Micronemez::Application.routes.draw do
   match "/notanadmin" => "pages#notanadmin", :as => "notanadmin"
   match "/archives/:ajax" => "videos#index", :as => "archive_ajax"
   match "/upcoming/:ajax" => "schedules#index", :as => "schedule_ajax"
-  match "/events/:ajax" => "nodes#index", :as => "nodes_ajax"
+  #match "/events/:ajax" => "nodes#index", :as => "nodes_ajax"
+  match "/live" => "nodes#live", :as => "live"
+  match "/live/:ajax" => "nodes#live", :as => "live_ajax"
 
   #dhtmlxscheduler matchez
   match "/schedules/records" => "schedules#records"

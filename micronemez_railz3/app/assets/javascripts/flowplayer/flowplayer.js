@@ -33,7 +33,7 @@ $.extend(flowplayer, {
 
    engine: {},
 
-   conf: {},
+   conf: {embed:false},
 
    support: {},
 
@@ -53,13 +53,13 @@ $.extend(flowplayer, {
       keyboard: true,
 
       // default aspect ratio
-      ratio: 9 / 16,
+      //ratio: 9 / 16,
 
       rtmp: 0,
 
       splash: false,
 
-      swf: "http://releases.flowplayer.org/5.2.0/flowplayer.swf",
+      swf: "/assets/flowplayer/flowplayer.swf",
 
       speeds: [0.25, 0.5, 1, 1.5, 2],
 
@@ -71,17 +71,17 @@ $.extend(flowplayer, {
 
          // video exceptions
          '',
-         'Video loading aborted',
-         'Network error',
-         'Video not properly encoded',
-         'Video file not found',
+         'ABORTED',
+         'NET ERR',
+         'wrong codec!',
+         'onoz! file not found',
 
          // player exceptions
-         'Unsupported video',
-         'Skin not found',
+         'onoz! unsupported video',
+         'onoz! skin not found',
          'SWF file not found',
-         'Subtitles not found',
-         'Invalid RTMP URL'
+         'onoz! subtitles not found',
+         'onoz! invalid RTMP URL'
       ]
 
    }

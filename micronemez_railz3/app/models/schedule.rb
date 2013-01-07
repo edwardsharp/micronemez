@@ -47,6 +47,9 @@ scope :upcoming_this_year, lambda {
   onlypublic.where("start between ? and ?", Date.today, Date.today.next_year).order('start ASC')
 } 
 
+belongs_to :user
+belongs_to :node
+
 default_scope order 'start DESC'
 
   #unused?

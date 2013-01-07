@@ -21,12 +21,16 @@
         [<a href="/">←</a>]
         &nbsp;
         <% if current_user.try(:admin?) %>  
-        [<%= link_to " admin club ", admin_path %>] 
+        [<%= link_to " admin ", admin_path %>] 
         &nbsp;
-        [<%= link_to " upload ", new_video_path %>] 
+        [<%= link_to " upload ", new_node_path %>] 
+        &nbsp;
+        [<%= link_to " nodez ", nodes_path %>] 
+        &nbsp;
+        [<%= link_to " new vid ", new_video_path %>] 
         &nbsp;
         <% end %>  
-        [<%= link_to " all videoz ", videos_path %>]
+        [<%= link_to " videoz ", videos_path %>]
         &nbsp;
         [ <%= link_to " schedulez ", schedules_path %> ] 
         &nbsp;
