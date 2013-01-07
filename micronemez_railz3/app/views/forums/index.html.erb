@@ -1,12 +1,16 @@
-<div class="right controls"><%= link_to "NEW CATEGORY", new_forum_path %></div>
+<% if user_signed_in? %>
+  <div class="right controls"><%= link_to "NEW CATEGORY", new_forum_path %></div>
+<% end %>
 <% @categories.each do |category| %>
   <div class="module">
     <div class="module_header">
       <%= category.title %>
       <span class="controls right smaller">
         <%= link_to "New Forum", new_forum_path %>
+        <% if user_signed_in? %>
         <%= link_to "Edit Category", edit_forum_path(category) %>
-        <%= link_to "Delete Category", forum_path(category), :confirm => "Are you sure you want to delete this category?", :method => :delete %>
+          <%= link_to "Delete Category", forum_path(category), :confirm => "Are you sure you want to delete this category?", :method => :delete %>
+        <% end %>
       </span>
     </div>
     <% if category.forums.size > 0 %>

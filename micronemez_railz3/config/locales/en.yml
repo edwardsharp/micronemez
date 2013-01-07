@@ -3,10 +3,9 @@
 
 en:
   info_greeting: 'HELLO'
-  info_intro: 'and welcome to this place of live creation. '
-  info_qanda_h1: 'WHATTHEFUCK'
-  info_qanda: 'q: i said, what? a: NOWAY q: how a: likethat.'
-
+  info_intro: 'and welcome. '
+  info_qanda_h1: 'WHAT IS THIS?'
+  info_qanda: 'in this place various multimedia collaborations are presented on a rotating (scheduled) basis. sortof curated and kindof like a gallery and like a lot of other websites out there that let users contribute, share, and collaborate on various forms of content. this website, in particular, hopes to congeal the labors of that collaboration. it is the hope that collaboration through discourse, critique, and making will cause a form of mitosis amongst those involved to form a structured approach to creating & understanding digital works of art. so what does that mean, exactly? well. some form of digital media that can be viewed through a browser (a video or a webpage or a live video stream or chat or geotags are great examples) is has a record created for it which can be scheduled to air (e.g. be seen in the hexagon over to yr right) at some point in time. '
   never_signed_in: 'never signed in'
   username: 'username'
   password: 'password'
@@ -56,8 +55,8 @@ en:
         other: "several errors prohibited this %{resource} from being saved:"
   devise:
     failure:
-      unauthenticated: 'please sign in or sign up before continuing.'
-      unconfirmed: 'you have to confirm your account before continuing.'
+      unauthenticated: 'please sign in or sign up or something...'
+      unconfirmed: 'i guess you have to confirm your account before continuing.'
       locked: 'LOCKED'
       invalid: 'huh?'
       invalid_token: 'authentication token seems wrong, are you trying to pull a fast one?'
@@ -73,7 +72,7 @@ en:
       send_instructions: 'you will receive an email with instructions about how to confirm your account in a few minutez.'
       confirmed: 'your account was successfully confirmed. You are now signed in.'
     registrations:
-      signed_up: 'Welcome! You have signed up successfully.'
+      signed_up: 'welcome! you have signed up successfully.'
       signed_up_but_unconfirmed: 'A message with a confirmation link has been sent to your email address. Please open the link to activate your account.'
       signed_up_but_inactive: 'You have signed up successfully. However, we could not sign you in because your account is not yet activated.'
       signed_up_but_locked: 'you have signed up successfully. However, we could not sign you in because your account is locked. SORRY!'

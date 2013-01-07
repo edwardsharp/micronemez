@@ -1,11 +1,12 @@
 class VideosController < ApplicationController
   
+  before_filter :authenticate_admin!, :except => [:index, :show, :tags]
+
   #autocomplete :video, :name, :full => true, :class_name => 'ActsAsTaggableOn::Tag'
   
   # GET /videos/new
   # GET /videos/new.json
   def new
-    authenticate_user!
     @video = Video.new
 
     respond_to do |format|
@@ -16,7 +17,6 @@ class VideosController < ApplicationController
 
   # GET /videos/1/edit
   def edit
-    authenticate_user!
     @video = Video.find(params[:id])
 
     # tag list parsing string->json 
@@ -28,18 +28,13 @@ class VideosController < ApplicationController
     #tags = @video.tag_list.to_s
     @tags = stringToJsonHash(@video.tag_list.to_s)
     
-
     yell "tagZ: #{@tags}"
-
-
-    
 
   end
 
   # POST /videos
   # POST /videos.json
   def create
-    authenticate_user!
     #p params[:video]
     @video = Video.create params[:video]
     
@@ -60,7 +55,6 @@ class VideosController < ApplicationController
   # PUT /videos/1
   # PUT /videos/1.json
   def update
-    authenticate_user!
     @video = Video.find(params[:id])
 
     respond_to do |format|
@@ -77,7 +71,7 @@ class VideosController < ApplicationController
   # DELETE /videos/1
   # DELETE /videos/1.json
   def destroy
-    authenticate_user!
+
     @video = Video.find(params[:id])
     @video.destroy
 

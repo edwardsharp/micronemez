@@ -1,0 +1,25 @@
+<% content_for :header do %>
+
+
+<% end %>
+
+
+	<div class="notanadmin bodd_marg">
+		
+		<p>
+
+			<h2 class="big-header">hi, you must not be an admin.</h2>
+			<p>
+
+				<% if user_signed_in? %>
+         <%= current_user.name %> 
+        <% end %>
+          tell me about this. email? more-instant-message? fax? forumz?</p>
+		</p>
+		<div class="info_nav">
+			<%= link_to ' FORUMZ ', forums_root_path %><br />
+			
+		</div>
+
+	</div>
+

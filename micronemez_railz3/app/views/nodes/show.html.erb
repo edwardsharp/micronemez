@@ -1,25 +1,36 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @node.name %>
-</p>
-
-<p>
-  <b>Date:</b>
-  <%= @node.date %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @node.content %>
-</p>
-
-<p>
-  <b>Tags:</b>
-  <%= @node.tags %>
-</p>
+<% content_for :header do %>
+  <% if user_signed_in? %>
+    <style type="text/css">
+      .pagination {
+        visibility: visible;
+      }
+    </style>
+  <% end %>
+<% end %>
 
 
-<%= link_to 'Edit', edit_node_path(@node) %> |
-<%= link_to 'Back', nodes_path %>
+<% if user_signed_in? %>
+  <div class="bodd_marg">
+  <% if @node %>
+		<table class="show_node">
+
+			<% @node.attributes.each do |attr_name, attr_value| %>
+			  <tr>
+			    <td><%= attr_name %></td> <td><%= attr_value %></td>
+			  </tr>
+			<% end %>
+    </table>
+	<% end %>
+
+  <%= link_to t(:back), nodes_path %>
+  <% if current_user.try(:admin?) %>
+     | 
+    <%= link_to t(:new), new_node_path %> |
+    <%= link_to t(:edit), edit_node_path(@node) %> | 
+    <%= link_to t(:destroy), @node, :method => :delete, confirm: t(:confirm), title: :destroy %>
+  <% end %>
+  </div>
+  
+<% end #ifuser %>
+
+

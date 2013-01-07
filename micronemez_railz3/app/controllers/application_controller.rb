@@ -6,4 +6,11 @@ class ApplicationController < ActionController::Base
     return true
   end
 
+	private  
+  #fuck. i hope this doesn't ever run into another devise method someday, 
+  # i mean i was really expecting this method to exist with the devise lib...
+  def authenticate_admin! 
+    redirect_to notanadmin_path unless current_user && current_user.admin?
+  end
+
 end

@@ -36,6 +36,7 @@ class User < ActiveRecord::Base
 
   def make_admin
     begin
+      Rails.logger.info("- - - - MAKING A NEW ADMIN!") 
       self.roles << Role.admin
     rescue ActiveRecord::AssociationTypeMismatch
       p "ensure that you have created this role type! e.g. rake micronemez:admin:create_role[admin,user]"

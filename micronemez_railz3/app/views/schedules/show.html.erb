@@ -1,40 +1,43 @@
-<p id="notice"><%= notice %></p>
+<div class="bodd_marg">
+	<p id="notice"><%= notice %></p>
 
-<p>
+	<p>
 
-  <%= @schedule.title %>
-</p>
+	  <%= @schedule.title %>
+	</p>
 
-<p>
-  <%= @schedule.datespan %>
-</p>
+	<p>
+	  <%= @schedule.datespan %>
+	</p>
 
-<p>
-  <%= @schedule.description %>
-</p>
+	<p>
+	  <%= @schedule.description %>
+	</p>
 
-<p>
+	<p>
 
-  <%= @schedule.live %>
-</p>
+	  <%= @schedule.live %>
+	</p>
 
-<p>
+	<p>
 
-  <%= @schedule.channel %>
-</p>
+	  <%= @schedule.channel %>
+	</p>
 
-<p>
+	<p>
 
-  <%= @schedule.status %>
-</p>
+	  <%= @schedule.status %>
+	</p>
 
-<p><%= @schedule.event_length %></p>
-<p><%= @schedule.rec_pattern %></p>
-<p><%= @schedule.single_checkbox %></p>
-<p><%= @schedule.radiobutton_option %></p>
-<p><%= @schedule.custom_type %></p>
+	<p><%= @schedule.event_length %></p>
+	<p><%= @schedule.rec_pattern %></p>
+	<p><%= @schedule.single_checkbox %></p>
+	<p><%= @schedule.radiobutton_option %></p>
+	<p><%= @schedule.custom_type %></p>
 
-<% if user_signed_in? %>
-  <%=  link_to 'EDIT', edit_schedule_path(@schedule) %> |
-<% end %>
-<%= link_to 'BACK', schedules_path %>
+	<br />
+	<% if current_user.try(:admin?) %>
+	  <%=  link_to 'EDIT', edit_schedule_path(@schedule) %> |
+	<% end %>
+	<%= link_to 'BACK', schedules_path %>
+</div>

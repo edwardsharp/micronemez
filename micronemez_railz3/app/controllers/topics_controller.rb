@@ -39,7 +39,6 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    authenticate_user!
     @topic = Topic.find(params[:id])
     
     if @topic.destroy

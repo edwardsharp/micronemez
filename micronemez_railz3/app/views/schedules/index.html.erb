@@ -2,44 +2,42 @@
 
     <table class="bodd_marg">
       <tr>
+        <% if current_user.try(:admin?) %>
+            <th></th>
+            <th></th>
+        <% end %>
         <th>title</th>
         <th>date</th>
-        <% if user_signed_in? %>
-            <% if current_user.try(:admin?) %>
-                <th></th>
-                <th></th>
-            <% end %>
-            <th>description</th>
-            <th>live</th>
-            <th>channel</th>
-            <th>status</th>
-            <th>event_length</th>
-            <th>rec_pattern</th>
-            <th>single_checkbox</th>
-            <th>radiobutton_option</th>
-            <th>custom_type</th>
-        <% end %>
+        <th>public</th>
+        <th>description</th>
+        <th>live</th>
+        <th>channel</th>
+        <th>status</th>
+        <th>event_length</th>
+        <th>rec_pattern</th>
+        <th>radiobutton_option</th>
+        <th>custom_type</th>
+
       </tr>
     <% @schedules.each do |schedule| %>
       <tr>
+        <% if current_user.try(:admin?) %>
+            <td><%= link_to 'edit', edit_schedule_path(schedule) %></td>
+            <td><%= link_to 'destroy!', schedule, confirm: 'o rly?', method: :delete %></td>
+        <% end %>
+
         <td><%= link_to schedule.title, schedule %></td>
         <td><%= schedule.datespan %></td>
-        <% if user_signed_in? %>
-            <% if current_user.try(:admin?) %>
-                <td><%= link_to 'edit', edit_schedule_path(schedule) %></td>
-                <td><%= link_to 'destroy!', schedule, confirm: 'o rly?', method: :delete %></td>
-            <% end %>
-            <td><%= schedule.description %></td>
-            <td><%= schedule.live %></td>
-            <td><%= schedule.channel %></td>
-            <td><%= schedule.status %></td>
-            <td><%= schedule.event_length %></td>
-            <td><%= schedule.rec_pattern %></td>
-            <td><%= schedule.single_checkbox %></td>
-            <td><%= schedule.radiobutton_option %></td>
-            <td><%= schedule.custom_type %></td>
+        <td><%= schedule.single_checkbox %></td>
+        <td><%= schedule.description %></td>
+        <td><%= schedule.live %></td>
+        <td><%= schedule.channel %></td>
+        <td><%= schedule.status %></td>
+        <td><%= schedule.event_length %></td>
+        <td><%= schedule.rec_pattern %></td>
+        <td><%= schedule.radiobutton_option %></td>
+        <td><%= schedule.custom_type %></td>
             
-        <% end %>
       </tr>
     <% end %>
     </table>

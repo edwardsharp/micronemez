@@ -9,7 +9,18 @@
 
         <div class="hex">
             <div class="top"></div>
-            <div class="middle info z"><p class="title">micronemez</p><p class="subtitle" title="--marvin minisky">those inner mental context clues that shade our minds&#039; activities in ways we can rarely express.</p></div>
+            <div class="middle info z">
+                <p class="title">micronemez</p>
+
+                <div class="info_nav">
+                    <% unless user_signed_in? %>
+                    <%= link_to " USER LOGIN ", new_user_session_path, :title => "SIGNUP & LOGIN FORMZ" %>
+                    <br />
+                    <% end %>
+                    <%= link_to " FORUMZ ", forums_root_path, :title => "PUBLIC FORUMZ" %>
+                </div>
+                
+                <p class="subtitle" title="--marvin minisky">those inner mental context clues that shade our minds&#039; activities in ways we can rarely express.</p></div>
             <div class="bottom"></div>
         </div>
 		<div class="hex z">

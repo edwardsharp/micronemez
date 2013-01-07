@@ -18,6 +18,7 @@ Micronemez::Application.routes.draw do
 
   match "/info" => "pages#info", :as => "info"
   match "/info/:ajax" => "pages#info", :as => "info_ajax"
+  match "/notanadmin" => "pages#notanadmin", :as => "notanadmin"
   match "/archives/:ajax" => "videos#index", :as => "archive_ajax"
   match "/upcoming/:ajax" => "schedules#index", :as => "schedule_ajax"
   match "/events/:ajax" => "nodes#index", :as => "nodes_ajax"
@@ -40,14 +41,14 @@ Micronemez::Application.routes.draw do
   #TODO: q: can this be refactored into the resources method? 
   # a: kindof particular here b/c having a convience :as method 
   # named :tags DRYz up the controller code...
-  #get "node/tags" => "nodes#tags", :as => :tags
-  #post "node/tags" => "nodes#newtag", :as => :tags
-  #resources :nodes do
-  #  get :autocomplete_node_name, :on => :collection 
+  get "node/tags" => "nodes#tags", :as => :tags
+  post "node/tags" => "nodes#newtag", :as => :tags
+  resources :nodes do
+    get :autocomplete_node_name, :on => :collection 
     #TODO: (above)
     #get :tags
     #post :tags
-  #end 
+  end 
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
@@ -67,7 +68,8 @@ Micronemez::Application.routes.draw do
   ##end
   
   match "/video/show/:catnum" => "video#show", :as => "catnum"
-  
+  match "/node/show/:catnum" => "nodes#show", :as => "nodecatnum"
+
   root :to => "hexx#index"
 
 end

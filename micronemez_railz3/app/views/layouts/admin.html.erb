@@ -11,10 +11,11 @@
   <div id="container">
 
     <div class="helpNav">
-      <a href="/">← back home </a>
+      <a href="/">← </a>&nbsp;
+       <%= render "layouts/admin/main_nav" if current_user.admin? %>
     </div>
-
-    <%= render "layouts/admin/main_nav" if current_user.admin? %>
+    <br />  
+   
 
     <% if notice %>
       <p id="flash_notice" class="notice"><%= notice %></p>

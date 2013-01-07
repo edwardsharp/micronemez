@@ -23,15 +23,18 @@
     
     <%= link_to image_tag("/images/#{video.catnum}.jpg", :class=> 'video_thumb', :height => "100"), "/video/show/#{video.catnum}", :title => "#{video.title}",  :id => "#{video.catnum}" %>
     <div class="video_block">
-      <%= link_to t(video.catnum), catnum_path(video.catnum) %>
-      <br /><%= link_to t(:edit), edit_video_path(video), title: :edit %> 
-      <br /> <%= link_to t(:destroy), video, :method => :delete, confirm: t(:confirm), title: :destroy %>
+      <%= link_to t(video.catnum), catnum_path(video.catnum) %> 
+      <% if current_user.try(:admin?) %>
+        <br /><%= link_to t(:edit), edit_video_path(video), title: :edit %> 
+        <br /> <%= link_to t(:destroy), video, :method => :delete, confirm: t(:confirm), title: :destroy %>
+      <% end %>
     <span><%= truncate(video.title, :length => 166) %></span>
     <span><%= truncate(video.location, :length => 166) %></span>
     <span><%= video.tag_list %></span>
     <span><%= truncate(video.description, :length => 255) %></span>
     
     </div>
+  </div>
   <% end %>
 <% else %>
   <div id="archive-container" class="variable-sizes infinite-scroll clearfix">

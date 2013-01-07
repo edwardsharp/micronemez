@@ -18,8 +18,14 @@
             
         </li>
         <li>
+        [<a href="/">←</a>]
+        &nbsp;
+        <% if current_user.try(:admin?) %>  
+        [<%= link_to " admin club ", admin_path %>] 
+        &nbsp;
         [<%= link_to " upload ", new_video_path %>] 
         &nbsp;
+        <% end %>  
         [<%= link_to " all videoz ", videos_path %>]
         &nbsp;
         [ <%= link_to " schedulez ", schedules_path %> ] 

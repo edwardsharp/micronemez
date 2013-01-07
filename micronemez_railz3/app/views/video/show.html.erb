@@ -36,14 +36,16 @@
 			    <td><%= attr_name %></td> <td><%= attr_value %></td>
 			  </tr>
 			<% end %>
-
+    </table>
 	<% end %>
 
-  <%= link_to t(:back), videos_path %> | 
-  <%= link_to t(:new), new_video_path %> |
-  <%= link_to t(:edit), edit_video_path(@video) %> | 
-  <%= link_to t(:destroy), @video, :method => :delete, confirm: t(:confirm), title: :destroy %>
-  
+  <%= link_to t(:back), videos_path %>
+  <% if current_user.try(:admin?) %>
+     | 
+    <%= link_to t(:new), new_video_path %> |
+    <%= link_to t(:edit), edit_video_path(@video) %> | 
+    <%= link_to t(:destroy), @video, :method => :delete, confirm: t(:confirm), title: :destroy %>
+  <% end %>
   </div>
   
 <% end #ifuser %>

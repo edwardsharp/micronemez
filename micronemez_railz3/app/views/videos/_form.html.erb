@@ -34,6 +34,23 @@
   </div>
 
   <div class="field">
+    <%= f.label :thumbnail_url %><br />
+    <%= f.text_field :thumbnail_url, :size => 53 %>
+  </div>
+  <div class="field">
+    <%= f.label :file_saveto %><br />
+    <%= f.text_field :file_saveto, :size => 53 %>
+  </div>
+    <div class="field">
+    <%= f.label :file_pub_url %><br />
+    <%= f.text_field :file_pub_url, :size => 53 %>
+  </div>
+    <div class="field">
+    <%= f.label :file_cdn_url %><br />
+    <%= f.text_field :file_cdn_url, :size => 53 %>
+  </div>
+
+  <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description, :size => '55x10' %>
   </div>
@@ -42,12 +59,11 @@
  
     <%= f.check_box :is_public %>
   </div>
-  <div class="field">
-	  <%= f.file_field :video_upload, :style => "padding:5px 0 5px" %>
-  </div>
+
   <div class="actions">
     <%= f.submit :value => t(:video_submit) %>
   </div>
   
   
 <% end %>
+

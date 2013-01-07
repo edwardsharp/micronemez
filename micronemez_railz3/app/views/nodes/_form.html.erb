@@ -1,3 +1,7 @@
+<% content_for :header do %>
+  <%= javascript_include_tag 'nodes' %>
+<% end %>
+
 <%= form_for(@node) do |f| %>
   <% if @node.errors.any? %>
     <div id="error_explanation">
@@ -11,25 +15,63 @@
     </div>
   <% end %>
 
+
+
+
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :size => 53 %>
   </div>
   <div class="field">
     <%= f.label :date %><br />
     <%= f.date_select :date %>
   </div>
-
-  <%= render 'dhtmlxscheduler' %>
-
   <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
+    <%= f.label :location %><br />
+    <%= f.text_field :location, :size => 53 %>
   </div>
+  
+
+  <%# render 'dhtmlxscheduler' %>
+  
   <div class="field">
     <%= f.label :tags %><br />
-    <%= f.text_area :tags %>
+    <%= f.autocomplete_field :tag_list, tags_path, :"data-delimiter" => ', ', "data-pre" => @tags, :class => 'resizer' %>
+
   </div>
+
+  <div class="field">
+    <%= f.label :thumbnail_url %><br />
+    <%= f.text_field :thumbnail_url, :size => 53 %>
+  </div>
+  <div class="field">
+    <%= f.label :file_saveto %><br />
+    <%= f.text_field :file_saveto, :size => 53 %>
+  </div>
+    <div class="field">
+    <%= f.label :file_pub_url %><br />
+    <%= f.text_field :file_pub_url, :size => 53 %>
+  </div>
+    <div class="field">
+    <%= f.label :file_cdn_url %><br />
+    <%= f.text_field :file_cdn_url, :size => 53 %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :size => '55x10' %>
+  </div>
+   <div class="field">
+    <%= f.label t :is_public %><br />
+ 
+    <%= f.check_box :is_public %>
+  </div>
+
+  <div class="field">
+    <%= f.file_field :asset_upload, :style => "padding:5px 0 5px" %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

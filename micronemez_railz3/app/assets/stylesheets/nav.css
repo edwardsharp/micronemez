@@ -54,9 +54,12 @@
 .wide_noticealert {
 	
 	float: left;
+	text-transform: uppercase;
+	word-spacing: 
+	max-width: 20%;
 
 	color: #ff6600;
 	position: absolute;
-	top: 0;
+	top: 10px;
 	right: 0;
 }

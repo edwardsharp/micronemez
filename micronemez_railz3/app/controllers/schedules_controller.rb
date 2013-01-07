@@ -1,6 +1,7 @@
 class SchedulesController < ApplicationController
   
   before_filter :authenticate_user!, :except => [:index, :show, :records, :dbaction]
+
   #TODO: fix this!
   skip_before_filter :verify_authenticity_token, :dbaction
 
@@ -36,7 +37,6 @@ class SchedulesController < ApplicationController
   # GET /schedules/new
   # GET /schedules/new.json
   def new
-    authenticate_user!
     @schedule = Schedule.new
 
     respond_to do |format|
@@ -47,14 +47,12 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/1/edit
   def edit
-    authenticate_user!
     @schedule = Schedule.find(params[:id])
   end
 
   # POST /schedules
   # POST /schedules.json
   def create
-    authenticate_user!
     @schedule = Schedule.new(params[:schedule])
 
     respond_to do |format|
@@ -71,7 +69,6 @@ class SchedulesController < ApplicationController
   # PUT /schedules/1
   # PUT /schedules/1.json
   def update
-    authenticate_user!
     @schedule = Schedule.find(params[:id])
 
     respond_to do |format|
@@ -88,7 +85,6 @@ class SchedulesController < ApplicationController
   # DELETE /schedules/1
   # DELETE /schedules/1.json
   def destroy
-    authenticate_user!
     @schedule = Schedule.find(params[:id])
     @schedule.destroy
 

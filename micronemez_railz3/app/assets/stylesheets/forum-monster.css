@@ -2,7 +2,7 @@
 --------------------------------------------------------------------------------------------------*/
 .module { border:none; margin:2em 0; background-color:#1a1a1a; overflow:auto; }
 .module_controls { }
-.module_header { color:#ff6600; padding:.7em .7em .7em 1.4em; background-color:#000; text-transform: uppercase; font-style: italic;}
+.module_header { color:#ff6600; padding:.7em .7em .7em 1.4em; text-transform: uppercase; font-style: italic;}
 .module_header a { color:#ff6600; font-style: normal; }
 .module_subheader, .module_footer { margin:.6em .8em; padding:.6em; text-transform: lowercase;}
 .module_subheader { border-bottom:1px solid #e2e2e2; }
@@ -57,4 +57,11 @@ blockquote {
   font-style: italic;
   margin: 10px 0px 0px 25px;
   padding: 10px;
+ }
+
+ textarea {
+ 	background-color: #ff6600;
+ 	color: #1a1a1a;
+ 	border: none;
+ 	padding: 0.5em;
  }
