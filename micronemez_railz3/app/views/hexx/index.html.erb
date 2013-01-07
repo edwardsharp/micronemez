@@ -41,7 +41,7 @@
                     <% end %>
                 <% else %>
                     UPCOMING: 
-                    <% unless @upcoming_this_month %>
+                    <% unless @upcoming_this_month.nil? %>
                         
                         <%= @upcoming_this_month.title %> <i>until</i> <%= @upcoming_this_month.end.to_s(:onlytime) %>
 
@@ -59,7 +59,7 @@
                     <% end %>
                 <% else %>
                     
-                    <% unless @upcoming_this_month %>
+                    <% unless @upcoming_this_month.nil? %>
                         
                        <b>date:</b> <i><%= @upcoming_this_month.datespan %></i> <b>description:</b> <%= @upcoming_this_month.description %> 
 
